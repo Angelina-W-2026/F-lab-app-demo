@@ -6,225 +6,335 @@
 <title>F Lab - Food Science Lab for Kids</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f9ff;color:#1a3a5c}
-.app{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;position:relative;box-shadow:0 0 30px rgba(0,0,0,0.1)}
-/* Header */
-.header{background:linear-gradient(135deg,#4ecdc4 0%,#44a08d 100%);padding:20px;color:white}
-.logo-row{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;background:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:bold;color:#4ecdc4}
-.app-name{font-size:24px;font-weight:bold}
-.app-sub{font-size:12px;opacity:0.9;margin-top:2px}
-.tabs{display:flex;gap:8px;margin-top:15px;overflow-x:auto;padding-bottom:4px}
-.tab{padding:8px 16px;background:rgba(255,255,255,0.25);border-radius:20px;font-size:13px;white-space:nowrap;cursor:pointer}
-.tab.active{background:white;color:#4ecdc4;font-weight:600}
-/* Content */
-.content{padding:16px}
-.section-title{font-size:18px;font-weight:bold;margin-bottom:12px;color:#1a3a5c}
-.card{background:#f8fafc;border-radius:16px;padding:16px;margin-bottom:12px;cursor:pointer;transition:transform 0.2s}
-.card:active{transform:scale(0.97)}
-.card-img{width:100%;height:120px;border-radius:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;font-size:60px}
-.card-title{font-size:16px;font-weight:bold;margin-bottom:4px}
-.card-desc{font-size:12px;color:#6b8a9a;line-height:1.4}
-.card-tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;margin-top:8px;font-weight:600}
-.tag-easy{background:#d4f5e9;color:#2a9d6a}
-.tag-medium{background:#fef3c7;color:#b45309}
-.tag-hard{background:#fee2e2;color:#b91c1c}
-/* Detail page */
-.detail{display:none}
-.detail.active{display:block}
-.back-btn{display:flex;align-items:center;gap:8px;padding:12px 16px;font-size:15px;color:#4ecdc4;cursor:pointer;font-weight:600;border-bottom:1px solid #eee}
-.detail-body{padding:16px}
-.detail-img{width:100%;height:180px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:16px}
-.detail-title{font-size:22px;font-weight:bold;margin-bottom:6px}
-.detail-meta{display:flex;gap:10px;margin-bottom:16px}
-.detail-tag{padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#e0f2fe;color:#0284c7}
-.detail-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
-.stat{background:#f0f9ff;border-radius:12px;padding:12px;text-align:center}
-.stat-num{font-size:20px;font-weight:bold;color:#4ecdc4}
-.stat-label{font-size:11px;color:#6b8a9a;margin-top:2px}
-.step{display:flex;gap:12px;margin-bottom:14px;padding:12px;background:#f8fafc;border-radius:12px}
-.step-num{width:28px;height:28px;background:#4ecdc4;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;flex-shrink:0}
-.step-text{font-size:13px;line-height:1.5}
-.step-text strong{color:#1a3a5c;display:block;margin-bottom:2px}
-/* Bottom nav */
-.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:white;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 12px}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#94a3b8;cursor:pointer}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f7fa;color:#1a3a5c}
+.app{max-width:420px;margin:0 auto;min-height:100vh;background:#fff;position:relative;box-shadow:0 0 30px rgba(0,0,0,0.08);padding-bottom:75px}
+.topbar{padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#7fd4c9 0%,#4ecdc4 50%,#44a08d 100%);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;color:white;box-shadow:0 3px 8px rgba(78,205,196,0.3)}
+.logo-text{font-size:18px;font-weight:bold;color:#1a3a5c}
+.top-avatar{width:34px;height:34px;border-radius:50%;background:#f0f9ff;display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid #e0e7ef}
+.search-bar{margin:0 16px 12px;background:#f5f7fa;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:13px;color:#94a3b8}
+.search-bar input{border:none;background:transparent;outline:none;font-size:13px;color:#1a3a5c;flex:1;font-family:inherit}
+.scene-card{margin:0 16px 14px;border-radius:16px;padding:16px;cursor:pointer;transition:transform 0.2s}
+.scene-card:active{transform:scale(0.98)}
+.scene-card.morning{background:linear-gradient(135deg,#fef9c3 0%,#fef3c7 100%)}
+.scene-card.afternoon{background:linear-gradient(135deg,#dcfce7 0%,#bbf7d0 100%)}
+.scene-card.mothers{background:linear-gradient(135deg,#fce7f3 0%,#fbcfe8 100%)}
+.scene-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.scene-badge{padding:4px 10px;border-radius:10px;font-size:10px;font-weight:bold;background:rgba(255,255,255,0.7);color:#7c2d12}
+.scene-time{font-size:11px;font-weight:600;opacity:0.7}
+.scene-title{font-size:16px;font-weight:bold;color:#1a3a5c;margin-bottom:2px}
+.scene-desc{font-size:12px;color:#475569;margin-bottom:12px}
+.scene-items{display:flex;gap:8px;flex-wrap:wrap}
+.scene-item{background:rgba(255,255,255,0.85);border-radius:10px;padding:8px 10px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:#334155}
+.scene-item-icon{font-size:16px}
+.section-header{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 10px}
+.section-title{font-size:15px;font-weight:bold;color:#1a3a5c}
+.section-more{font-size:12px;color:#4ecdc4;font-weight:600}
+.food-list{padding:0 16px}
+.food-item{display:flex;align-items:center;gap:12px;padding:12px;background:white;border:1.5px solid #e8eef5;border-radius:14px;margin-bottom:10px;cursor:pointer;transition:all 0.2s}
+.food-item:active{transform:scale(0.98);border-color:#4ecdc4}
+.food-item-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.food-item-icon.milk{background:#fef3c7}
+.food-item-icon.yogurt{background:#fce7f3}
+.food-item-icon.candy{background:#fef9c3}
+.food-item-icon.body{background:#ffe4e6}
+.food-item-body{flex:1}
+.food-item-title{font-size:14px;font-weight:bold;color:#1a3a5c}
+.food-item-sub{font-size:11px;color:#64748b;margin-top:2px}
+.food-item-tag{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600;background:#dcfce7;color:#15803d;margin-top:4px}
+.food-item-arrow{color:#cbd5e1;font-size:18px;font-weight:bold}
+.explore-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
+.explore-card{border-radius:14px;padding:14px;cursor:pointer;transition:transform 0.2s}
+.explore-card:active{transform:scale(0.95)}
+.explore-card.dairy{background:linear-gradient(135deg,#fef9c3,#fef3c7)}
+.explore-card.plant{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.explore-card.fruit{background:linear-gradient(135deg,#ffe4e6,#fecdd3)}
+.explore-card.starch{background:linear-gradient(135deg,#fde68a,#fcd34d)}
+.explore-icon{font-size:32px;margin-bottom:6px}
+.explore-title{font-size:13px;font-weight:bold;color:#1a3a5c}
+.explore-count{font-size:11px;color:#64748b;margin-top:2px}
+.recipe-progress{background:#f0f9ff;border-radius:14px;padding:14px 16px;margin:0 16px 16px}
+.recipe-progress-title{font-size:13px;font-weight:bold;color:#1a3a5c;margin-bottom:8px}
+.progress-bar{height:8px;background:#e0f2fe;border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;width:40%;background:linear-gradient(90deg,#4ecdc4,#44a08d);border-radius:4px}
+.progress-text{font-size:11px;color:#64748b;margin-top:6px}
+.me-header{background:linear-gradient(135deg,#4ecdc4 0%,#44a08d 100%);padding:24px 16px 40px;color:white}
+.me-avatar{width:64px;height:64px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:10px;border:3px solid rgba(255,255,255,0.3)}
+.me-name{font-size:18px;font-weight:bold}
+.me-level{font-size:12px;opacity:0.9;margin-top:2px}
+.me-stats{display:flex;gap:8px;margin-top:14px}
+.me-stat{flex:1;background:rgba(255,255,255,0.2);border-radius:10px;padding:8px;text-align:center}
+.me-stat-num{font-size:16px;font-weight:bold}
+.me-stat-label{font-size:10px;opacity:0.9}
+.me-menu{margin:-24px 16px 16px;background:white;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.06);overflow:hidden}
+.me-menu-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid #f1f5f9;cursor:pointer}
+.me-menu-item:last-child{border-bottom:none}
+.me-menu-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;background:#f0f9ff}
+.me-menu-text{flex:1;font-size:13px;font-weight:500;color:#1a3a5c}
+.me-menu-arrow{color:#cbd5e1;font-size:14px}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:420px;background:white;border-top:1px solid #e8eef5;display:flex;justify-content:space-around;padding:6px 0 10px;z-index:100}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#94a3b8;cursor:pointer;padding:4px 12px}
 .nav-item.active{color:#4ecdc4}
 .nav-icon{font-size:20px}
-/* Survey */
-.survey-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:20px;color:white;margin-bottom:16px}
-.survey-title{font-size:18px;font-weight:bold;margin-bottom:4px}
-.survey-sub{font-size:12px;opacity:0.9}
-.survey-stat{display:flex;justify-content:space-between;margin-top:14px}
-.survey-stat div{text-align:center}
-.survey-num{font-size:24px;font-weight:bold}
-.survey-label{font-size:11px;opacity:0.8}
+.page{display:none}
+.page.active{display:block;animation:fadeIn 0.2s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.back-btn{display:flex;align-items:center;gap:8px;padding:14px 16px;font-size:14px;color:#4ecdc4;cursor:pointer;font-weight:600}
+.detail-hero{margin:0 16px 16px;border-radius:16px;padding:20px;text-align:center}
+.detail-hero.milk{background:#fef9c3}
+.detail-hero.lemon{background:#fef9c3}
+.detail-hero.body{background:#ffe4e6}
+.detail-hero.gift{background:#fce7f3}
+.detail-emoji{font-size:56px;margin-bottom:8px}
+.detail-title{font-size:20px;font-weight:bold;color:#1a3a5c}
+.detail-tags{display:flex;gap:6px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.detail-tag{padding:4px 10px;border-radius:10px;font-size:11px;font-weight:600;background:white;color:#475569}
+.info-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 16px;margin-bottom:16px}
+.info-card{background:#f8fafc;border-radius:12px;padding:10px;text-align:center}
+.info-card-num{font-size:16px;font-weight:bold;color:#4ecdc4}
+.info-card-label{font-size:10px;color:#64748b;margin-top:2px}
+.steps-section{padding:0 16px}
+.steps-title{font-size:15px;font-weight:bold;color:#1a3a5c;margin-bottom:10px}
+.step{display:flex;gap:12px;margin-bottom:12px;padding:12px;background:#f8fafc;border-radius:12px}
+.step-num{width:26px;height:26px;background:#4ecdc4;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;flex-shrink:0}
+.step-text{font-size:12.5px;line-height:1.5;color:#334155}
+.step-text strong{color:#1a3a5c;display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
 <div class="app">
-<!-- HOME PAGE -->
-<div id="home" class="page">
-<div class="header">
-<div class="logo-row">
-<div class="logo">F</div>
-<div>
-<div class="app-name">F Lab</div>
-<div class="app-sub">Food · Family · Fun · Future · Friends</div>
-</div>
-</div>
-<div class="tabs">
-<div class="tab active">All</div>
-<div class="tab">🥛 Milk</div>
-<div class="tab">🫘 Soy</div>
-<div class="tab">🍊 Citrus</div>
-<div class="tab">Bread</div>
-</div>
-</div>
-<div class="content">
-<div class="section-title">🧪 Today's Experiments</div>
 
-<div class="card" onclick="showDetail('milk')">
-<div class="card-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🥛</div>
-<div class="card-title">Milk → Paneer Cheese</div>
-<div class="card-desc">Turn leftover milk into fresh homemade Indian cheese with lemon juice.</div>
-<span class="card-tag tag-easy">Easy · 15 min</span>
+<div id="page-home" class="page active">
+<div class="topbar">
+<div class="logo"><div class="logo-icon">F</div><div class="logo-text">F Lab</div></div>
+<div class="top-avatar">👧</div>
 </div>
+<div class="search-bar">🔍 <input type="text" placeholder="Search food experiments..."></div>
 
-<div class="card" onclick="showDetail('soy')">
-<div class="card-img" style="background:linear-gradient(135deg,#fef9c3,#fde68a)">🫘</div>
-<div class="card-title">Soy Milk → Tofu & Yuba</div>
-<div class="card-desc">Make silky tofu skin (yuba) and soft tofu from soy milk.</div>
-<span class="card-tag tag-medium">Medium · 30 min</span>
-</div>
-
-<div class="card" onclick="showDetail('orange')">
-<div class="card-img" style="background:linear-gradient(135deg,#ffedd5,#fed7aa)">🍊</div>
-<div class="card-title">Orange Peel → Zest Powder</div>
-<div class="card-desc">Dry citrus peels into aromatic zest powder for baking and cooking.</div>
-<span class="card-tag tag-easy">Easy · 2 days</span>
-</div>
+<div class="scene-card morning" onclick="showScene('morning')">
+<div class="scene-header"><div class="scene-badge">🌅 MONDAY MORNING</div><div class="scene-time">15 min</div></div>
+<div class="scene-title">Milk expiring today?</div>
+<div class="scene-desc">Turn it into paneer before it goes bad!</div>
+<div class="scene-items">
+<div class="scene-item"><span class="scene-item-icon">🧀</span>Paneer</div>
+<div class="scene-item"><span class="scene-item-icon">🥛</span>Yogurt</div>
+<div class="scene-item"><span class="scene-item-icon">🧈</span>Butter</div>
 </div>
 </div>
 
-<!-- DETAIL PAGE -->
-<div id="detail" class="page detail">
-<div class="back-btn" onclick="showHome()">← Back to Lab</div>
-<div class="detail-body">
-<div class="detail-img" id="detailImg" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🥛</div>
-<div class="detail-title" id="detailTitle">Milk → Paneer Cheese</div>
-<div class="detail-meta">
-<span class="detail-tag" id="detailLevel">Easy</span>
-<span class="detail-tag" id="detailTime">15 min</span>
-<span class="detail-tag" id="detailAge">Age 7+</span>
-</div>
-<div class="detail-stats">
-<div class="stat">
-<div class="stat-num" id="statYield">28%</div>
-<div class="stat-label">Yield Rate</div>
-</div>
-<div class="stat">
-<div class="stat-num" id="statShelf">3+ days</div>
-<div class="stat-label">Shelf Life</div>
-</div>
-<div class="stat">
-<div class="stat-num" id="statSave">$2.50</div>
-<div class="stat-label">Saved vs Store</div>
+<div class="scene-card afternoon" onclick="showScene('afternoon')">
+<div class="scene-header"><div class="scene-badge" style="color:#166534">🍋 AFTER SCHOOL</div><div class="scene-time">10 min</div></div>
+<div class="scene-title">Lemon snack ideas</div>
+<div class="scene-desc">Use leftover lemon peels for fun treats!</div>
+<div class="scene-items">
+<div class="scene-item"><span class="scene-item-icon">🍬</span>Candy</div>
+<div class="scene-item"><span class="scene-item-icon">🧼</span>Body Scrub</div>
+<div class="scene-item"><span class="scene-item-icon">💧</span>Cleaner</div>
 </div>
 </div>
-<div class="section-title">📝 Steps</div>
+
+<div class="scene-card mothers" onclick="showScene('mothers')">
+<div class="scene-header"><div class="scene-badge" style="color:#9d174d">💝 MOTHER'S DAY</div><div class="scene-time">30 min</div></div>
+<div class="scene-title">Gift ideas from food waste</div>
+<div class="scene-desc">Make something special for Mum!</div>
+<div class="scene-items">
+<div class="scene-item"><span class="scene-item-icon">🕯️</span>Candle</div>
+<div class="scene-item"><span class="scene-item-icon">🫧</span>Bath Bomb</div>
+<div class="scene-item"><span class="scene-item-icon">🧴</span>Lip Balm</div>
+</div>
+</div>
+
+<div class="section-header"><div class="section-title">✨ All Experiments</div><div class="section-more">See all →</div></div>
+<div class="food-list">
+<div class="food-item" onclick="showDetail('paneer')">
+<div class="food-item-icon milk">🧀</div>
+<div class="food-item-body"><div class="food-item-title">Paneer Cheese</div><div class="food-item-sub">15 min · Easy · Age 8+</div><span class="food-item-tag">⭐ Featured</span></div>
+<div class="food-item-arrow">›</div>
+</div>
+<div class="food-item" onclick="showDetail('lemoncandy')">
+<div class="food-item-icon candy">🍬</div>
+<div class="food-item-body"><div class="food-item-title">Lemon Peel Candy</div><div class="food-item-sub">30 min · Easy · Age 7+</div></div>
+<div class="food-item-arrow">›</div>
+</div>
+<div class="food-item" onclick="showDetail('bodyscrub')">
+<div class="food-item-icon body">🧼</div>
+<div class="food-item-body"><div class="food-item-title">Citrus Body Scrub</div><div class="food-item-sub">10 min · Easy · Age 8+</div></div>
+<div class="food-item-arrow">›</div>
+</div>
+</div>
+</div>
+
+<div id="page-explore" class="page">
+<div class="topbar">
+<div class="logo"><div class="logo-icon">F</div><div class="logo-text">Explore</div></div>
+<div class="top-avatar">⚙️</div>
+</div>
+<div class="search-bar">🔍 <input type="text" placeholder="What do you want to make?"></div>
+<div class="section-header"><div class="section-title">Browse by Category</div></div>
+<div class="explore-grid">
+<div class="explore-card dairy"><div class="explore-icon">🥛</div><div class="explore-title">Dairy</div><div class="explore-count">8 experiments</div></div>
+<div class="explore-card plant"><div class="explore-icon">🫘</div><div class="explore-title">Plant-based</div><div class="explore-count">6 experiments</div></div>
+<div class="explore-card fruit"><div class="explore-icon">🍊</div><div class="explore-title">Fruit Peels</div><div class="explore-count">5 experiments</div></div>
+<div class="explore-card starch"><div class="explore-icon">🍞</div><div class="explore-title">Starchy Food</div><div class="explore-count">7 experiments</div></div>
+</div>
+</div>
+
+<div id="page-recipes" class="page">
+<div class="topbar">
+<div class="logo"><div class="logo-icon">F</div><div class="logo-text">My Recipes</div></div>
+</div>
+<div style="padding-top:8px">
+<div class="recipe-progress">
+<div class="recipe-progress-title">Your Food Science Journey</div>
+<div class="progress-bar"><div class="progress-fill"></div></div>
+<div class="progress-text">3 of 8 experiments done · Level 2 Scientist</div>
+</div>
+</div>
+<div class="section-header"><div class="section-title">✅ Completed</div></div>
+<div class="food-list">
+<div class="food-item">
+<div class="food-item-icon milk">🧀</div>
+<div class="food-item-body"><div class="food-item-title">Paneer Cheese</div><div class="food-item-sub">Completed 3 days ago</div></div>
+<div style="color:#10b981;font-size:18px">✓</div>
+</div>
+</div>
+<div style="height:12px"></div>
+<div class="section-header"><div class="section-title">📌 Saved</div></div>
+<div class="food-list">
+<div class="food-item">
+<div class="food-item-icon body">🧼</div>
+<div class="food-item-body"><div class="food-item-title">Citrus Body Scrub</div><div class="food-item-sub">Saved · Want to try!</div></div>
+<div style="color:#f59e0b;font-size:18px">🔖</div>
+</div>
+<div class="food-item">
+<div class="food-item-icon candy">🍬</div>
+<div class="food-item-body"><div class="food-item-title">Lemon Peel Candy</div><div class="food-item-sub">Saved · Want to try!</div></div>
+<div style="color:#f59e0b;font-size:18px">🔖</div>
+</div>
+</div>
+</div>
+
+<div id="page-me" class="page">
+<div class="me-header">
+<div class="me-avatar">👧</div>
+<div class="me-name">Angelina</div>
+<div class="me-level">Level 2 · Junior Scientist</div>
+<div class="me-stats">
+<div class="me-stat"><div class="me-stat-num">2</div><div class="me-stat-label">Done</div></div>
+<div class="me-stat"><div class="me-stat-num">4</div><div class="me-stat-label">Saved</div></div>
+<div class="me-stat"><div class="me-stat-num">1.2kg</div><div class="me-stat-label">Saved</div></div>
+</div>
+</div>
+<div class="me-menu">
+<div class="me-menu-item"><div class="me-menu-icon">🏆</div><div class="me-menu-text">Badges & Achievements</div><div class="me-menu-arrow">›</div></div>
+<div class="me-menu-item"><div class="me-menu-icon">📊</div><div class="me-menu-text">My Waste Savings</div><div class="me-menu-arrow">›</div></div>
+<div class="me-menu-item"><div class="me-menu-icon">⚙️</div><div class="me-menu-text">Settings</div><div class="me-menu-arrow">›</div></div>
+</div>
+</div>
+
+<div id="page-scene" class="page">
+<div class="back-btn" onclick="goBack()">← Back</div>
+<div id="sceneContent"></div>
+</div>
+
+<div id="page-detail" class="page">
+<div class="back-btn" onclick="goBack()">← Back</div>
+<div class="detail-hero milk" id="detailHero">
+<div class="detail-emoji" id="detailEmoji">🧀</div>
+<div class="detail-title" id="detailTitle">Paneer Cheese</div>
+<div class="detail-tags">
+<span class="detail-tag" id="detailTime">⏱ 15 min</span>
+<span class="detail-tag" id="detailLevel">⭐ Easy</span>
+<span class="detail-tag" id="detailAge">👧 Age 8+</span>
+</div>
+</div>
+<div class="info-cards">
+<div class="info-card"><div class="info-card-num" id="infoYield">28%</div><div class="info-card-label">Yield</div></div>
+<div class="info-card"><div class="info-card-num" id="infoShelf">3+ d</div><div class="info-card-label">Shelf life</div></div>
+<div class="info-card"><div class="info-card-num" id="infoSave">$2.5</div><div class="info-card-label">Saved</div></div>
+</div>
+<div class="steps-section">
+<div class="steps-title">📝 Experiment Steps</div>
 <div id="stepsContainer"></div>
 </div>
+<div style="height:20px"></div>
 </div>
 
-<!-- Bottom nav -->
 <div class="bottom-nav">
-<div class="nav-item active">
-<div class="nav-icon">🏠</div>
-<div>Home</div>
+<div class="nav-item active" data-tab="home" onclick="switchTab('home')"><div class="nav-icon">🏠</div><div>Home</div></div>
+<div class="nav-item" data-tab="explore" onclick="switchTab('explore')"><div class="nav-icon">🔍</div><div>Explore</div></div>
+<div class="nav-item" data-tab="recipes" onclick="switchTab('recipes')"><div class="nav-icon">📖</div><div>Recipes</div></div>
+<div class="nav-item" data-tab="me" onclick="switchTab('me')"><div class="nav-icon">👤</div><div>Me</div></div>
 </div>
-<div class="nav-item">
-<div class="nav-icon">📊</div>
-<div>Progress</div>
-</div>
-<div class="nav-item">
-<div class="nav-icon">📚</div>
-<div>Library</div>
-</div>
-<div class="nav-item">
-<div class="nav-icon">👤</div>
-<div>Me</div>
-</div>
-</div>
+
 </div>
 
 <script>
 const experiments = {
-milk: {
-img:'🥛', bg:'linear-gradient(135deg,#fef3c7,#fde68a)',
-title:'Milk → Paneer Cheese',
-level:'Easy', time:'15 min', age:'Age 8+',
-yield:'28%', shelf:'3+ days', save:'$2.50',
-steps:[
-{title:'Measure & Heat', desc:'Pour 250mL milk into a heat-safe cup. Microwave on high for 2 minutes.'},
-{title:'Add Lemon Juice', desc:'Add 10mL lemon juice. Stir gently for 30-45 seconds until curds form.'},
-{title:'Let It Rest', desc:'Leave it alone for 5 minutes. Watch the curds separate from the whey!'},
-{title:'Strain & Press', desc:'Pour into a cheesecloth-lined press device. Press gently for 10 minutes.'},
-{title:'Weigh & Enjoy', desc:'Weigh your paneer. Try it in curries, sandwiches, or just plain!'}
-]
-},
-soy: {
-img:'🫘', bg:'linear-gradient(135deg,#fef9c3,#fde68a)',
-title:'Soy Milk → Tofu & Yuba',
-level:'Medium', time:'30 min', age:'Age 10+',
-yield:'~20%', shelf:'2 days', save:'$3.00',
-steps:[
-{title:'Heat Soy Milk', desc:'Heat 500mL soy milk in a pot on low heat. Do not boil!'},
-{title:'Skim the Yuba', desc:'As it heats, a thin skin forms on top — that\'s yuba! Carefully lift it out.'},
-{title:'Add Coagulant', desc:'Add a little vinegar or gypsum solution. Stir gently to make curds.'},
-{title:'Press into Tofu', desc:'Scoop curds into a tofu mold. Press with a light weight for 20 minutes.'},
-{title:'Enjoy Two Ways', desc:'Eat yuba right away with soy sauce, or pan-fry your fresh tofu!'}
-]
-},
-orange: {
-img:'🍊', bg:'linear-gradient(135deg,#ffedd5,#fed7aa)',
-title:'Orange Peel → Zest Powder',
-level:'Easy', time:'2 days', age:'Age 7+',
-yield:'~5%', shelf:'6 months', save:'$4.00',
-steps:[
-{title:'Peel the Oranges', desc:'Use a peeler to remove just the orange part of the peel (avoid white pith - it\'s bitter!).'},
-{title:'Wash & Pat Dry', desc:'Rinse the peels gently. Pat them dry with a paper towel.'},
-{title:'Air Dry for 2 Days', desc:'Lay peels on a plate in a sunny spot. Flip once a day until completely dry and crispy.'},
-{title:'Grind into Powder', desc:'Break dry peels into pieces. Grind with a mortar/pestle or grinder into fine powder.'},
-{title:'Use in Recipes', desc:'Add to baking, smoothies, or tea. Store in a sealed jar for up to 6 months!'}
-]
-}
+paneer: {emoji:'🧀',hero:'milk',title:'Paneer Cheese',time:'⏱ 15 min',level:'⭐ Easy',age:'👧 Age 8+',yield:'28%',shelf:'3+ d',save:'$2.5',
+steps:[{title:'Measure & Heat',desc:'Pour 250mL milk into a heat-safe cup. Microwave on high for 2 minutes.'},{title:'Add Lemon Juice',desc:'Add 10mL lemon juice. Stir gently for 30-45 seconds until curds form.'},{title:'Let It Rest',desc:'Leave it alone for 5 minutes. Watch curds separate from whey!'},{title:'Strain & Press',desc:'Pour into cheesecloth-lined press device. Press 10 minutes.'},{title:'Weigh & Enjoy',desc:'Weigh your paneer. Try in curries, sandwiches, or plain!'}]},
+lemoncandy: {emoji:'🍬',hero:'lemon',title:'Lemon Peel Candy',time:'⏱ 30 min',level:'⭐ Easy',age:'👧 Age 7+',yield:'~15%',shelf:'2 wks',save:'$3.0',
+steps:[{title:'Peel Lemons',desc:'Peel the lemon skin, avoiding the bitter white pith underneath.'},{title:'Boil 3 Times',desc:'Boil peels in fresh water 3 times, draining each time. Removes bitterness!'},{title:'Sugar Coat',desc:'Simmer in equal parts sugar and water until translucent.'},{title:'Dry',desc:'Remove from syrup. Roll in extra sugar and let dry on a rack.'},{title:'Enjoy',desc:'Store in a jar. Perfect as a sweet treat or gift!'}]},
+bodyscrub: {emoji:'🧼',hero:'body',title:'Citrus Body Scrub',time:'⏱ 10 min',level:'⭐ Easy',age:'👧 Age 8+',yield:'1 jar',shelf:'2 wks',save:'$8.0',
+steps:[{title:'Dry Peels',desc:'Collect citrus peels. Let them dry for 2-3 days until crispy.'},{title:'Grind Fine',desc:'Grind dried peels into a fine powder using blender or mortar.'},{title:'Mix Base',desc:'Mix peel powder with sugar and coconut oil in a jar.'},{title:'Add Scent',desc:'Add a drop of your favourite essential oil (optional).'},{title:'Use & Store',desc:'Scrub on hands and body in shower. Keep in sealed jar.'}]}
 };
-
-function showDetail(type){
-const e = experiments[type];
-document.getElementById('home').style.display='none';
-document.getElementById('detail').style.display='block';
-document.getElementById('detailImg').textContent=e.img;
-document.getElementById('detailImg').style.background=e.bg;
-document.getElementById('detailTitle').textContent=e.title;
-document.getElementById('detailLevel').textContent=e.level;
-document.getElementById('detailTime').textContent=e.time;
-document.getElementById('detailAge').textContent=e.age;
-document.getElementById('statYield').textContent=e.yield;
-document.getElementById('statShelf').textContent=e.shelf;
-document.getElementById('statSave').textContent=e.save;
-const sc=document.getElementById('stepsContainer');
-sc.innerHTML='';
-e.steps.forEach((s,i)=>{
-sc.innerHTML+='<div class="step"><div class="step-num">'+(i+1)+'</div><div class="step-text"><strong>'+s.title+'</strong>'+s.desc+'</div></div>';
-});
-window.scrollTo(0,0);
+const scenes={
+morning:{badge:'🌅 MONDAY MORNING',time:'15 min',title:'Milk expiring today?',desc:'Turn it into paneer before it goes bad!',color:'milk',
+items:[{icon:'🧀',name:'Paneer Cheese',key:'paneer'},{icon:'🥛',name:'Homemade Yogurt',key:'yogurt'},{icon:'🧈',name:'Fresh Butter',key:'butter'}]},
+afternoon:{badge:'🍋 AFTER SCHOOL SNACK',time:'10 min',title:'Lemon snack ideas',desc:'Use leftover lemon peels for fun treats!',color:'lemon',
+items:[{icon:'🍬',name:'Lemon Peel Candy',key:'lemoncandy'},{icon:'🧼',name:'Citrus Body Scrub',key:'bodyscrub'},{icon:'💧',name:'All-Purpose Cleaner',key:'cleaner'}]},
+mothers:{badge:"💝 MOTHER'S DAY SPECIAL",time:'30 min',title:'Gift ideas from food waste',desc:'Make something special for Mum!',color:'gift',
+items:[{icon:'🕯️',name:'Citrus Peel Candle',key:'candle'},{icon:'🫧',name:'Bath Bombs',key:'bathbomb'},{icon:'🧴',name:'Lip Balm',key:'lipbalm'}]}
+};
+let lastTab='home',lastPage='page-home';
+function switchTab(tab){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-'+tab).classList.add('active');
+document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+document.querySelector('.nav-item[data-tab="'+tab+'"]').classList.add('active');
+lastTab=tab;lastPage='page-'+tab;window.scrollTo(0,0);
 }
-function showHome(){
-document.getElementById('detail').style.display='none';
-document.getElementById('home').style.display='block';
+function showScene(sceneKey){
+const s=scenes[sceneKey];if(!s) return;
+let h='<div class="scene-card '+sceneKey+'" style="margin:0 16px 16px">';
+h+='<div class="scene-header"><div class="scene-badge">'+s.badge+'</div><div class="scene-time">'+s.time+'</div></div>';
+h+='<div class="scene-title">'+s.title+'</div><div class="scene-desc">'+s.desc+'</div></div>';
+h+='<div class="section-header"><div class="section-title">What you can make</div></div><div class="food-list">';
+s.items.forEach(it=>{h+='<div class="food-item" onclick="showDetail(\''+it.key+'\')"><div class="food-item-icon '+s.color+'">'+it.icon+'</div><div class="food-item-body"><div class="food-item-title">'+it.name+'</div><div class="food-item-sub">Tap to see how!</div></div><div class="food-item-arrow">›</div></div>';});
+h+='</div>';
+document.getElementById('sceneContent').innerHTML=h;
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-scene').classList.add('active');
+lastPage='page-scene';window.scrollTo(0,0);
+}
+function showDetail(type){
+const e=experiments[type];
+if(!e){alert('Coming soon! 🚀');return;}
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-detail').classList.add('active');
+document.getElementById('detailHero').className='detail-hero '+e.hero;
+document.getElementById('detailEmoji').textContent=e.emoji;
+document.getElementById('detailTitle').textContent=e.title;
+document.getElementById('detailTime').textContent=e.time;
+document.getElementById('detailLevel').textContent=e.level;
+document.getElementById('detailAge').textContent=e.age;
+document.getElementById('infoYield').textContent=e.yield;
+document.getElementById('infoShelf').textContent=e.shelf;
+document.getElementById('infoSave').textContent=e.save;
+const sc=document.getElementById('stepsContainer');sc.innerHTML='';
+e.steps.forEach((s,i)=>{sc.innerHTML+='<div class="step"><div class="step-num">'+(i+1)+'</div><div class="step-text"><strong>'+s.title+'</strong>'+s.desc+'</div></div>';});
+lastPage='page-detail';window.scrollTo(0,0);
+}
+function goBack(){
+if(lastPage==='page-detail'||lastPage==='page-scene'){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-'+lastTab).classList.add('active');
+lastPage='page-'+lastTab;
+}
 }
 </script>
 </body>
 </html>
+
+
