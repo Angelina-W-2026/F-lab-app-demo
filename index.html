@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F Lab - Food Science Lab for Kids</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f9ff;color:#1a3a5c}
+.app{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;position:relative;box-shadow:0 0 30px rgba(0,0,0,0.1)}
+/* Header */
+.header{background:linear-gradient(135deg,#4ecdc4 0%,#44a08d 100%);padding:20px;color:white}
+.logo-row{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;background:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:bold;color:#4ecdc4}
+.app-name{font-size:24px;font-weight:bold}
+.app-sub{font-size:12px;opacity:0.9;margin-top:2px}
+.tabs{display:flex;gap:8px;margin-top:15px;overflow-x:auto;padding-bottom:4px}
+.tab{padding:8px 16px;background:rgba(255,255,255,0.25);border-radius:20px;font-size:13px;white-space:nowrap;cursor:pointer}
+.tab.active{background:white;color:#4ecdc4;font-weight:600}
+/* Content */
+.content{padding:16px}
+.section-title{font-size:18px;font-weight:bold;margin-bottom:12px;color:#1a3a5c}
+.card{background:#f8fafc;border-radius:16px;padding:16px;margin-bottom:12px;cursor:pointer;transition:transform 0.2s}
+.card:active{transform:scale(0.97)}
+.card-img{width:100%;height:120px;border-radius:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;font-size:60px}
+.card-title{font-size:16px;font-weight:bold;margin-bottom:4px}
+.card-desc{font-size:12px;color:#6b8a9a;line-height:1.4}
+.card-tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;margin-top:8px;font-weight:600}
+.tag-easy{background:#d4f5e9;color:#2a9d6a}
+.tag-medium{background:#fef3c7;color:#b45309}
+.tag-hard{background:#fee2e2;color:#b91c1c}
+/* Detail page */
+.detail{display:none}
+.detail.active{display:block}
+.back-btn{display:flex;align-items:center;gap:8px;padding:12px 16px;font-size:15px;color:#4ecdc4;cursor:pointer;font-weight:600;border-bottom:1px solid #eee}
+.detail-body{padding:16px}
+.detail-img{width:100%;height:180px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:16px}
+.detail-title{font-size:22px;font-weight:bold;margin-bottom:6px}
+.detail-meta{display:flex;gap:10px;margin-bottom:16px}
+.detail-tag{padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;background:#e0f2fe;color:#0284c7}
+.detail-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.stat{background:#f0f9ff;border-radius:12px;padding:12px;text-align:center}
+.stat-num{font-size:20px;font-weight:bold;color:#4ecdc4}
+.stat-label{font-size:11px;color:#6b8a9a;margin-top:2px}
+.step{display:flex;gap:12px;margin-bottom:14px;padding:12px;background:#f8fafc;border-radius:12px}
+.step-num{width:28px;height:28px;background:#4ecdc4;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;flex-shrink:0}
+.step-text{font-size:13px;line-height:1.5}
+.step-text strong{color:#1a3a5c;display:block;margin-bottom:2px}
+/* Bottom nav */
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:white;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 12px}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#94a3b8;cursor:pointer}
+.nav-item.active{color:#4ecdc4}
+.nav-icon{font-size:20px}
+/* Survey */
+.survey-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:20px;color:white;margin-bottom:16px}
+.survey-title{font-size:18px;font-weight:bold;margin-bottom:4px}
+.survey-sub{font-size:12px;opacity:0.9}
+.survey-stat{display:flex;justify-content:space-between;margin-top:14px}
+.survey-stat div{text-align:center}
+.survey-num{font-size:24px;font-weight:bold}
+.survey-label{font-size:11px;opacity:0.8}
+</style>
+</head>
+<body>
+<div class="app">
+<!-- HOME PAGE -->
+<div id="home" class="page">
+<div class="header">
+<div class="logo-row">
+<div class="logo">F</div>
+<div>
+<div class="app-name">F Lab</div>
+<div class="app-sub">Food · Family · Fun · Future · Friends</div>
+</div>
+</div>
+<div class="tabs">
+<div class="tab active">All</div>
+<div class="tab">🥛 Milk</div>
+<div class="tab">🫘 Soy</div>
+<div class="tab">🍊 Citrus</div>
+<div class="tab">Bread</div>
+</div>
+</div>
+<div class="content">
+<div class="section-title">🧪 Today's Experiments</div>
+
+<div class="card" onclick="showDetail('milk')">
+<div class="card-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🥛</div>
+<div class="card-title">Milk → Paneer Cheese</div>
+<div class="card-desc">Turn leftover milk into fresh homemade Indian cheese with lemon juice.</div>
+<span class="card-tag tag-easy">Easy · 15 min</span>
+</div>
+
+<div class="card" onclick="showDetail('soy')">
+<div class="card-img" style="background:linear-gradient(135deg,#fef9c3,#fde68a)">🫘</div>
+<div class="card-title">Soy Milk → Tofu & Yuba</div>
+<div class="card-desc">Make silky tofu skin (yuba) and soft tofu from soy milk.</div>
+<span class="card-tag tag-medium">Medium · 30 min</span>
+</div>
+
+<div class="card" onclick="showDetail('orange')">
+<div class="card-img" style="background:linear-gradient(135deg,#ffedd5,#fed7aa)">🍊</div>
+<div class="card-title">Orange Peel → Zest Powder</div>
+<div class="card-desc">Dry citrus peels into aromatic zest powder for baking and cooking.</div>
+<span class="card-tag tag-easy">Easy · 2 days</span>
+</div>
+</div>
+</div>
+
+<!-- DETAIL PAGE -->
+<div id="detail" class="page detail">
+<div class="back-btn" onclick="showHome()">← Back to Lab</div>
+<div class="detail-body">
+<div class="detail-img" id="detailImg" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🥛</div>
+<div class="detail-title" id="detailTitle">Milk → Paneer Cheese</div>
+<div class="detail-meta">
+<span class="detail-tag" id="detailLevel">Easy</span>
+<span class="detail-tag" id="detailTime">15 min</span>
+<span class="detail-tag" id="detailAge">Age 7+</span>
+</div>
+<div class="detail-stats">
+<div class="stat">
+<div class="stat-num" id="statYield">28%</div>
+<div class="stat-label">Yield Rate</div>
+</div>
+<div class="stat">
+<div class="stat-num" id="statShelf">3+ days</div>
+<div class="stat-label">Shelf Life</div>
+</div>
+<div class="stat">
+<div class="stat-num" id="statSave">$2.50</div>
+<div class="stat-label">Saved vs Store</div>
+</div>
+</div>
+<div class="section-title">📝 Steps</div>
+<div id="stepsContainer"></div>
+</div>
+</div>
+
+<!-- Bottom nav -->
+<div class="bottom-nav">
+<div class="nav-item active">
+<div class="nav-icon">🏠</div>
+<div>Home</div>
+</div>
+<div class="nav-item">
+<div class="nav-icon">📊</div>
+<div>Progress</div>
+</div>
+<div class="nav-item">
+<div class="nav-icon">📚</div>
+<div>Library</div>
+</div>
+<div class="nav-item">
+<div class="nav-icon">👤</div>
+<div>Me</div>
+</div>
+</div>
+</div>
+
+<script>
+const experiments = {
+milk: {
+img:'🥛', bg:'linear-gradient(135deg,#fef3c7,#fde68a)',
+title:'Milk → Paneer Cheese',
+level:'Easy', time:'15 min', age:'Age 8+',
+yield:'28%', shelf:'3+ days', save:'$2.50',
+steps:[
+{title:'Measure & Heat', desc:'Pour 250mL milk into a heat-safe cup. Microwave on high for 2 minutes.'},
+{title:'Add Lemon Juice', desc:'Add 10mL lemon juice. Stir gently for 30-45 seconds until curds form.'},
+{title:'Let It Rest', desc:'Leave it alone for 5 minutes. Watch the curds separate from the whey!'},
+{title:'Strain & Press', desc:'Pour into a cheesecloth-lined press device. Press gently for 10 minutes.'},
+{title:'Weigh & Enjoy', desc:'Weigh your paneer. Try it in curries, sandwiches, or just plain!'}
+]
+},
+soy: {
+img:'🫘', bg:'linear-gradient(135deg,#fef9c3,#fde68a)',
+title:'Soy Milk → Tofu & Yuba',
+level:'Medium', time:'30 min', age:'Age 10+',
+yield:'~20%', shelf:'2 days', save:'$3.00',
+steps:[
+{title:'Heat Soy Milk', desc:'Heat 500mL soy milk in a pot on low heat. Do not boil!'},
+{title:'Skim the Yuba', desc:'As it heats, a thin skin forms on top — that\'s yuba! Carefully lift it out.'},
+{title:'Add Coagulant', desc:'Add a little vinegar or gypsum solution. Stir gently to make curds.'},
+{title:'Press into Tofu', desc:'Scoop curds into a tofu mold. Press with a light weight for 20 minutes.'},
+{title:'Enjoy Two Ways', desc:'Eat yuba right away with soy sauce, or pan-fry your fresh tofu!'}
+]
+},
+orange: {
+img:'🍊', bg:'linear-gradient(135deg,#ffedd5,#fed7aa)',
+title:'Orange Peel → Zest Powder',
+level:'Easy', time:'2 days', age:'Age 7+',
+yield:'~5%', shelf:'6 months', save:'$4.00',
+steps:[
+{title:'Peel the Oranges', desc:'Use a peeler to remove just the orange part of the peel (avoid white pith - it\'s bitter!).'},
+{title:'Wash & Pat Dry', desc:'Rinse the peels gently. Pat them dry with a paper towel.'},
+{title:'Air Dry for 2 Days', desc:'Lay peels on a plate in a sunny spot. Flip once a day until completely dry and crispy.'},
+{title:'Grind into Powder', desc:'Break dry peels into pieces. Grind with a mortar/pestle or grinder into fine powder.'},
+{title:'Use in Recipes', desc:'Add to baking, smoothies, or tea. Store in a sealed jar for up to 6 months!'}
+]
+}
+};
+
+function showDetail(type){
+const e = experiments[type];
+document.getElementById('home').style.display='none';
+document.getElementById('detail').style.display='block';
+document.getElementById('detailImg').textContent=e.img;
+document.getElementById('detailImg').style.background=e.bg;
+document.getElementById('detailTitle').textContent=e.title;
+document.getElementById('detailLevel').textContent=e.level;
+document.getElementById('detailTime').textContent=e.time;
+document.getElementById('detailAge').textContent=e.age;
+document.getElementById('statYield').textContent=e.yield;
+document.getElementById('statShelf').textContent=e.shelf;
+document.getElementById('statSave').textContent=e.save;
+const sc=document.getElementById('stepsContainer');
+sc.innerHTML='';
+e.steps.forEach((s,i)=>{
+sc.innerHTML+='<div class="step"><div class="step-num">'+(i+1)+'</div><div class="step-text"><strong>'+s.title+'</strong>'+s.desc+'</div></div>';
+});
+window.scrollTo(0,0);
+}
+function showHome(){
+document.getElementById('detail').style.display='none';
+document.getElementById('home').style.display='block';
+}
+</script>
+</body>
+</html>
