@@ -3,450 +3,559 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F Lab - Food Science Lab for Kids</title>
+<title>F Lab - Food Science Experiments</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#1a3a5c}
-.app{max-width:400px;margin:0 auto;min-height:100vh;background:#fff;position:relative;box-shadow:0 0 30px rgba(0,0,0,0.08);padding-bottom:72px}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;color:#1a202c}
+.app{max-width:395px;margin:0 auto;min-height:100vh;background:#fff;position:relative;box-shadow:0 0 24px rgba(0,0,0,0.06);padding-bottom:70px}
+.status-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 20px 4px;font-size:12px;font-weight:600;color:#1a202c}
+.status-right{display:flex;gap:4px;align-items:center;font-size:11px}
+.topbar{padding:10px 18px 8px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-icon-img{width:36px;height:36px;object-fit:contain;display:block}
+.logo-text{font-size:18px;font-weight:800;color:#1a202c;letter-spacing:-0.5px}
+.top-right{display:flex;gap:10px;align-items:center}
+.bell-icon{width:32px;height:32px;border-radius:50%;background:#f7fafc;display:flex;align-items:center;justify-content:center;font-size:15px;position:relative;border:1px solid #e2e8f0}
+.bell-dot{position:absolute;top:6px;right:7px;width:6px;height:6px;background:#ef4444;border-radius:50%}
+.search-bar{margin:6px 18px 12px;background:#f1f5f9;border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:6px}
+.search-bar input{border:none;background:transparent;outline:none;font-size:12.5px;color:#334155;flex:1;font-family:inherit;font-weight:500}
+.search-bar input::placeholder{color:#94a3b8}
+.search-icon{color:#94a3b8;font-size:13px}
 
-/* Status bar */
-.status-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 20px 4px;font-size:12px;font-weight:600;color:#333}
-.status-right{display:flex;gap:4px;align-items:center}
+/* Reminder cards */
+.reminder-scroll{display:flex;gap:10px;padding:0 18px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none}
+.reminder-scroll::-webkit-scrollbar{display:none}
+.reminder-card{flex-shrink:0;width:280px;border-radius:14px;padding:12px 14px;cursor:pointer;transition:transform 0.15s}
+.reminder-card:active{transform:scale(0.97)}
+.reminder-card.milk{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)}
+.reminder-card.mothers{background:linear-gradient(135deg,#fce7f3 0%,#fbcfe8 100%)}
+.reminder-card.birthday{background:linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)}
+.reminder-tag{font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 8px;border-radius:8px;background:rgba(255,255,255,0.6);display:inline-block;margin-bottom:6px}
+.reminder-card.milk .reminder-tag{color:#92400e}
+.reminder-card.mothers .reminder-tag{color:#9d174d}
+.reminder-card.birthday .reminder-tag{color:#3730a3}
+.reminder-title{font-size:13px;font-weight:700;color:#1a202c;margin-bottom:2px}
+.reminder-desc{font-size:10.5px;color:#4a5568;line-height:1.4}
+.reminder-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.reminder-time{font-size:10px;font-weight:600;opacity:0.8}
+.reminder-btn{font-size:10px;font-weight:700;background:rgba(255,255,255,0.7);padding:4px 10px;border-radius:8px}
 
-/* Top bar */
-.topbar{padding:8px 18px 6px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:6px}
-.logo-icon{font-size:20px;font-weight:900;color:#ff6b6b;line-height:1;font-family:Arial Black,sans-serif;transform:scaleY(1.1)}
-.logo-text{font-size:17px;font-weight:800;color:#333;letter-spacing:-0.5px}
+.section-head{display:flex;align-items:center;justify-content:space-between;padding:0 18px 8px}
+.section-title{font-size:12px;font-weight:700;color:#1a202c;text-transform:uppercase;letter-spacing:0.5px}
+.section-more{font-size:11px;color:#2a9d8f;font-weight:600}
 
-/* Search */
-.search-bar{margin:4px 18px 10px;background:#f5f7fa;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8}
-.search-bar input{border:none;background:transparent;outline:none;font-size:12px;color:#333;flex:1;font-family:inherit;font-weight:500}
+.exp-list{padding:0 18px}
+.exp-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9;cursor:pointer}
+.exp-item:last-child{border-bottom:none}
+.exp-item:active{background:#f8fafc}
+.exp-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:#fef9c3}
+.exp-icon.yogurt{background:#fce7f3}
+.exp-icon.butter{background:#fef3c7}
+.exp-icon.ghee{background:#fef3c7}
+.exp-icon.candy{background:#fee2e2}
+.exp-icon.tea{background:#dcfce7}
+.exp-icon.preserved{background:#e0e7ff}
+.exp-icon.cookie{background:#fde68a}
+.exp-icon.scrub{background:#fce7f3}
+.exp-icon.candle{background:#fef3c7}
+.exp-icon.bath{background:#e0e7ff}
+.exp-icon.lip{background:#fce7f3}
+.exp-icon.juice{background:#fee2e2}
+.exp-icon.cake{background:#fce7f3}
+.exp-icon.soy{background:#dcfce7}
+.exp-icon.bread{background:#fde68a}
+.exp-body{flex:1;min-width:0}
+.exp-title{font-size:13px;font-weight:600;color:#1a202c;display:flex;align-items:center;gap:6px}
+.badge-new{padding:2px 6px;border-radius:6px;font-size:8px;font-weight:700;background:#ef4444;color:white;text-transform:uppercase}
+.exp-desc{font-size:10.5px;color:#64748b;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.exp-arrow{color:#cbd5e1;font-size:14px;font-weight:bold;flex-shrink:0}
 
-/* Scene tag */
-.scene-tag{margin:0 18px 10px;display:inline-block;padding:5px 12px;border-radius:14px;font-size:10px;font-weight:700;letter-spacing:0.5px}
-.scene-tag.morning{background:#fee2e2;color:#dc2626}
-.scene-tag.lemon{background:#fef3c7;color:#d97706}
-.scene-tag.gift{background:#fce7f3;color:#db2777}
+/* Explore categories */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 10px;padding:0 18px}
+.cat-card{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer}
+.cat-card:active{transform:scale(0.95)}
+.cat-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#fef9c3;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+.cat-icon.plant{background:#dcfce7}
+.cat-icon.fruit{background:#fee2e2}
+.cat-icon.starch{background:#fde68a}
+.cat-icon.drink{background:#dbeafe}
+.cat-icon.snack{background:#fce7f3}
+.cat-icon.gift{background:#e9d5ff}
+.cat-icon.clean{background:#cffafe}
+.cat-icon.more{background:#f1f5f9}
+.cat-name{font-size:10.5px;font-weight:600;color:#475569;text-align:center}
 
-/* Alert card */
-.alert-card{margin:0 18px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:12px 14px}
-.alert-title{font-size:14px;font-weight:700;color:#991b1b;margin-bottom:4px}
-.alert-desc{font-size:11px;color:#b91c1c;line-height:1.4}
+.trending{padding:0 18px;margin-top:16px}
+.trending-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.trending-title{font-size:12px;font-weight:700;color:#1a202c;text-transform:uppercase;letter-spacing:0.5px}
 
-/* Section */
-.section-title{padding:0 18px;font-size:11px;font-weight:700;letter-spacing:1px;color:#475569;margin-bottom:10px;text-transform:uppercase}
+/* Recipes page */
+.journey-card{margin:0 18px 14px;background:linear-gradient(135deg,#2a9d8f 0%,#5ed6c7 100%);border-radius:14px;padding:14px;color:white}
+.journey-title{font-size:13px;font-weight:700;margin-bottom:6px}
+.journey-bar{height:6px;background:rgba(255,255,255,0.25);border-radius:3px;overflow:hidden}
+.journey-fill{height:100%;width:38%;background:white;border-radius:3px}
+.journey-sub{font-size:10.5px;opacity:0.9;margin-top:6px}
 
-/* Food list */
-.food-list{padding:0 18px}
-.food-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9;cursor:pointer;transition:all 0.15s}
-.food-item:last-child{border-bottom:none}
-.food-item:active{background:#f8fafc}
-.food-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:#fef9c3}
-.food-icon.yogurt{background:#e0e7ff}
-.food-icon.butter{background:#fef3c7}
-.food-icon.ghee{background:#fef3c7}
-.food-icon.candy{background:#fecaca}
-.food-icon.cookie{background:#fde68a}
-.food-icon.tea{background:#dcfce7}
-.food-icon.preserved{background:#e0e7ff}
-.food-icon.cake{background:#fce7f3}
-.food-icon.soy{background:#dcfce7}
-.food-icon.juice{background:#fecaca}
-.food-body{flex:1;min-width:0}
-.food-head{display:flex;align-items:center;gap:6px}
-.food-title{font-size:13px;font-weight:600;color:#1e293b}
-.badge{padding:2px 6px;border-radius:6px;font-size:9px;font-weight:700;background:#ef4444;color:white;text-transform:uppercase}
-.food-desc{font-size:10.5px;color:#64748b;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.food-arrow{color:#cbd5e1;font-size:14px;font-weight:bold;flex-shrink:0}
+.recipe-group{padding:0 18px;margin-bottom:14px}
+.recipe-group-title{font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
 
-/* Pairings section */
-.pairings{padding:0 18px;margin-top:12px}
-.pairings-title{font-size:11px;font-weight:700;letter-spacing:1px;color:#475569;margin-bottom:8px;text-transform:uppercase}
-.pairing-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9}
-.pairing-item:last-child{border-bottom:none}
-.pairing-icon{font-size:16px}
-.pairing-text{font-size:12px;font-weight:600;color:#1e293b}
-.pairing-text span{font-weight:400;color:#64748b}
+/* Me page */
+.me-header{background:linear-gradient(135deg,#2a9d8f 0%,#5ed6c7 50%,#9be7dc 100%);padding:20px 18px 44px;color:white;position:relative;overflow:hidden}
+.me-header::before{content:'';position:absolute;top:-30px;right:-20px;width:120px;height:120px;background:rgba(255,255,255,0.1);border-radius:50%}
+.me-top{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.me-avatar{width:56px;height:56px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:26px;border:3px solid rgba(255,255,255,0.4)}
+.me-info{flex:1}
+.me-name{font-size:17px;font-weight:700}
+.me-level{font-size:11px;opacity:0.9;margin-top:2px;display:flex;align-items:center;gap:4px}
+.level-badge{background:rgba(255,255,255,0.25);padding:2px 8px;border-radius:8px;font-weight:600;font-size:10px}
+.me-setting{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:14px}
+.me-stats{display:flex;gap:8px;margin-top:14px;position:relative;z-index:1}
+.me-stat{flex:1;background:rgba(255,255,255,0.2);border-radius:10px;padding:8px;text-align:center;backdrop-filter:blur(4px)}
+.me-stat-num{font-size:15px;font-weight:700}
+.me-stat-label{font-size:9.5px;opacity:0.9;margin-top:2px}
+.me-menu{margin:-20px 18px 16px;background:white;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,0.06);overflow:hidden}
+.me-row{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #f1f5f9;cursor:pointer}
+.me-row:last-child{border-bottom:none}
+.me-row:active{background:#f8fafc}
+.me-row-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;background:#f0fdfa;color:#0f766e}
+.me-row-text{flex:1;font-size:12.5px;font-weight:600;color:#1a202c}
+.me-row-arrow{color:#cbd5e1;font-size:12px}
 
 /* Bottom nav */
-.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:400px;background:white;border-top:1px solid #e8eef5;display:flex;justify-content:space-around;padding:6px 0 10px;z-index:100}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#94a3b8;cursor:pointer;padding:2px 14px}
-.nav-item.active{color:#ef4444}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:395px;background:white;border-top:1px solid #e2e8f0;display:flex;justify-content:space-around;padding:5px 0 10px;z-index:100}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9.5px;color:#94a3b8;cursor:pointer;padding:2px 12px}
+.nav-item.active{color:#2a9d8f;font-weight:600}
 .nav-icon{font-size:18px}
 
-/* Pages */
 .page{display:none}
-.page.active{display:block;animation:fadeIn 0.25s}
+.page.active{display:block;animation:fadeIn 0.2s}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
 /* Detail page */
-.back-btn{display:flex;align-items:center;gap:6px;padding:12px 18px;font-size:13px;color:#4ecdc4;cursor:pointer;font-weight:600}
-.detail-hero{margin:0 18px 14px;border-radius:14px;padding:18px;text-align:center}
-.detail-hero.paneer{background:#fef9c3}
-.detail-hero.yogurt{background:#e0e7ff}
-.detail-hero.candy{background:#fecaca}
-.detail-emoji{font-size:48px;margin-bottom:6px}
-.detail-title{font-size:18px;font-weight:700;color:#1e293b}
-.detail-sub{font-size:11px;color:#64748b;margin-top:4px}
-.detail-tags{display:flex;gap:6px;justify-content:center;margin-top:10px;flex-wrap:wrap}
-.detail-tag{padding:3px 8px;border-radius:8px;font-size:10px;font-weight:600;background:white;color:#475569}
+.back-bar{display:flex;align-items:center;gap:8px;padding:12px 18px;background:white;position:sticky;top:0;z-index:10}
+.back-btn{font-size:13px;color:#2a9d8f;font-weight:600;cursor:pointer}
+.detail-hero{margin:0 18px 14px;border-radius:14px;padding:18px 16px;text-align:center}
+.detail-hero.paneer{background:linear-gradient(135deg,#fef9c3,#fde68a)}
+.detail-hero.yogurt{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.detail-hero.butter{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.candy{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.detail-hero.scrub{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.detail-hero.soy{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.detail-hero.bread{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-emoji{font-size:48px;margin-bottom:4px}
+.detail-name{font-size:19px;font-weight:700;color:#1a202c}
+.detail-en{font-size:11px;color:#64748b;margin-top:2px}
+.detail-meta{display:flex;gap:6px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.meta-chip{padding:4px 10px;border-radius:8px;font-size:10px;font-weight:600;background:rgba(255,255,255,0.8);color:#475569}
 
-.info-row{display:flex;gap:8px;padding:0 18px;margin-bottom:14px}
-.info-item{flex:1;background:#f8fafc;border-radius:10px;padding:8px;text-align:center}
-.info-num{font-size:14px;font-weight:700;color:#ef4444}
-.info-label{font-size:9px;color:#64748b;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 18px;margin-bottom:14px}
+.info-box{background:#f8fafc;border-radius:10px;padding:10px 8px;text-align:center}
+.info-box-val{font-size:15px;font-weight:700;color:#2a9d8f}
+.info-box-key{font-size:9px;color:#64748b;margin-top:2px;text-transform:uppercase;letter-spacing:0.5px}
 
-.steps{padding:0 18px}
-.steps-title{font-size:13px;font-weight:700;color:#1e293b;margin-bottom:10px}
-.step{display:flex;gap:10px;margin-bottom:10px;padding:10px;background:#f8fafc;border-radius:10px}
-.step-num{width:22px;height:22px;background:#ef4444;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.step-text{font-size:11.5px;line-height:1.5;color:#334155}
-.step-text strong{color:#1e293b;display:block;margin-bottom:2px;font-size:12px}
+.step-section{padding:0 18px}
+.step-head{font-size:13px;font-weight:700;color:#1a202c;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.step{display:flex;gap:10px;margin-bottom:10px;padding:12px;background:#f8fafc;border-radius:12px}
+.step-num{width:24px;height:24px;background:#2a9d8f;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.step-body{font-size:11.5px;line-height:1.55;color:#334155}
+.step-body b{color:#1a202c;display:block;margin-bottom:2px;font-size:12px}
+.note-box{margin:10px 0;padding:10px 12px;background:#fef9c3;border-radius:10px;font-size:10.5px;color:#854d0e;line-height:1.5}
+.note-box b{color:#713f12}
+.tip-box{margin-top:10px;padding:10px 12px;background:#f0fdfa;border-radius:10px;font-size:10.5px;color:#0f766e;line-height:1.5}
+.tip-box b{color:#0c6459}
 
-/* Explore page */
-.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 18px}
-.cat-card{border-radius:12px;padding:14px;cursor:pointer}
-.cat-card:active{transform:scale(0.97)}
-.cat-card.c1{background:linear-gradient(135deg,#fef9c3,#fef3c7)}
-.cat-card.c2{background:linear-gradient(135deg,#fecaca,#fca5a5)}
-.cat-card.c3{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
-.cat-card.c4{background:linear-gradient(135deg,#e0e7ff,#c7d2fe)}
-.cat-icon{font-size:28px;margin-bottom:6px}
-.cat-name{font-size:13px;font-weight:700;color:#1e293b}
-.cat-count{font-size:10px;color:#64748b;margin-top:2px}
+.ingredients{margin:14px 18px 0;padding:12px 14px;background:#f8fafc;border-radius:12px}
+.ing-title{font-size:12px;font-weight:700;color:#1a202c;margin-bottom:8px}
+.ing-list{display:flex;flex-wrap:wrap;gap:6px}
+.ing-tag{padding:4px 10px;border-radius:8px;background:white;font-size:10px;color:#475569;font-weight:500;border:1px solid #e2e8f0}
 
-/* Recipes page */
-.progress-card{margin:0 18px 14px;background:#f0f9ff;border-radius:12px;padding:12px 14px}
-.progress-title{font-size:12px;font-weight:700;color:#0369a1;margin-bottom:6px}
-.progress-bar{height:6px;background:#e0f2fe;border-radius:3px;overflow:hidden}
-.progress-fill{height:100%;width:35%;background:#0ea5e9;border-radius:3px}
-.progress-sub{font-size:10px;color:#64748b;margin-top:6px}
+/* Category detail page */
+.cat-detail-head{margin:0 18px 12px;border-radius:12px;padding:14px;background:linear-gradient(135deg,#fef9c3,#fde68a)}
+.cat-detail-title{font-size:16px;font-weight:700;color:#1a202c}
+.cat-detail-count{font-size:11px;color:#64748b;margin-top:2px}
 
-.list-group{padding:0 18px}
-.group-title{font-size:11px;font-weight:700;letter-spacing:1px;color:#475569;text-transform:uppercase;margin-bottom:6px}
-.recipe-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f1f5f9;cursor:pointer}
-.recipe-item:last-child{border-bottom:none}
-.recipe-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:#fef9c3}
-.recipe-body{flex:1}
-.recipe-name{font-size:13px;font-weight:600;color:#1e293b}
-.recipe-sub{font-size:10.5px;color:#64748b;margin-top:2px}
-.recipe-check{font-size:16px;color:#10b981;font-weight:bold}
-.recipe-save{font-size:14px;color:#f59e0b}
-
-/* Me page */
-.me-hero{background:linear-gradient(135deg,#ef4444 0%,#f97316 100%);padding:22px 18px 36px;color:white}
-.me-avatar{width:56px;height:56px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:8px;border:3px solid rgba(255,255,255,0.3)}
-.me-name{font-size:17px;font-weight:700}
-.me-level{font-size:11px;opacity:0.9;margin-top:2px}
-.me-stats{display:flex;gap:6px;margin-top:12px}
-.me-stat{flex:1;background:rgba(255,255,255,0.2);border-radius:8px;padding:6px;text-align:center}
-.me-stat-num{font-size:14px;font-weight:700}
-.me-stat-label{font-size:9px;opacity:0.9;margin-top:2px}
-
-.me-list{margin:-20px 18px 16px;background:white;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.06);overflow:hidden}
-.me-row{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #f1f5f9;cursor:pointer}
-.me-row:last-child{border-bottom:none}
-.me-row-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;background:#fef2f2}
-.me-row-text{flex:1;font-size:12px;font-weight:600;color:#1e293b}
-.me-row-arrow{color:#cbd5e1;font-size:12px}
+/* Badges page */
+.badges-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 18px 18px}
+.badge-item{text-align:center;padding:12px 6px;background:#f8fafc;border-radius:12px}
+.badge-emoji{font-size:28px;margin-bottom:4px}
+.badge-name{font-size:10px;font-weight:600;color:#475569}
+.badge-item.locked{opacity:0.4}
 </style>
 </head>
 <body>
 <div class="app">
 
-<!-- ====== PAGE 1: HOME (Monday Morning) ====== -->
+<!-- ====== HOME ====== -->
 <div id="page-home" class="page active">
-<div class="status-bar"><span>9:41</span><div class="status-right">●●● 100%</div></div>
-
+<div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
 <div class="topbar">
 <div class="logo">
-<div class="logo-icon">F</div>
-<div class="logo-text">Lab</div>
+<img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab">
+
+</div>
+<div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
+</div>
+<div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="Search experiments... milk, lemon, gift..."></div>
+
+<div class="reminder-scroll">
+<div class="reminder-card milk" onclick="switchTab('recipes')">
+<span class="reminder-tag">🌅 This Morning</span>
+<div class="reminder-title">Milk expires today!</div>
+<div class="reminder-desc">Turn 250mL milk into paneer before it goes bad</div>
+<div class="reminder-bottom"><span class="reminder-time">⏱ 30 min</span><span class="reminder-btn">Start →</span></div>
+</div>
+<div class="reminder-card mothers" onclick="showCat('gift')">
+<span class="reminder-tag">💝 In 7 days</span>
+<div class="reminder-title">Mother's Day is coming!</div>
+<div class="reminder-desc">Surprise Mum with a handmade gift from the kitchen</div>
+<div class="reminder-bottom"><span class="reminder-time">🎁 5 ideas</span><span class="reminder-btn">Browse →</span></div>
+</div>
+<div class="reminder-card birthday" onclick="showCat('snack')">
+<span class="reminder-tag">🎂 In 2 weeks</span>
+<div class="reminder-title">Friend's birthday party</div>
+<div class="reminder-desc">Make homemade candy as party favours</div>
+<div class="reminder-bottom"><span class="reminder-time">🍬 3 recipes</span><span class="reminder-btn">See →</span></div>
 </div>
 </div>
 
-<div class="search-bar">
-🔍 <input type="text" placeholder="Save the milk before it expires">
+<div class="section-head"><div class="section-title">🥛 Quick: What to do with milk</div><div class="section-more">All →</div></div>
+<div class="exp-list">
+<div class="exp-item" onclick="showDetail('paneer')">
+<div class="exp-icon">🧀</div>
+<div class="exp-body"><div class="exp-title">Paneer <span class="badge-new">Use today!</span></div><div class="exp-desc">Fresh cheese · 30 min · 6 steps</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('yogurt')">
+<div class="exp-icon yogurt">🥛</div>
+<div class="exp-body"><div class="exp-title">Yoghurt</div><div class="exp-desc">Overnight ferment · probiotic-rich</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('butter')">
+<div class="exp-icon butter">🧈</div>
+<div class="exp-body"><div class="exp-title">Butter</div><div class="exp-desc">Shake it yourself · 20 min fun</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('ghee')">
+<div class="exp-icon ghee">🫙</div>
+<div class="exp-body"><div class="exp-title">Ghee</div><div class="exp-desc">Clarified butter · lasts for months</div></div>
+<div class="exp-arrow">›</div>
+</div>
 </div>
 
-<div class="scene-tag morning">🌅 MONDAY MORNING</div>
-
-<div class="alert-card">
-<div class="alert-title">Milk expires today!</div>
-<div class="alert-desc">Don't let it go to waste! F Lab found 7 amazing things you can make with milk before it expires.</div>
+<div style="height:16px"></div>
+<div class="section-head"><div class="section-title">🔥 Trending experiments</div><div class="section-more">See all →</div></div>
+<div class="exp-list">
+<div class="exp-item" onclick="showDetail('lemoncandy')">
+<div class="exp-icon candy">🍬</div>
+<div class="exp-body"><div class="exp-title">Lemon Peel Candy</div><div class="exp-desc">Sweet treat · 45 min</div></div>
+<div class="exp-arrow">›</div>
 </div>
-
-<div class="section-title">Quick Transformations</div>
-<div class="food-list">
-<div class="food-item" onclick="showDetail('paneer')">
-<div class="food-icon">🧀</div>
-<div class="food-body">
-<div class="food-head"><div class="food-title">Paneer</div><span class="badge">Use today!</span></div>
-<div class="food-desc">Fresh cheese in 30 min · 6 easy steps</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('yogurt')">
-<div class="food-icon yogurt">🥛</div>
-<div class="food-body">
-<div class="food-title">Yoghurt</div>
-<div class="food-desc">Overnight fermentation · probiotic-rich</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('butter')">
-<div class="food-icon butter">🧈</div>
-<div class="food-body">
-<div class="food-title">Butter</div>
-<div class="food-desc">Shake it yourself · 20 min fun</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('ghee')">
-<div class="food-icon ghee">🫙</div>
-<div class="food-body">
-<div class="food-title">Ghee</div>
-<div class="food-desc">Clarified butter · lasts months</div>
-</div>
-<div class="food-arrow">›</div>
+<div class="exp-item" onclick="showDetail('bodyscrub')">
+<div class="exp-icon scrub">🧼</div>
+<div class="exp-body"><div class="exp-title">Citrus Body Scrub</div><div class="exp-desc">Beauty DIY · 15 min</div></div>
+<div class="exp-arrow">›</div>
 </div>
 </div>
 </div>
 
-<!-- ====== PAGE 2: EXPLORE (After School) ====== -->
+<!-- ====== EXPLORE ====== -->
 <div id="page-explore" class="page">
-<div class="status-bar"><span>9:41</span><div class="status-right">●●● 100%</div></div>
-
+<div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
 <div class="topbar">
-<div class="logo">
-<div class="logo-icon">F</div>
-<div class="logo-text">Lab</div>
+<div class="logo"><img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab"></div>
+<div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
+</div>
+<div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="What food do you want to transform?"></div>
+
+<div class="section-head"><div class="section-title">Categories</div></div>
+<div class="cat-grid">
+<div class="cat-card" onclick="showCat('dairy')"><div class="cat-icon">🥛</div><div class="cat-name">Dairy</div></div>
+<div class="cat-card" onclick="showCat('plant')"><div class="cat-icon plant">🫘</div><div class="cat-name">Plant-Based</div></div>
+<div class="cat-card" onclick="showCat('fruit')"><div class="cat-icon fruit">🍊</div><div class="cat-name">Fruit Peels</div></div>
+<div class="cat-card" onclick="showCat('bread')"><div class="cat-icon starch">🍞</div><div class="cat-name">Bread & Grain</div></div>
+<div class="cat-card" onclick="showCat('drink')"><div class="cat-icon drink">🍹</div><div class="cat-name">Drinks</div></div>
+<div class="cat-card" onclick="showCat('snack')"><div class="cat-icon snack">🍪</div><div class="cat-name">Snacks</div></div>
+<div class="cat-card" onclick="showCat('gift')"><div class="cat-icon gift">🎁</div><div class="cat-name">Gift Ideas</div></div>
+<div class="cat-card"><div class="cat-icon more">⋯</div><div class="cat-name">More</div></div>
+</div>
+
+<div class="trending">
+<div class="trending-head"><div class="trending-title">🔥 Trending this week</div><div class="section-more">See all →</div></div>
+<div class="exp-list" style="padding:0">
+<div class="exp-item" onclick="showDetail('paneer')"><div class="exp-icon">🧀</div><div class="exp-body"><div class="exp-title">Paneer Cheese</div><div class="exp-desc">1.2k kids made this week</div></div><div class="exp-arrow">›</div></div>
+<div class="exp-item" onclick="showDetail('lemoncandy')"><div class="exp-icon candy">🍬</div><div class="exp-body"><div class="exp-title">Lemon Peel Candy</div><div class="exp-desc">876 kids made this week</div></div><div class="exp-arrow">›</div></div>
+<div class="exp-item" onclick="showDetail('bodyscrub')"><div class="exp-icon scrub">🧼</div><div class="exp-body"><div class="exp-title">Citrus Body Scrub</div><div class="exp-desc">542 kids made this week</div></div><div class="exp-arrow">›</div></div>
 </div>
 </div>
 
-<div class="search-bar">
-🔍 <input type="text" placeholder="What can I make with lemons?">
-</div>
-
-<div class="scene-tag lemon">🍋 AFTER SCHOOL SNACK</div>
-
-<div class="alert-card" style="background:#fffbeb;border-color:#fde68a">
-<div class="alert-title" style="color:#92400e">Craving a snack?</div>
-<div class="alert-desc" style="color:#b45309">You've got lemons in the fridge. Let's turn them into something delicious and fun!</div>
-</div>
-
-<div class="section-title">Lemon Snack Ideas</div>
-<div class="food-list">
-<div class="food-item" onclick="showDetail('lemonade')">
-<div class="food-icon">🍋</div>
-<div class="food-body">
-<div class="food-title">Fresh Lemonade</div>
-<div class="food-desc">5 min · Refreshing & healthy</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('cookies')">
-<div class="food-icon cookie">🍪</div>
-<div class="food-body">
-<div class="food-title">Lemon Zest Cookies</div>
-<div class="food-desc">Use the peel! · 25 min baking</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('tea')">
-<div class="food-icon tea">🍵</div>
-<div class="food-body">
-<div class="food-title">Honey Lemon Tea</div>
-<div class="food-desc">Soothing · great for cold days</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('preserved')">
-<div class="food-icon preserved">🫙</div>
-<div class="food-body">
-<div class="food-title">Preserved Lemon</div>
-<div class="food-desc">Lasts for months · Moroccan style</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
+<div style="height:16px"></div>
+<div class="section-head"><div class="section-title">⭐ Easy for beginners</div><div class="section-more">See all →</div></div>
+<div class="exp-list">
+<div class="exp-item" onclick="showDetail('butter')"><div class="exp-icon butter">🧈</div><div class="exp-body"><div class="exp-title">Butter in a Jar</div><div class="exp-desc">Age 7+ · Just shake it!</div></div><div class="exp-arrow">›</div></div>
+<div class="exp-item" onclick="showDetail('bread')"><div class="exp-icon bread">🍞</div><div class="exp-body"><div class="exp-title">Bread Croutons</div><div class="exp-desc">Use stale bread · 15 min</div></div><div class="exp-arrow">›</div></div>
 </div>
 </div>
 
-<!-- ====== PAGE 3: RECIPES (Mother's Day) ====== -->
+<!-- ====== RECIPES ====== -->
 <div id="page-recipes" class="page">
-<div class="status-bar"><span>9:41</span><div class="status-right">●●● 100%</div></div>
-
+<div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
 <div class="topbar">
-<div class="logo">
-<div class="logo-icon">F</div>
-<div class="logo-text">Lab</div>
+<div class="logo"><img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab"></div>
+<div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
+</div>
+<div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="Search your recipes..."></div>
+
+<div class="journey-card">
+<div class="journey-title">🧪 Your Science Journey</div>
+<div class="journey-bar"><div class="journey-fill"></div></div>
+<div class="journey-sub">Level 2 · 3 of 8 experiments done → reach Level 3!</div>
+</div>
+
+<div class="recipe-group">
+<div class="recipe-group-title">✅ Completed (3)</div>
+<div class="exp-list" style="padding:0">
+<div class="exp-item" onclick="showDetail('paneer')"><div class="exp-icon">🧀</div><div class="exp-body"><div class="exp-title">Paneer Cheese</div><div class="exp-desc">Done 3 days ago · 28% yield</div></div><div style="color:#10b981;font-size:16px">✓</div></div>
+<div class="exp-item" onclick="showDetail('yogurt')"><div class="exp-icon yogurt">🥛</div><div class="exp-body"><div class="exp-title">Yoghurt</div><div class="exp-desc">Done last week</div></div><div style="color:#10b981;font-size:16px">✓</div></div>
+<div class="exp-item" onclick="showDetail('butter')"><div class="exp-icon butter">🧈</div><div class="exp-body"><div class="exp-title">Butter</div><div class="exp-desc">Done 2 weeks ago</div></div><div style="color:#10b981;font-size:16px">✓</div></div>
 </div>
 </div>
 
-<div class="search-bar">
-🔍 <input type="text" placeholder="Made with love from the fridge">
-</div>
-
-<div class="scene-tag gift">💝 MOTHER'S DAY SPECIAL</div>
-
-<div class="alert-card" style="background:#fdf2f8;border-color:#fbcfe8">
-<div class="alert-title" style="color:#9d174d">Mother's Day is coming!</div>
-<div class="alert-desc" style="color:#be185d">Surprise Mum with something made from the heart — using what's already in your kitchen.</div>
-</div>
-
-<div class="section-title">🎁 Gift Ideas from the Fridge</div>
-<div class="food-list">
-<div class="food-item" onclick="showDetail('cake')">
-<div class="food-icon cake">🍰</div>
-<div class="food-body">
-<div class="food-title">Milk → Birthday Cake</div>
-<div class="food-desc">Homemade cake with paneer frosting</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('soymilk')">
-<div class="food-icon soy">🫘</div>
-<div class="food-body">
-<div class="food-title">Soybeans → Soy Milk</div>
-<div class="food-desc">Fresh & creamy · made with love</div>
-</div>
-<div class="food-arrow">›</div>
-</div>
-
-<div class="food-item" onclick="showDetail('juice')">
-<div class="food-icon juice">🍊</div>
-<div class="food-body">
-<div class="food-title">Orange → Juice & Platter</div>
-<div class="food-desc">Fresh juice + fruit art platter</div>
-</div>
-<div class="food-arrow">›</div>
+<div class="recipe-group">
+<div class="recipe-group-title">📌 Saved (4)</div>
+<div class="exp-list" style="padding:0">
+<div class="exp-item" onclick="showDetail('lemoncandy')"><div class="exp-icon candy">🍬</div><div class="exp-body"><div class="exp-title">Lemon Peel Candy</div><div class="exp-desc">Want to try!</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('bodyscrub')"><div class="exp-icon scrub">🧼</div><div class="exp-body"><div class="exp-title">Citrus Body Scrub</div><div class="exp-desc">Saved last week</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('ghee')"><div class="exp-icon ghee">🫙</div><div class="exp-body"><div class="exp-title">Ghee</div><div class="exp-desc">Saved from Mum</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('soymilk')"><div class="exp-icon soy">🫘</div><div class="exp-body"><div class="exp-title">Homemade Soy Milk</div><div class="exp-desc">Plant-based challenge</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
 </div>
 </div>
 
-<div class="pairings">
-<div class="pairings-title">🥤 Tank-style Pairings</div>
-<div class="pairing-item">
-<div class="pairing-icon">🍊🥕</div>
-<div class="pairing-text">Orange + Carrot <span>= Energy Boost</span></div>
+<div class="recipe-group">
+<div class="recipe-group-title">💪 Challenges</div>
+<div class="exp-list" style="padding:0">
+<div class="exp-item"><div class="exp-icon" style="background:#fef3c7">🏅</div><div class="exp-body"><div class="exp-title">Zero Waste Week</div><div class="exp-desc">Save 2kg food this week · 47%</div></div><div style="color:#f59e0b;font-size:14px">🔥</div></div>
 </div>
 </div>
 </div>
 
-<!-- ====== PAGE 4: ME ====== -->
+<!-- ====== ME ====== -->
 <div id="page-me" class="page">
-<div class="me-hero">
+<div class="me-header">
+<div class="me-top">
 <div class="me-avatar">👧</div>
+<div class="me-info">
 <div class="me-name">Angelina</div>
-<div class="me-level">Level 2 · Junior Scientist</div>
+<div class="me-level"><span class="level-badge">⭐ Level 2</span> Junior Scientist</div>
+</div>
+<div class="me-setting">⚙️</div>
+</div>
 <div class="me-stats">
-<div class="me-stat"><div class="me-stat-num">3</div><div class="me-stat-label">Done</div></div>
-<div class="me-stat"><div class="me-stat-num">5</div><div class="me-stat-label">Saved</div></div>
-<div class="me-stat"><div class="me-stat-num">1.2kg</div><div class="me-stat-label">Saved</div></div>
+<div class="me-stat"><div class="me-stat-num">3</div><div class="me-stat-label">Experiments</div></div>
+<div class="me-stat"><div class="me-stat-num">1.2kg</div><div class="me-stat-label">Food saved</div></div>
+<div class="me-stat"><div class="me-stat-num">$12</div><div class="me-stat-label">Money saved</div></div>
 </div>
 </div>
 
-<div class="me-list">
-<div class="me-row"><div class="me-row-icon">🏆</div><div class="me-row-text">Badges & Achievements</div><div class="me-row-arrow">›</div></div>
+<div class="me-menu">
+<div class="me-row" onclick="showBadges()"><div class="me-row-icon">🏆</div><div class="me-row-text">Badges & Achievements</div><div class="me-row-arrow">›</div></div>
 <div class="me-row"><div class="me-row-icon">📊</div><div class="me-row-text">My Waste Savings</div><div class="me-row-arrow">›</div></div>
 <div class="me-row"><div class="me-row-icon">👨‍👩‍👧</div><div class="me-row-text">My Lab Friends</div><div class="me-row-arrow">›</div></div>
+<div class="me-row"><div class="me-row-icon">🎯</div><div class="me-row-text">Challenges</div><div class="me-row-arrow">›</div></div>
+<div class="me-row"><div class="me-row-icon">📔</div><div class="me-row-text">My Science Journal</div><div class="me-row-arrow">›</div></div>
 <div class="me-row"><div class="me-row-icon">⚙️</div><div class="me-row-text">Settings</div><div class="me-row-arrow">›</div></div>
+<div class="me-row"><div class="me-row-icon">❓</div><div class="me-row-text">Help & FAQ</div><div class="me-row-arrow">›</div></div>
 </div>
 </div>
 
-<!-- ====== DETAIL PAGE ====== -->
+<!-- ====== CATEGORY DETAIL ====== -->
+<div id="page-category" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="cat-detail-head" id="catDetailHead">
+<div class="cat-detail-title" id="catDetailTitle">🥛 Dairy</div>
+<div class="cat-detail-count" id="catDetailCount">8 experiments</div>
+</div>
+<div class="exp-list" id="catExpList"></div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== BADGES PAGE ====== -->
+<div id="page-badges" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div style="padding:0 18px 10px;font-size:13px;font-weight:700;color:#1a202c">🏆 My Badges</div>
+<div class="badges-grid">
+<div class="badge-item"><div class="badge-emoji">🧀</div><div class="badge-name">Cheese Master</div></div>
+<div class="badge-item"><div class="badge-emoji">🥛</div><div class="badge-name">Dairy Pro</div></div>
+<div class="badge-item"><div class="badge-emoji">🔬</div><div class="badge-name">First Experiment</div></div>
+<div class="badge-item locked"><div class="badge-emoji">🌱</div><div class="badge-name">Plant Hero</div></div>
+<div class="badge-item locked"><div class="badge-emoji">🎁</div><div class="badge-name">Gift Maker</div></div>
+<div class="badge-item locked"><div class="badge-emoji">♻️</div><div class="badge-name">Zero Waste</div></div>
+<div class="badge-item locked"><div class="badge-emoji">📊</div><div class="badge-name">Data Scientist</div></div>
+<div class="badge-item locked"><div class="badge-emoji">⭐</div><div class="badge-name">Level 3</div></div>
+<div class="badge-item locked"><div class="badge-emoji">🏅</div><div class="badge-name">Champion</div></div>
+</div>
+</div>
+
+<!-- ====== DETAIL ====== -->
 <div id="page-detail" class="page">
-<div class="back-btn" onclick="goBack()">← Back</div>
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
 <div class="detail-hero paneer" id="detailHero">
 <div class="detail-emoji" id="detailEmoji">🧀</div>
-<div class="detail-title" id="detailTitle">Paneer Cheese</div>
-<div class="detail-sub" id="detailSub">Fresh Indian cheese in 30 minutes</div>
-<div class="detail-tags">
-<span class="detail-tag" id="detailTime">⏱ 30 min</span>
-<span class="detail-tag" id="detailLevel">⭐ Easy</span>
-<span class="detail-tag" id="detailAge">👧 Age 8+</span>
+<div class="detail-name" id="detailName">Paneer Cheese</div>
+<div class="detail-en" id="detailEn">Fresh Indian cheese from milk</div>
+<div class="detail-meta">
+<span class="meta-chip" id="metaTime">⏱ 30 min</span>
+<span class="meta-chip" id="metaLevel">⭐ Easy</span>
+<span class="meta-chip" id="metaAge">👧 Age 8+</span>
 </div>
 </div>
 
-<div class="info-row">
-<div class="info-item"><div class="info-num" id="infoYield">28%</div><div class="info-label">Yield</div></div>
-<div class="info-item"><div class="info-num" id="infoShelf">3+ d</div><div class="info-label">Shelf</div></div>
-<div class="info-item"><div class="info-num" id="infoSave">$2.5</div><div class="info-label">Saved</div></div>
+<div class="info-grid">
+<div class="info-box"><div class="info-box-val" id="valYield">28%</div><div class="info-box-key">Yield</div></div>
+<div class="info-box"><div class="info-box-val" id="valShelf">3+ d</div><div class="info-box-key">Shelf Life</div></div>
+<div class="info-box"><div class="info-box-val" id="valSave">$2.5</div><div class="info-box-key">Saved</div></div>
 </div>
 
-<div class="steps">
-<div class="steps-title">📝 Step by Step</div>
-<div id="stepsContainer"></div>
+<div class="ingredients">
+<div class="ing-title">🧺 What you need</div>
+<div class="ing-list" id="ingList"></div>
 </div>
+
+<div class="step-section">
+<div class="step-head">📝 Experiment Steps</div>
+<div id="stepsBox"></div>
+
+<div class="note-box">
+<b>⚠️ Safety note:</b> Ask an adult to help with hot liquids, microwave, and stovetop!
+</div>
+
+<div class="tip-box" id="tipBox">
+<b>💡 Science fact:</b> Lemon juice is acidic. The acid makes milk proteins (casein) clump together — that's how curds form!
+</div>
+</div>
+
 <div style="height:20px"></div>
 </div>
 
-<!-- ====== BOTTOM NAV ====== -->
+<!-- Bottom Nav -->
 <div class="bottom-nav">
-<div class="nav-item active" data-tab="home" onclick="switchTab('home')">
-<div class="nav-icon">🏠</div><div>Home</div>
-</div>
-<div class="nav-item" data-tab="explore" onclick="switchTab('explore')">
-<div class="nav-icon">🔍</div><div>Explore</div>
-</div>
-<div class="nav-item" data-tab="recipes" onclick="switchTab('recipes')">
-<div class="nav-icon">📖</div><div>Recipes</div>
-</div>
-<div class="nav-item" data-tab="me" onclick="switchTab('me')">
-<div class="nav-icon">👤</div><div>Me</div>
-</div>
+<div class="nav-item active" data-tab="home" onclick="switchTab('home')"><div class="nav-icon">🏠</div><div>Home</div></div>
+<div class="nav-item" data-tab="explore" onclick="switchTab('explore')"><div class="nav-icon">🔍</div><div>Explore</div></div>
+<div class="nav-item" data-tab="recipes" onclick="switchTab('recipes')"><div class="nav-icon">📖</div><div>Recipes</div></div>
+<div class="nav-item" data-tab="me" onclick="switchTab('me')"><div class="nav-icon">👤</div><div>Me</div></div>
 </div>
 
 </div>
 
 <script>
-const data = {
-paneer: {emoji:'🧀',hero:'paneer',title:'Paneer Cheese',sub:'Fresh Indian cheese in 30 minutes',
-time:'⏱ 30 min',level:'⭐ Easy',age:'👧 Age 8+',yield:'28%',shelf:'3+ d',save:'$2.5',
-steps:[
-{title:'Heat the Milk',desc:'Pour 250mL milk into a heat-safe cup. Microwave on high for 2 minutes.'},
-{title:'Add Lemon Juice',desc:'Add 10mL lemon juice. Stir gently until you see curds forming.'},
-{title:'Let It Rest',desc:'Leave it for 5 minutes. Curds will separate from the whey.'},
-{title:'Strain',desc:'Pour through a cheesecloth-lined sieve to drain the whey.'},
-{title:'Press It',desc:'Use your paneer press device for 10 minutes to shape it.'},
-{title:'Weigh & Enjoy',desc:'Weigh your paneer and record the result. Eat it fresh!'}
-]},
-yogurt: {emoji:'🥛',hero:'paneer',title:'Homemade Yoghurt',sub:'Creamy probiotic yogurt overnight',
-time:'⏱ 8 hours',level:'⭐ Easy',age:'👧 Age 10+',yield:'90%',shelf:'5 d',save:'$1.8',
-steps:[
-{title:'Heat Milk',desc:'Heat 1L milk to 85°C then cool to 45°C (warm, not hot).'},
-{title:'Add Starter',desc:'Mix in 2-3 tbsp of plain yoghurt with live cultures.'},
-{title:'Keep Warm',desc:'Pour into jars. Wrap in a towel and keep warm for 6-8 hours.'},
-{title:'Chill',desc:'Once set, refrigerate for at least 2 hours before eating.'}
-]},
-butter: {emoji:'🧈',hero:'paneer',title:'Homemade Butter',sub:'Shake cream into butter!',
-time:'⏱ 20 min',level:'⭐ Easy',age:'👧 Age 7+',yield:'40%',shelf:'2 wks',save:'$3.0',
-steps:[
-{title:'Warm Cream',desc:'Let heavy cream warm to room temperature (15 min).'},
-{title:'Shake Hard!',desc:'Pour into a clean jar. Shake hard for 5-10 minutes.'},
-{title:'Separate',desc:'Butter clumps will form! Pour off the buttermilk.'},
-{title:'Rinse & Press',desc:'Rinse with cold water. Press out extra water.'},
-{title:'Store',desc:'Add salt if you like. Keep in the fridge.'}
-]},
-ghee: {emoji:'🫙',hero:'paneer',title:'Ghee',sub:'Clarified butter that lasts for months',
-time:'⏱ 30 min',level:'⭐ Medium',age:'👧 Age 10+',yield:'80%',shelf:'6+ mo',save:'$5.0',
-steps:[
-{title:'Melt Butter',desc:'Melt unsalted butter on very low heat.'},
-{title:'Simmer',desc:'Let it simmer gently. Foam will form on top.'},
-{title:'Watch for Gold',desc:'When it turns golden and smells nutty, it\'s ready.'},
-{title:'Strain',desc:'Pour through cheesecloth into a clean jar.'},
-{title:'Cool',desc:'Let it cool. Store at room temperature for months!'}
-]}
+const exps = {
+paneer: {emoji:'🧀',hero:'paneer',name:'Paneer Cheese',en:'Fresh Indian cheese from milk',
+time:'⏱ 30 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'28%',shelf:'3+ d',save:'$2.5',
+ings:['250mL milk','10mL lemon juice','Cheesecloth','Paneer press'],
+tip:'Lemon juice is acidic. The acid makes milk proteins (casein) clump together — that\'s how curds form!',
+steps:[{t:'Measure the Milk',d:'Pour 250mL of milk into a heat-safe measuring cup.'},
+{t:'Heat in Microwave',d:'Microwave on high for 2 minutes. Take it out carefully — it\'s hot!'},
+{t:'Add Lemon Juice',d:'Add 10mL of lemon juice. Stir gently for 30-45 seconds. Watch curds form!'},
+{t:'Let It Rest',d:'Leave it alone for 5 minutes. Curds will separate from the yellow whey.'},
+{t:'Strain & Press',d:'Pour through cheesecloth in your paneer press device. Press for 10 minutes.'},
+{t:'Weigh & Record',d:'Take the paneer out and weigh it. Record your results in your science journal!'}]
+},
+yogurt: {emoji:'🥛',hero:'yogurt',name:'Homemade Yoghurt',en:'Creamy probiotic yogurt overnight',
+time:'⏱ 8 hours',level:'⭐ Easy',age:'👧 Age 10+',
+yieldVal:'90%',shelf:'5 d',save:'$1.8',
+ings:['1L milk','2 tbsp plain yoghurt','Glass jars','Thick towel'],
+tip:'Yoghurt has live bacteria called probiotics. They eat the milk sugar (lactose) and make the milk thick and tangy!',
+steps:[{t:'Heat the Milk',d:'Heat 1L milk to 85°C (just before boiling). Then cool to 45°C — warm like a bath.'},
+{t:'Add Starter Yoghurt',d:'Mix in 2-3 tablespoons of plain yoghurt that has live cultures.'},
+{t:'Pour Into Jars',d:'Pour the mixture into clean glass jars with lids.'},
+{t:'Keep Warm Overnight',d:'Wrap the jars in a thick towel and keep them in a warm place for 6-8 hours.'},
+{t:'Chill & Enjoy',d:'Put in the fridge for at least 2 hours. Eat with fruit, honey, or granola!'}]
+},
+butter: {emoji:'🧈',hero:'butter',name:'Homemade Butter',en:'Shake cream into golden butter',
+time:'⏱ 20 min',level:'⭐ Easy',age:'👧 Age 7+',
+yieldVal:'40%',shelf:'2 wks',save:'$3.0',
+ings:['Heavy cream','Clean jar with lid','Cold water','Pinch of salt (optional)'],
+tip:'Shaking breaks the fat membranes in cream. The fat globules stick together to form butter, and the liquid left is buttermilk!',
+steps:[{t:'Warm the Cream',d:'Take heavy cream out of the fridge. Let it warm to room temperature (15 min).'},
+{t:'Pour Into Jar',d:'Pour cream into a clean, dry jar with a tight lid. Fill only half way!'},
+{t:'Shake Hard!',d:'Put the lid on tight. Shake as hard as you can for 5-10 minutes.'},
+{t:'See the Butter Form',d:'First it turns thick (whipped cream), then suddenly — butter clumps appear!'},
+{t:'Rinse & Press',d:'Pour off the buttermilk (save it for pancakes!). Rinse butter with cold water and press gently.'},
+{t:'Shape & Store',d:'Add a pinch of salt if you like. Shape it and keep in the fridge.'}]
+},
+ghee: {emoji:'🫙',hero:'butter',name:'Ghee',en:'Clarified butter — lasts for months',
+time:'⏱ 30 min',level:'⭐ Medium',age:'👧 Age 10+',
+yieldVal:'80%',shelf:'6+ mo',save:'$5.0',
+ings:['Unsalted butter','Cheesecloth','Clean jar','Small pan'],
+tip:'Ghee is butter with the milk solids removed. Because there\'s no water or milk solids, it doesn\'t go bad quickly!',
+steps:[{t:'Melt the Butter',d:'Put unsalted butter in a small pan. Melt on very low heat.'},
+{t:'Simmer Slowly',d:'Let it simmer gently (not boiling!). Foam will form on top — skim some off.'},
+{t:'Watch for Golden',d:'After 15-20 min, it turns golden and smells nutty. The bottom gets brown specks.'},
+{t:'Strain It',d:'Pour through cheesecloth or a fine strainer into a clean jar.'},
+{t:'Cool & Store',d:'Let it cool completely. Ghee stays good at room temperature for months!'}]
+},
+lemoncandy: {emoji:'🍬',hero:'candy',name:'Lemon Peel Candy',en:'Sweet candied lemon peel',
+time:'⏱ 45 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~15%',shelf:'2 wks',save:'$3.5',
+ings:['2-3 lemons','1 cup sugar','1 cup water','Extra sugar for coating'],
+tip:'The white pith under the peel is bitter. Boiling three times removes the bitter taste and makes it sweet and delicious!',
+steps:[{t:'Peel the Lemons',d:'Peel the yellow skin off 2-3 lemons. Try not to get the white pith — it\'s bitter!'},
+{t:'Boil 3 Times',d:'Boil peels in fresh water for 5 minutes, drain, and repeat 2 more times. Removes bitterness!'},
+{t:'Make Sugar Syrup',d:'Heat equal parts sugar and water in a pot. Stir until sugar dissolves.'},
+{t:'Simmer the Peels',d:'Add peel strips. Simmer on low for 20-25 minutes until translucent.'},
+{t:'Roll in Sugar',d:'Take peels out with tongs. Roll each strip in extra sugar while still warm.'},
+{t:'Dry & Store',d:'Lay on a rack to dry for a few hours. Store in a jar. Perfect as a gift!'}]
+},
+bodyscrub: {emoji:'🧼',hero:'scrub',name:'Citrus Body Scrub',en:'Exfoliating scrub from peel powder',
+time:'⏱ 15 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'1 jar',shelf:'2 wks',save:'$8.0',
+ings:['Citrus peels','White sugar','Coconut oil','Essential oil (optional)'],
+tip:'The peel has natural oils that smell great and are good for your skin. Sugar gently scrubs off dead skin cells!',
+steps:[{t:'Dry the Peels',d:'Collect citrus peels. Spread on a plate and air dry for 2-3 days until crispy.'},
+{t:'Grind Into Powder',d:'Break into small pieces. Grind into fine powder with a blender or mortar.'},
+{t:'Mix the Base',d:'Mix 2 tbsp peel powder + 4 tbsp sugar + 3 tbsp coconut oil in a jar.'},
+{t:'Add Scent (optional)',d:'Add 1-2 drops of your favourite essential oil, like lemon or lavender.'},
+{t:'Stir & Store',d:'Stir everything well. Keep in a sealed jar in the shower.'},
+{t:'Use It!',d:'Scrub gently on wet skin in the shower. Rinse off. Your skin feels soft!'}]
+},
+soymilk: {emoji:'🫘',hero:'soy',name:'Homemade Soy Milk',en:'Fresh plant-based milk from beans',
+time:'⏱ 1 night + 30 min',level:'⭐ Medium',age:'👧 Age 10+',
+yieldVal:'~1L',shelf:'3 d',save:'$4.0',
+ings:['100g dried soybeans','1L water','Cheesecloth','Flavouring (optional)'],
+tip:'Soybeans are 36% protein! When you soak and blend them, the protein mixes with water to make creamy milk.',
+steps:[{t:'Soak the Beans',d:'Rinse 100g soybeans. Soak in water overnight (8-12 hours). They will double in size!'},
+{t:'Blend It Up',d:'Drain the beans. Put in a blender with 1L fresh water. Blend on high for 2 minutes.'},
+{t:'Strain Through Cloth',d:'Pour through cheesecloth over a bowl. Squeeze the cloth to get all the milk out.'},
+{t:'Heat & Stir',d:'Pour into a pot. Heat on medium, stirring often. Simmer for 10 minutes.'},
+{t:'Add Flavour',d:'Add a little sugar, vanilla, or salt if you like. Stir well.'},
+{t:'Cool & Drink',d:'Let it cool. Store in the fridge for up to 3 days. Shake before drinking!'}]
+},
+bread: {emoji:'🍞',hero:'bread',name:'Garlic Bread Croutons',en:'Crunchy croutons from stale bread',
+time:'⏱ 15 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~2 cups',shelf:'1 wk',save:'$2.0',
+ings:['2 slices stale bread','Olive oil','Garlic powder','Salt & herbs'],
+tip:'Stale bread is dry because water evaporated. Toasting it makes it even crispier — perfect for salads and soups!',
+steps:[{t:'Cut into Cubes',d:'Cut stale bread into small cubes (about 1cm each).'},
+{t:'Add Oil & Season',d:'Put cubes in a bowl. Drizzle with olive oil. Sprinkle garlic powder, salt, and herbs.'},
+{t:'Toss Well',d:'Stir everything together so all cubes are coated with oil and seasoning.'},
+{t:'Toast in Pan',d:'Heat a dry pan on medium. Add bread cubes. Toast for 5-7 minutes, stirring often.'},
+{t:'Check for Crisp',d:'When golden and crunchy, take them off the heat.'},
+{t:'Cool & Store',d:'Let cool completely. Store in an airtight container for up to a week.'}]
+}
+};
+
+const categories = {
+dairy: {title:'🥛 Dairy Experiments',count:'8 experiments',items:['paneer','yogurt','butter','ghee']},
+plant: {title:'🫘 Plant-Based Experiments',count:'6 experiments',items:['soymilk']},
+fruit: {title:'🍊 Fruit Peel Ideas',count:'5 experiments',items:['lemoncandy','bodyscrub']},
+bread: {title:'🍞 Bread & Grain',count:'4 experiments',items:['bread']},
+drink: {title:'🍹 Drinks',count:'3 experiments',items:['soymilk']},
+snack: {title:'🍪 Snack Ideas',count:'5 experiments',items:['lemoncandy','bread']},
+gift: {title:'🎁 Gift Ideas from Food',count:'5 experiments',items:['bodyscrub','lemoncandy']}
 };
 
 let lastTab = 'home';
+let lastPage = 'page-home';
 
 function switchTab(tab){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -454,31 +563,73 @@ document.getElementById('page-'+tab).classList.add('active');
 document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
 document.querySelector('.nav-item[data-tab="'+tab+'"]').classList.add('active');
 lastTab = tab;
+lastPage = 'page-'+tab;
 window.scrollTo(0,0);
 }
 
-function showDetail(type){
-const d = data[type];
-if(!d){alert('Coming soon! 🚀');return;}
+function showDetail(key){
+const e = exps[key];
+if(!e){alert('Coming soon! 🚀');return;}
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById('page-detail').classList.add('active');
-document.getElementById('detailHero').className='detail-hero '+d.hero;
-document.getElementById('detailEmoji').textContent=d.emoji;
-document.getElementById('detailTitle').textContent=d.title;
-document.getElementById('detailSub').textContent=d.sub;
-document.getElementById('detailTime').textContent=d.time;
-document.getElementById('detailLevel').textContent=d.level;
-document.getElementById('detailAge').textContent=d.age;
-document.getElementById('infoYield').textContent=d.yield;
-document.getElementById('infoShelf').textContent=d.shelf;
-document.getElementById('infoSave').textContent=d.save;
-const sc=document.getElementById('stepsContainer');sc.innerHTML='';
-d.steps.forEach((s,i)=>{sc.innerHTML+='<div class="step"><div class="step-num">'+(i+1)+'</div><div class="step-text"><strong>'+s.title+'</strong>'+s.desc+'</div></div>';});
+
+document.getElementById('detailHero').className='detail-hero '+e.hero;
+document.getElementById('detailEmoji').textContent=e.emoji;
+document.getElementById('detailName').textContent=e.name;
+document.getElementById('detailEn').textContent=e.en;
+document.getElementById('metaTime').textContent=e.time;
+document.getElementById('metaLevel').textContent=e.level;
+document.getElementById('metaAge').textContent=e.age;
+document.getElementById('valYield').textContent=e.yieldVal;
+document.getElementById('valShelf').textContent=e.shelf;
+document.getElementById('valSave').textContent=e.save;
+document.getElementById('tipBox').innerHTML='<b>💡 Science fact:</b> '+e.tip;
+
+const il = document.getElementById('ingList');
+il.innerHTML = '';
+e.ings.forEach(i=>{il.innerHTML+='<span class="ing-tag">'+i+'</span>';});
+
+const sb = document.getElementById('stepsBox');
+sb.innerHTML = '';
+e.steps.forEach((s,i)=>{
+sb.innerHTML += '<div class="step"><div class="step-num">'+(i+1)+'</div><div class="step-body"><b>'+s.t+'</b>'+s.d+'</div></div>';
+});
+lastPage = 'page-detail';
+window.scrollTo(0,0);
+}
+
+function showCat(key){
+const c = categories[key];
+if(!c){alert('Coming soon! 🚀');return;}
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-category').classList.add('active');
+document.getElementById('catDetailTitle').textContent=c.title;
+document.getElementById('catDetailCount').textContent=c.count;
+const cl = document.getElementById('catExpList');
+cl.innerHTML = '';
+c.items.forEach(k=>{
+const e = exps[k];
+if(!e) return;
+cl.innerHTML += '<div class="exp-item" onclick="showDetail(\''+k+'\')"><div class="exp-icon">'+e.emoji+'</div><div class="exp-body"><div class="exp-title">'+e.name+'</div><div class="exp-desc">'+e.en+'</div></div><div class="exp-arrow">›</div></div>';
+});
+lastPage = 'page-category';
+window.scrollTo(0,0);
+}
+
+function showBadges(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-badges').classList.add('active');
+lastPage = 'page-badges';
 window.scrollTo(0,0);
 }
 
 function goBack(){
-switchTab(lastTab);
+if(lastPage !== 'page-'+lastTab){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-'+lastTab).classList.add('active');
+lastPage = 'page-'+lastTab;
+window.scrollTo(0,0);
+}
 }
 </script>
 </body>
