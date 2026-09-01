@@ -20,20 +20,20 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 .search-bar{margin:6px 18px 12px;background:#f1f5f9;border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:6px}
 .search-bar input{border:none;background:transparent;outline:none;font-size:12.5px;color:#334155;flex:1;font-family:inherit;font-weight:500}
 .search-bar input::placeholder{color:#94a3b8}
-.search-icon{color:#94a3b8;font-size:13px}
+.search-icon{color:#94a3b8;font-size:13px;cursor:pointer}
 
 /* Reminder cards */
-.reminder-scroll{display:flex;gap:10px;padding:0 18px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none}
+.reminder-scroll{display:flex;gap:10px;padding:0 18px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .reminder-scroll::-webkit-scrollbar{display:none}
 .reminder-card{flex-shrink:0;width:280px;border-radius:14px;padding:12px 14px;cursor:pointer;transition:transform 0.15s}
 .reminder-card:active{transform:scale(0.97)}
-.reminder-card.milk{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)}
+.reminder-card.milk{background:linear-gradient(135deg,#fef2f2 0%,#fecaca 100%)}
+.reminder-card.snack{background:linear-gradient(135deg,#fefce8 0%,#fde68a 100%)}
 .reminder-card.mothers{background:linear-gradient(135deg,#fce7f3 0%,#fbcfe8 100%)}
-.reminder-card.birthday{background:linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)}
 .reminder-tag{font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 8px;border-radius:8px;background:rgba(255,255,255,0.6);display:inline-block;margin-bottom:6px}
-.reminder-card.milk .reminder-tag{color:#92400e}
+.reminder-card.milk .reminder-tag{color:#991b1b}
+.reminder-card.snack .reminder-tag{color:#92400e}
 .reminder-card.mothers .reminder-tag{color:#9d174d}
-.reminder-card.birthday .reminder-tag{color:#3730a3}
 .reminder-title{font-size:13px;font-weight:700;color:#1a202c;margin-bottom:2px}
 .reminder-desc{font-size:10.5px;color:#4a5568;line-height:1.4}
 .reminder-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
@@ -42,7 +42,7 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 
 .section-head{display:flex;align-items:center;justify-content:space-between;padding:0 18px 8px}
 .section-title{font-size:12px;font-weight:700;color:#1a202c;text-transform:uppercase;letter-spacing:0.5px}
-.section-more{font-size:11px;color:#2a9d8f;font-weight:600}
+.section-more{font-size:11px;color:#2a9d8f;font-weight:600;cursor:pointer}
 
 .exp-list{padding:0 18px}
 .exp-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9;cursor:pointer}
@@ -52,17 +52,31 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 .exp-icon.yogurt{background:#fce7f3}
 .exp-icon.butter{background:#fef3c7}
 .exp-icon.ghee{background:#fef3c7}
-.exp-icon.candy{background:#fee2e2}
-.exp-icon.tea{background:#dcfce7}
-.exp-icon.preserved{background:#e0e7ff}
+.exp-icon.kefir{background:#dcfce7}
+.exp-icon.icecream{background:#fce7f3}
+.exp-icon.custard{background:#fef3c7}
+.exp-icon.lemonade{background:#fee2e2}
 .exp-icon.cookie{background:#fde68a}
-.exp-icon.scrub{background:#fce7f3}
-.exp-icon.candle{background:#fef3c7}
-.exp-icon.bath{background:#e0e7ff}
-.exp-icon.lip{background:#fce7f3}
-.exp-icon.juice{background:#fee2e2}
+.exp-icon.honeytea{background:#dcfce7}
+.exp-icon.preserved{background:#e0e7ff}
 .exp-icon.cake{background:#fce7f3}
-.exp-icon.soy{background:#dcfce7}
+.exp-icon.soymilk{background:#dcfce7}
+.exp-icon.tofu{background:#dbeafe}
+.exp-icon.yuba{background:#fef3c7}
+.exp-icon.soysauce{background:#fef9c3}
+.exp-icon.miso{background:#fee2e2}
+.exp-icon.tempeh{background:#dcfce7}
+.exp-icon.edamame{background:#dcfce7}
+.exp-icon.ojfresh{background:#fee2e2}
+.exp-icon.ojuice{background:#fee2e2}
+.exp-icon.ojzest{background:#fde68a}
+.exp-icon.ojoil{background:#fce7f3}
+.exp-icon.ojcandy{background:#fef9c3}
+.exp-icon.ojjam{background:#fee2e2}
+.exp-icon.ojsorbet{background:#dbeafe}
+.exp-icon.energyboost{background:#fde68a}
+.exp-icon.candy{background:#fee2e2}
+.exp-icon.scrub{background:#fce7f3}
 .exp-icon.bread{background:#fde68a}
 .exp-body{flex:1;min-width:0}
 .exp-title{font-size:13px;font-weight:600;color:#1a202c;display:flex;align-items:center;gap:6px}
@@ -70,18 +84,20 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 .exp-desc{font-size:10.5px;color:#64748b;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .exp-arrow{color:#cbd5e1;font-size:14px;font-weight:bold;flex-shrink:0}
 
+.no-result{text-align:center;padding:30px 18px;color:#94a3b8;font-size:13px}
+
 /* Explore categories */
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 10px;padding:0 18px}
 .cat-card{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer}
 .cat-card:active{transform:scale(0.95)}
 .cat-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#fef9c3;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
-.cat-icon.plant{background:#dcfce7}
-.cat-icon.fruit{background:#fee2e2}
-.cat-icon.starch{background:#fde68a}
+.cat-icon.dairy{background:#fce7f3}
+.cat-icon.soy{background:#dcfce7}
+.cat-icon.citrus{background:#fee2e2}
+.cat-icon.baking{background:#fde68a}
 .cat-icon.drink{background:#dbeafe}
-.cat-icon.snack{background:#fce7f3}
-.cat-icon.gift{background:#e9d5ff}
-.cat-icon.clean{background:#cffafe}
+.cat-icon.gift{background:#fce7f3}
+.cat-icon.science{background:#e0e7ff}
 .cat-icon.more{background:#f1f5f9}
 .cat-name{font-size:10.5px;font-weight:600;color:#475569;text-align:center}
 
@@ -138,9 +154,32 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 .detail-hero.paneer{background:linear-gradient(135deg,#fef9c3,#fde68a)}
 .detail-hero.yogurt{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
 .detail-hero.butter{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.ghee{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.kefir{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.detail-hero.icecream{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.detail-hero.custard{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.lemonade{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.detail-hero.cookie{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.honeytea{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.detail-hero.preserved{background:linear-gradient(135deg,#e0e7ff,#c7d2fe)}
+.detail-hero.cake{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.detail-hero.soymilk{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.detail-hero.tofu{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.detail-hero.yuba{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.soysauce{background:linear-gradient(135deg,#fef9c3,#fde68a)}
+.detail-hero.miso{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.detail-hero.tempeh{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.detail-hero.edamame{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.detail-hero.ojfresh{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.detail-hero.ojuice{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.detail-hero.ojzest{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.detail-hero.ojoil{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.detail-hero.ojcandy{background:linear-gradient(135deg,#fef9c3,#fde68a)}
+.detail-hero.ojjam{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.detail-hero.ojsorbet{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.detail-hero.energyboost{background:linear-gradient(135deg,#fef3c7,#fde68a)}
 .detail-hero.candy{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
 .detail-hero.scrub{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
-.detail-hero.soy{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
 .detail-hero.bread{background:linear-gradient(135deg,#fef3c7,#fde68a)}
 .detail-emoji{font-size:48px;margin-bottom:4px}
 .detail-name{font-size:19px;font-weight:700;color:#1a202c}
@@ -170,7 +209,15 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 .ing-tag{padding:4px 10px;border-radius:8px;background:white;font-size:10px;color:#475569;font-weight:500;border:1px solid #e2e8f0}
 
 /* Category detail page */
-.cat-detail-head{margin:0 18px 12px;border-radius:12px;padding:14px;background:linear-gradient(135deg,#fef9c3,#fde68a)}
+.cat-detail-head{margin:0 18px 12px;border-radius:12px;padding:14px}
+.cat-detail-head.dairy{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.cat-detail-head.soy{background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.cat-detail-head.citrus{background:linear-gradient(135deg,#fee2e2,#fca5a5)}
+.cat-detail-head.baking{background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.cat-detail-head.drink{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.cat-detail-head.gift{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
+.cat-detail-head.science{background:linear-gradient(135deg,#e0e7ff,#c7d2fe)}
+.cat-detail-head.more{background:linear-gradient(135deg,#f1f5f9,#e2e8f0)}
 .cat-detail-title{font-size:16px;font-weight:700;color:#1a202c}
 .cat-detail-count{font-size:11px;color:#64748b;margin-top:2px}
 
@@ -180,6 +227,138 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 .badge-emoji{font-size:28px;margin-bottom:4px}
 .badge-name{font-size:10px;font-weight:600;color:#475569}
 .badge-item.locked{opacity:0.4}
+
+/* Savings page */
+.savings-stats{display:flex;gap:8px;padding:0 18px 14px}
+.savings-stat{flex:1;background:#f8fafc;border-radius:12px;padding:12px 8px;text-align:center}
+.savings-stat-num{font-size:16px;font-weight:700;color:#2a9d8f}
+.savings-stat-label{font-size:10px;color:#64748b;margin-top:2px}
+.savings-card{margin:0 18px 14px;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.savings-card-title{font-size:12px;font-weight:700;color:#1a202c;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.bar-chart{display:flex;align-items:flex-end;gap:8px;height:120px;padding:0 8px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar-fill{width:100%;background:linear-gradient(180deg,#5ed6c7,#2a9d8f);border-radius:6px 6px 0 0;min-height:4px}
+.bar-label{font-size:9px;color:#94a3b8;font-weight:500}
+
+/* Friends page */
+.friend-item{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid #f1f5f9}
+.friend-item:last-child{border-bottom:none}
+.friend-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:#f0fdfa}
+.friend-info{flex:1;min-width:0}
+.friend-name{font-size:13px;font-weight:600;color:#1a202c}
+.friend-level{font-size:10.5px;color:#64748b;margin-top:2px}
+.friend-badge{font-size:10px;font-weight:600;color:#2a9d8f;background:#f0fdfa;padding:3px 8px;border-radius:8px}
+
+/* Challenges page */
+.challenge-card{margin:0 18px 12px;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.challenge-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.challenge-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#fef9c3}
+.challenge-info{flex:1}
+.challenge-title{font-size:13px;font-weight:700;color:#1a202c}
+.challenge-sub{font-size:10.5px;color:#64748b;margin-top:1px}
+.challenge-bar{height:6px;background:#f1f5f9;border-radius:3px;overflow:hidden;margin:6px 0}
+.challenge-bar-fill{height:100%;background:linear-gradient(90deg,#2a9d8f,#5ed6c7);border-radius:3px}
+.challenge-foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.challenge-days{font-size:10px;color:#64748b;font-weight:600}
+.challenge-reward{font-size:10px;color:#f59e0b;font-weight:700}
+
+/* Diary page */
+.diary-item{margin:0 18px 12px;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.diary-date{font-size:10px;color:#94a3b8;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.diary-title{font-size:13px;font-weight:700;color:#1a202c;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.diary-body{font-size:11.5px;color:#475569;line-height:1.5}
+.diary-tags{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
+.diary-tag{font-size:9px;font-weight:600;padding:3px 8px;background:#f1f5f9;color:#64748b;border-radius:6px}
+
+/* Settings page */
+.setting-section{margin:0 18px 14px;background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);overflow:hidden}
+.setting-section-title{font-size:10.5px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;padding:12px 14px 6px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #f1f5f9;cursor:pointer}
+.setting-row:last-child{border-bottom:none}
+.setting-row:active{background:#f8fafc}
+.setting-left{display:flex;align-items:center;gap:10px}
+.setting-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;background:#f0fdfa;color:#0f766e}
+.setting-name{font-size:12.5px;font-weight:600;color:#1a202c}
+.setting-val{font-size:11px;color:#94a3b8}
+.toggle{width:40px;height:22px;border-radius:11px;background:#e2e8f0;position:relative;transition:0.2s}
+.toggle.on{background:#2a9d8f}
+.toggle::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:white;transition:0.2s}
+.toggle.on::after{left:20px}
+
+/* Help / FAQ page */
+.faq-item{margin:0 18px 10px;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.faq-q{font-size:12.5px;font-weight:700;color:#1a202c;margin-bottom:6px;display:flex;align-items:flex-start;gap:8px}
+.faq-q::before{content:'Q';background:#2a9d8f;color:white;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.faq-a{font-size:11.5px;color:#475569;line-height:1.55;padding-left:26px}
+
+/* Calendar page */
+.cal-card{margin:0 18px 14px;background:white;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-title{font-size:13px;font-weight:700;color:#1a202c;display:flex;align-items:center;gap:6px}
+.cal-status{font-size:10px;font-weight:700;color:#10b981;background:#dcfce7;padding:3px 8px;border-radius:6px}
+.cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:12px}
+.cal-day{text-align:center;padding:6px 2px;border-radius:8px;cursor:pointer}
+.cal-day:active{background:#f8fafc}
+.cal-day-label{font-size:9px;color:#94a3b8;font-weight:600;margin-bottom:2px}
+.cal-day-num{font-size:13px;font-weight:600;color:#1a202c}
+.cal-day.has-event .cal-day-num{background:#2a9d8f;color:white;border-radius:50%;width:26px;height:26px;line-height:26px;margin:0 auto}
+.cal-day.today .cal-day-num{border:2px solid #2a9d8f;color:#2a9d8f;border-radius:50%;width:26px;height:26px;line-height:22px;margin:0 auto}
+.cal-event{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f1f5f9}
+.cal-event:last-child{border-bottom:none}
+.cal-event-date{text-align:center;min-width:48px}
+.cal-event-month{font-size:9px;color:#94a3b8;font-weight:600;text-transform:uppercase}
+.cal-event-day{font-size:16px;font-weight:700;color:#ef4444}
+.cal-event-body{flex:1;min-width:0}
+.cal-event-title{font-size:12px;font-weight:600;color:#1a202c}
+.cal-event-desc{font-size:10.5px;color:#64748b;margin-top:2px}
+.cal-event-tag{font-size:9px;font-weight:700;color:#9d174d;background:#fce7f3;padding:2px 6px;border-radius:5px;display:inline-block;margin-top:4px}
+.cal-how{margin-top:8px;padding:10px 12px;background:#f0fdfa;border-radius:10px}
+.cal-how-title{font-size:11px;font-weight:700;color:#0f766e;margin-bottom:6px}
+.cal-how-step{font-size:10.5px;color:#0f766e;line-height:1.5;margin-bottom:2px}
+.cal-how-step b{color:#0c6459}
+
+/* Mother's Day page */
+.mday-hero{margin:0 18px 14px;border-radius:14px;padding:18px 16px;background:linear-gradient(135deg,#fce7f3 0%,#fbcfe8 100%);text-align:center}
+.mday-emoji{font-size:48px;margin-bottom:4px}
+.mday-title{font-size:19px;font-weight:700;color:#9d174d}
+.mday-sub{font-size:11px;color:#9d174d;margin-top:2px;opacity:0.8}
+.mday-countdown{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.cd-box{background:rgba(255,255,255,0.7);border-radius:10px;padding:8px 10px;min-width:50px;text-align:center}
+.cd-num{font-size:18px;font-weight:700;color:#9d174d}
+.cd-label{font-size:9px;color:#9d174d;opacity:0.7;font-weight:600;margin-top:2px;text-transform:uppercase}
+.mday-section-title{font-size:12px;font-weight:700;color:#1a202c;text-transform:uppercase;letter-spacing:0.5px;padding:0 18px 8px}
+.mday-gift-card{margin:0 18px 10px;background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:12px;cursor:pointer}
+.mday-gift-card:active{transform:scale(0.98)}
+.mday-gift-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;background:#fce7f3;flex-shrink:0}
+.mday-gift-body{flex:1;min-width:0}
+.mday-gift-name{font-size:13px;font-weight:600;color:#1a202c}
+.mday-gift-desc{font-size:10.5px;color:#64748b;margin-top:2px}
+.mday-gift-arrow{color:#cbd5e1;font-size:14px;font-weight:bold;flex-shrink:0}
+.mday-note{margin:10px 18px 14px;padding:10px 12px;background:#fff7ed;border-radius:10px;font-size:10.5px;color:#92400e;line-height:1.5}
+.mday-note b{color:#78350f}
+
+/* page-title for subpages */
+.page-title{padding:0 18px 12px;font-size:15px;font-weight:700;color:#1a202c;display:flex;align-items:center;gap:6px}
+
+/* Search results hidden on home */
+.search-results{display:none}
+.search-results.active{display:block}
+.home-normal{display:block}
+.home-normal.hidden{display:none}
+
+/* Gift ideas section */
+.gift-section{margin:0 18px 14px;padding:12px 14px;background:linear-gradient(135deg,#fce7f3,#fbcfe8);border-radius:12px}
+.gift-title{font-size:12px;font-weight:700;color:#9d174d;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.gift-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.4);cursor:pointer}
+.gift-item:last-child{border-bottom:none}
+.gift-item:active{opacity:0.7}
+.gift-item-icon{font-size:20px;width:30px;text-align:center}
+.gift-item-body{flex:1;min-width:0}
+.gift-item-title{font-size:12px;font-weight:600;color:#1a202c}
+.gift-item-desc{font-size:10px;color:#7c3aed;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.pair-section{margin:0 18px 14px;padding:12px 14px;background:#f8fafc;border-radius:12px}
+.pair-title{font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -190,44 +369,46 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 <div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
 <div class="topbar">
 <div class="logo">
-<img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab">
-
+<img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab">
 </div>
 <div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
 </div>
-<div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="Search experiments... milk, lemon, gift..."></div>
+<div class="search-bar"><span class="search-icon" onclick="doSearch()">🔍</span><input type="text" id="homeSearch" placeholder="Search experiments... milk, lemon, gift..." onkeydown="if(event.key==='Enter')doSearch()" oninput="onSearchInput()"></div>
+
+<!-- NORMAL HOME CONTENT -->
+<div id="homeNormal" class="home-normal">
 
 <div class="reminder-scroll">
-<div class="reminder-card milk" onclick="switchTab('recipes')">
-<span class="reminder-tag">🌅 This Morning</span>
+<div class="reminder-card milk" onclick="showCat('dairy')">
+<span class="reminder-tag">🌅 Monday Morning</span>
 <div class="reminder-title">Milk expires today!</div>
-<div class="reminder-desc">Turn 250mL milk into paneer before it goes bad</div>
+<div class="reminder-desc">Don't let it go to waste — F Lab found 7 amazing things you can make with milk before it expires.</div>
 <div class="reminder-bottom"><span class="reminder-time">⏱ 30 min</span><span class="reminder-btn">Start →</span></div>
 </div>
-<div class="reminder-card mothers" onclick="showCat('gift')">
-<span class="reminder-tag">💝 In 7 days</span>
-<div class="reminder-title">Mother's Day is coming!</div>
-<div class="reminder-desc">Surprise Mum with a handmade gift from the kitchen</div>
-<div class="reminder-bottom"><span class="reminder-time">🎁 5 ideas</span><span class="reminder-btn">Browse →</span></div>
+<div class="reminder-card snack" onclick="showCat('citrus')">
+<span class="reminder-tag">🍋 After School Snack</span>
+<div class="reminder-title">Lemon snack ideas</div>
+<div class="reminder-desc">You've got lemons in the fridge. Let's turn them into something delicious and fun!</div>
+<div class="reminder-bottom"><span class="reminder-time">🍋 4 ideas</span><span class="reminder-btn">Browse →</span></div>
 </div>
-<div class="reminder-card birthday" onclick="showCat('snack')">
-<span class="reminder-tag">🎂 In 2 weeks</span>
-<div class="reminder-title">Friend's birthday party</div>
-<div class="reminder-desc">Make homemade candy as party favours</div>
-<div class="reminder-bottom"><span class="reminder-time">🍬 3 recipes</span><span class="reminder-btn">See →</span></div>
+<div class="reminder-card mothers" onclick="showMothersDay()">
+<span class="reminder-tag">💝 Mother's Day Special</span>
+<div class="reminder-title">Mother's Day is coming!</div>
+<div class="reminder-desc">Surprise Mum with something made from the heart — using what's already in your kitchen.</div>
+<div class="reminder-bottom"><span class="reminder-time">🎁 5 ideas</span><span class="reminder-btn">See →</span></div>
 </div>
 </div>
 
-<div class="section-head"><div class="section-title">🥛 Quick: What to do with milk</div><div class="section-more">All →</div></div>
-<div class="exp-list">
+<div class="section-head"><div class="section-title">⚡ Quick Transformations</div><div class="section-more" onclick="showCat('dairy')">All →</div></div>
+<div class="exp-list" id="quickList">
 <div class="exp-item" onclick="showDetail('paneer')">
 <div class="exp-icon">🧀</div>
-<div class="exp-body"><div class="exp-title">Paneer <span class="badge-new">Use today!</span></div><div class="exp-desc">Fresh cheese · 30 min · 6 steps</div></div>
+<div class="exp-body"><div class="exp-title">Paneer <span class="badge-new">Use today!</span></div><div class="exp-desc">Fresh cheese at 30 min · 6 easy steps</div></div>
 <div class="exp-arrow">›</div>
 </div>
 <div class="exp-item" onclick="showDetail('yogurt')">
 <div class="exp-icon yogurt">🥛</div>
-<div class="exp-body"><div class="exp-title">Yoghurt</div><div class="exp-desc">Overnight ferment · probiotic-rich</div></div>
+<div class="exp-body"><div class="exp-title">Yoghurt</div><div class="exp-desc">Overnight fermentation · probiotic-rich</div></div>
 <div class="exp-arrow">›</div>
 </div>
 <div class="exp-item" onclick="showDetail('butter')">
@@ -237,70 +418,161 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 </div>
 <div class="exp-item" onclick="showDetail('ghee')">
 <div class="exp-icon ghee">🫙</div>
-<div class="exp-body"><div class="exp-title">Ghee</div><div class="exp-desc">Clarified butter · lasts for months</div></div>
+<div class="exp-body"><div class="exp-title">Ghee</div><div class="exp-desc">Clarified butter · lasts months</div></div>
 <div class="exp-arrow">›</div>
+</div>
+</div>
+
+<div style="height:16px"></div>
+
+<div class="section-head"><div class="section-title">🍋 Lemon Snack Ideas</div><div class="section-more" onclick="showCat('citrus')">All →</div></div>
+<div class="exp-list">
+<div class="exp-item" onclick="showDetail('lemonade')">
+<div class="exp-icon lemonade">🍋</div>
+<div class="exp-body"><div class="exp-title">Fresh Lemonade</div><div class="exp-desc">5 min · Refreshing & healthy</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('cookie')">
+<div class="exp-icon cookie">✨</div>
+<div class="exp-body"><div class="exp-title">Lemon Zest Cookies</div><div class="exp-desc">Use the peel! · 25 min baking</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('honeytea')">
+<div class="exp-icon honeytea">🍵</div>
+<div class="exp-body"><div class="exp-title">Honey Lemon Tea</div><div class="exp-desc">Soothing · great for cold days</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('preserved')">
+<div class="exp-icon preserved">🫙</div>
+<div class="exp-body"><div class="exp-title">Preserved Lemon</div><div class="exp-desc">Lasts for months · Moroccan style</div></div>
+<div class="exp-arrow">›</div>
+</div>
+</div>
+
+<div style="height:16px"></div>
+
+<div class="section-head"><div class="section-title">🎁 Gift Ideas From The Fridge</div><div class="section-more" onclick="showCat('gift')">All →</div></div>
+<div class="exp-list">
+<div class="exp-item" onclick="showDetail('cake')">
+<div class="exp-icon cake">🎂</div>
+<div class="exp-body"><div class="exp-title">Milk → Birthday Cake</div><div class="exp-desc">Homemade cake with paneer frosting</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('soymilk')">
+<div class="exp-icon soymilk">🥛</div>
+<div class="exp-body"><div class="exp-title">Soybeans → Soy Milk</div><div class="exp-desc">Fresh & creamy · made with love</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('ojuice')">
+<div class="exp-icon ojuice">🍊</div>
+<div class="exp-body"><div class="exp-title">Orange → Juice & Platter</div><div class="exp-desc">Fresh juice + fruit art platter</div></div>
+<div class="exp-arrow">›</div>
+</div>
+</div>
+
+<div style="height:16px"></div>
+
+<div class="section-head"><div class="section-title">⚡ Tank-Style Pairings</div></div>
+<div class="exp-list">
+<div class="exp-item" onclick="showDetail('energyboost')">
+<div class="exp-icon energyboost">🍊</div>
+<div class="exp-body"><div class="exp-title">Orange + Carrot = Energy Boost</div><div class="exp-desc">Double vitamin power · super healthy</div></div>
+<div class="exp-arrow">›</div>
+</div>
+</div>
+
+</div><!-- /homeNormal -->
+
+<!-- SEARCH RESULTS -->
+<div id="searchResults" class="search-results">
+<div class="section-head"><div class="section-title">🔍 Search Results</div></div>
+<div class="exp-list" id="searchResultList"></div>
+<div id="noResultMsg" class="no-result" style="display:none">No experiments found</div>
+</div>
+
+</div><!-- /page-home -->
+
+<!-- ====== EXPLORE ====== -->
+<div id="page-explore" class="page">
+<div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
+<div class="topbar">
+<div class="logo">
+<img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab">
+</div>
+<div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
+</div>
+<div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="Browse all experiments..."></div>
+
+<div class="section-head"><div class="section-title">📂 Categories</div></div>
+<div class="cat-grid">
+<div class="cat-card" onclick="showCat('dairy')">
+<div class="cat-icon dairy">🥛</div>
+<div class="cat-name">Dairy</div>
+</div>
+<div class="cat-card" onclick="showCat('soy')">
+<div class="cat-icon soy">🫘</div>
+<div class="cat-name">Soy &amp; Beans</div>
+</div>
+<div class="cat-card" onclick="showCat('citrus')">
+<div class="cat-icon citrus">🍊</div>
+<div class="cat-name">Citrus &amp; Fruit</div>
+</div>
+<div class="cat-card" onclick="showCat('baking')">
+<div class="cat-icon baking">🍰</div>
+<div class="cat-name">Baking &amp; Sweets</div>
+</div>
+<div class="cat-card" onclick="showCat('drink')">
+<div class="cat-icon drink">🍹</div>
+<div class="cat-name">Drinks</div>
+</div>
+<div class="cat-card" onclick="showCat('gift')">
+<div class="cat-icon gift">🎁</div>
+<div class="cat-name">Gift Ideas</div>
+</div>
+<div class="cat-card" onclick="showCat('science')">
+<div class="cat-icon science">🔬</div>
+<div class="cat-name">Science Labs</div>
+</div>
+<div class="cat-card" onclick="showCat('more')">
+<div class="cat-icon more">⋯</div>
+<div class="cat-name">More</div>
 </div>
 </div>
 
 <div style="height:16px"></div>
 <div class="section-head"><div class="section-title">🔥 Trending experiments</div><div class="section-more">See all →</div></div>
 <div class="exp-list">
-<div class="exp-item" onclick="showDetail('lemoncandy')">
-<div class="exp-icon candy">🍬</div>
-<div class="exp-body"><div class="exp-title">Lemon Peel Candy</div><div class="exp-desc">Sweet treat · 45 min</div></div>
+<div class="exp-item" onclick="showDetail('paneer')">
+<div class="exp-icon">🧀</div>
+<div class="exp-body"><div class="exp-title">Paneer Cheese</div><div class="exp-desc">Fresh cheese · 30 min</div></div>
 <div class="exp-arrow">›</div>
 </div>
-<div class="exp-item" onclick="showDetail('bodyscrub')">
-<div class="exp-icon scrub">🧼</div>
-<div class="exp-body"><div class="exp-title">Citrus Body Scrub</div><div class="exp-desc">Beauty DIY · 15 min</div></div>
+<div class="exp-item" onclick="showDetail('icecream')">
+<div class="exp-icon icecream">🍦</div>
+<div class="exp-body"><div class="exp-title">Homemade Ice Cream</div><div class="exp-desc">No churn · 20 min + freeze</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('tofu')">
+<div class="exp-icon tofu">🧈</div>
+<div class="exp-body"><div class="exp-title">Silken Tofu</div><div class="exp-desc">From soy milk · 40 min</div></div>
+<div class="exp-arrow">›</div>
+</div>
+<div class="exp-item" onclick="showDetail('ojuice')">
+<div class="exp-icon ojuice">🍊</div>
+<div class="exp-body"><div class="exp-title">Fresh Orange Juice</div><div class="exp-desc">100% pure · 5 min</div></div>
 <div class="exp-arrow">›</div>
 </div>
 </div>
-</div>
 
-<!-- ====== EXPLORE ====== -->
-<div id="page-explore" class="page">
-<div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
-<div class="topbar">
-<div class="logo"><img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab"></div>
-<div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
-</div>
-<div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="What food do you want to transform?"></div>
-
-<div class="section-head"><div class="section-title">Categories</div></div>
-<div class="cat-grid">
-<div class="cat-card" onclick="showCat('dairy')"><div class="cat-icon">🥛</div><div class="cat-name">Dairy</div></div>
-<div class="cat-card" onclick="showCat('plant')"><div class="cat-icon plant">🫘</div><div class="cat-name">Plant-Based</div></div>
-<div class="cat-card" onclick="showCat('fruit')"><div class="cat-icon fruit">🍊</div><div class="cat-name">Fruit Peels</div></div>
-<div class="cat-card" onclick="showCat('bread')"><div class="cat-icon starch">🍞</div><div class="cat-name">Bread & Grain</div></div>
-<div class="cat-card" onclick="showCat('drink')"><div class="cat-icon drink">🍹</div><div class="cat-name">Drinks</div></div>
-<div class="cat-card" onclick="showCat('snack')"><div class="cat-icon snack">🍪</div><div class="cat-name">Snacks</div></div>
-<div class="cat-card" onclick="showCat('gift')"><div class="cat-icon gift">🎁</div><div class="cat-name">Gift Ideas</div></div>
-<div class="cat-card"><div class="cat-icon more">⋯</div><div class="cat-name">More</div></div>
-</div>
-
-<div class="trending">
-<div class="trending-head"><div class="trending-title">🔥 Trending this week</div><div class="section-more">See all →</div></div>
-<div class="exp-list" style="padding:0">
-<div class="exp-item" onclick="showDetail('paneer')"><div class="exp-icon">🧀</div><div class="exp-body"><div class="exp-title">Paneer Cheese</div><div class="exp-desc">1.2k kids made this week</div></div><div class="exp-arrow">›</div></div>
-<div class="exp-item" onclick="showDetail('lemoncandy')"><div class="exp-icon candy">🍬</div><div class="exp-body"><div class="exp-title">Lemon Peel Candy</div><div class="exp-desc">876 kids made this week</div></div><div class="exp-arrow">›</div></div>
-<div class="exp-item" onclick="showDetail('bodyscrub')"><div class="exp-icon scrub">🧼</div><div class="exp-body"><div class="exp-title">Citrus Body Scrub</div><div class="exp-desc">542 kids made this week</div></div><div class="exp-arrow">›</div></div>
-</div>
-</div>
-
-<div style="height:16px"></div>
-<div class="section-head"><div class="section-title">⭐ Easy for beginners</div><div class="section-more">See all →</div></div>
-<div class="exp-list">
-<div class="exp-item" onclick="showDetail('butter')"><div class="exp-icon butter">🧈</div><div class="exp-body"><div class="exp-title">Butter in a Jar</div><div class="exp-desc">Age 7+ · Just shake it!</div></div><div class="exp-arrow">›</div></div>
-<div class="exp-item" onclick="showDetail('bread')"><div class="exp-icon bread">🍞</div><div class="exp-body"><div class="exp-title">Bread Croutons</div><div class="exp-desc">Use stale bread · 15 min</div></div><div class="exp-arrow">›</div></div>
-</div>
-</div>
+</div><!-- /page-explore -->
 
 <!-- ====== RECIPES ====== -->
 <div id="page-recipes" class="page">
 <div class="status-bar"><span>9:41</span><div class="status-right">📶 🔋100%</div></div>
 <div class="topbar">
-<div class="logo"><img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab"></div>
+<div class="logo">
+<img src="data:image/png;base64,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" class="logo-icon-img" alt="F Lab">
+</div>
 <div class="top-right"><div class="bell-icon">🔔<div class="bell-dot"></div></div></div>
 </div>
 <div class="search-bar"><span class="search-icon">🔍</span><input type="text" placeholder="Search your recipes..."></div>
@@ -321,12 +593,14 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 </div>
 
 <div class="recipe-group">
-<div class="recipe-group-title">📌 Saved (4)</div>
+<div class="recipe-group-title">📌 Saved (6)</div>
 <div class="exp-list" style="padding:0">
-<div class="exp-item" onclick="showDetail('lemoncandy')"><div class="exp-icon candy">🍬</div><div class="exp-body"><div class="exp-title">Lemon Peel Candy</div><div class="exp-desc">Want to try!</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
-<div class="exp-item" onclick="showDetail('bodyscrub')"><div class="exp-icon scrub">🧼</div><div class="exp-body"><div class="exp-title">Citrus Body Scrub</div><div class="exp-desc">Saved last week</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('lemonade')"><div class="exp-icon lemonade">🍋</div><div class="exp-body"><div class="exp-title">Fresh Lemonade</div><div class="exp-desc">Summer favourite!</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('icecream')"><div class="exp-icon icecream">🍦</div><div class="exp-body"><div class="exp-title">Homemade Ice Cream</div><div class="exp-desc">Weekend project</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
 <div class="exp-item" onclick="showDetail('ghee')"><div class="exp-icon ghee">🫙</div><div class="exp-body"><div class="exp-title">Ghee</div><div class="exp-desc">Saved from Mum</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
-<div class="exp-item" onclick="showDetail('soymilk')"><div class="exp-icon soy">🫘</div><div class="exp-body"><div class="exp-title">Homemade Soy Milk</div><div class="exp-desc">Plant-based challenge</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('soymilk')"><div class="exp-icon soymilk">🥛</div><div class="exp-body"><div class="exp-title">Homemade Soy Milk</div><div class="exp-desc">Plant-based challenge</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('tofu')"><div class="exp-icon tofu">🧈</div><div class="exp-body"><div class="exp-title">Silken Tofu</div><div class="exp-desc">From soy milk</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
+<div class="exp-item" onclick="showDetail('cake')"><div class="exp-icon cake">🎂</div><div class="exp-body"><div class="exp-title">Birthday Cake</div><div class="exp-desc">For Mum's birthday!</div></div><div style="color:#f59e0b;font-size:14px">🔖</div></div>
 </div>
 </div>
 
@@ -357,13 +631,14 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 </div>
 
 <div class="me-menu">
-<div class="me-row" onclick="showBadges()"><div class="me-row-icon">🏆</div><div class="me-row-text">Badges & Achievements</div><div class="me-row-arrow">›</div></div>
-<div class="me-row"><div class="me-row-icon">📊</div><div class="me-row-text">My Waste Savings</div><div class="me-row-arrow">›</div></div>
-<div class="me-row"><div class="me-row-icon">👨‍👩‍👧</div><div class="me-row-text">My Lab Friends</div><div class="me-row-arrow">›</div></div>
-<div class="me-row"><div class="me-row-icon">🎯</div><div class="me-row-text">Challenges</div><div class="me-row-arrow">›</div></div>
-<div class="me-row"><div class="me-row-icon">📔</div><div class="me-row-text">My Science Journal</div><div class="me-row-arrow">›</div></div>
-<div class="me-row"><div class="me-row-icon">⚙️</div><div class="me-row-text">Settings</div><div class="me-row-arrow">›</div></div>
-<div class="me-row"><div class="me-row-icon">❓</div><div class="me-row-text">Help & FAQ</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showBadges()"><div class="me-row-icon">🏆</div><div class="me-row-text">Badges &amp; Achievements</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showSavings()"><div class="me-row-icon">📊</div><div class="me-row-text">My Waste Savings</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showFriends()"><div class="me-row-icon">👨‍👩‍👧</div><div class="me-row-text">My Lab Friends</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showChallenges()"><div class="me-row-icon">🎯</div><div class="me-row-text">Challenges</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showDiary()"><div class="me-row-icon">📔</div><div class="me-row-text">My Science Journal</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showCalendar()"><div class="me-row-icon">📅</div><div class="me-row-text">Smart Calendar Sync</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showSettings()"><div class="me-row-icon">⚙️</div><div class="me-row-text">Settings</div><div class="me-row-arrow">›</div></div>
+<div class="me-row" onclick="showHelp()"><div class="me-row-icon">❓</div><div class="me-row-text">Help &amp; FAQ</div><div class="me-row-arrow">›</div></div>
 </div>
 </div>
 
@@ -372,7 +647,7 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 <div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
 <div class="cat-detail-head" id="catDetailHead">
 <div class="cat-detail-title" id="catDetailTitle">🥛 Dairy</div>
-<div class="cat-detail-count" id="catDetailCount">8 experiments</div>
+<div class="cat-detail-count" id="catDetailCount">7 experiments</div>
 </div>
 <div class="exp-list" id="catExpList"></div>
 <div style="height:16px"></div>
@@ -393,6 +668,444 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 <div class="badge-item locked"><div class="badge-emoji">⭐</div><div class="badge-name">Level 3</div></div>
 <div class="badge-item locked"><div class="badge-emoji">🏅</div><div class="badge-name">Champion</div></div>
 </div>
+</div>
+
+<!-- ====== SAVINGS PAGE ====== -->
+<div id="page-savings" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">📊 My Waste Savings</div>
+
+<div class="savings-stats">
+<div class="savings-stat"><div class="savings-stat-num">$12.50</div><div class="savings-stat-label">Saved This Month</div></div>
+<div class="savings-stat"><div class="savings-stat-num">3.2kg</div><div class="savings-stat-label">Food Kept Out of Landfill</div></div>
+<div class="savings-stat"><div class="savings-stat-num">8</div><div class="savings-stat-label">Experiments Done</div></div>
+</div>
+
+<div class="savings-card">
+<div class="savings-card-title">📈 Food Saved Per Week (kg)</div>
+<div class="bar-chart">
+<div class="bar-col"><div class="bar-fill" style="height:40%"></div><div class="bar-label">Wk1</div></div>
+<div class="bar-col"><div class="bar-fill" style="height:65%"></div><div class="bar-label">Wk2</div></div>
+<div class="bar-col"><div class="bar-fill" style="height:55%"></div><div class="bar-label">Wk3</div></div>
+<div class="bar-col"><div class="bar-fill" style="height:85%"></div><div class="bar-label">Wk4</div></div>
+<div class="bar-col"><div class="bar-fill" style="height:70%"></div><div class="bar-label">Wk5</div></div>
+<div class="bar-col"><div class="bar-fill" style="height:90%"></div><div class="bar-label">Wk6</div></div>
+</div>
+</div>
+
+<div class="savings-card">
+<div class="savings-card-title">🏆 Top Categories</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:10px">
+<div style="font-size:22px">🥛</div>
+<div style="flex:1">
+<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="font-weight:600;color:#1a202c">Dairy</span><span style="color:#64748b">1.4kg saved</span></div>
+<div style="height:6px;background:#f1f5f9;border-radius:3px"><div style="height:100%;width:70%;background:linear-gradient(90deg,#f472b6,#ec4899);border-radius:3px"></div></div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px">
+<div style="font-size:22px">🍊</div>
+<div style="flex:1">
+<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="font-weight:600;color:#1a202c">Fruit &amp; Citrus</span><span style="color:#64748b">0.9kg saved</span></div>
+<div style="height:6px;background:#f1f5f9;border-radius:3px"><div style="height:100%;width:45%;background:linear-gradient(90deg,#fb923c,#f97316);border-radius:3px"></div></div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px">
+<div style="font-size:22px">🫘</div>
+<div style="flex:1">
+<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="font-weight:600;color:#1a202c">Beans &amp; Soy</span><span style="color:#64748b">0.6kg saved</span></div>
+<div style="height:6px;background:#f1f5f9;border-radius:3px"><div style="height:100%;width:30%;background:linear-gradient(90deg,#4ade80,#22c55e);border-radius:3px"></div></div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px">
+<div style="font-size:22px">🍞</div>
+<div style="flex:1">
+<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="font-weight:600;color:#1a202c">Bread &amp; Grains</span><span style="color:#64748b">0.3kg saved</span></div>
+<div style="height:6px;background:#f1f5f9;border-radius:3px"><div style="height:100%;width:15%;background:linear-gradient(90deg,#facc15,#eab308);border-radius:3px"></div></div>
+</div>
+</div>
+</div>
+</div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== FRIENDS PAGE ====== -->
+<div id="page-friends" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">👨‍👩‍👧 My Lab Friends</div>
+
+<div style="padding:0 18px 10px;font-size:11px;color:#64748b">Experiment together and earn bonus badges!</div>
+
+<div class="savings-card" style="margin:0 18px 14px">
+<div class="friend-item" style="padding:4px 0">
+<div class="friend-avatar" style="background:#fee2e2">👦</div>
+<div class="friend-info">
+<div class="friend-name">Tommy</div>
+<div class="friend-level">⭐ Level 3 · Senior Scientist</div>
+</div>
+<div class="friend-badge">12 exps</div>
+</div>
+</div>
+
+<div class="savings-card" style="margin:0 18px 14px">
+<div class="friend-item" style="padding:4px 0">
+<div class="friend-avatar" style="background:#dbeafe">👧</div>
+<div class="friend-info">
+<div class="friend-name">Sophie</div>
+<div class="friend-level">⭐ Level 2 · Junior Scientist</div>
+</div>
+<div class="friend-badge">5 exps</div>
+</div>
+</div>
+
+<div class="savings-card" style="margin:0 18px 14px">
+<div class="friend-item" style="padding:4px 0">
+<div class="friend-avatar" style="background:#fef3c7">🧒</div>
+<div class="friend-info">
+<div class="friend-name">Marco</div>
+<div class="friend-level">⭐ Level 1 · Apprentice</div>
+</div>
+<div class="friend-badge">2 exps</div>
+</div>
+</div>
+
+<div style="margin:0 18px;padding:14px;background:#f0fdfa;border-radius:12px;text-align:center;cursor:pointer">
+<div style="font-size:12px;font-weight:700;color:#0f766e">+ Invite a Friend</div>
+<div style="font-size:10px;color:#14b8a6;margin-top:2px">Earn 50 points for each friend who joins!</div>
+</div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== CHALLENGES PAGE ====== -->
+<div id="page-challenges" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">🎯 My Challenges</div>
+
+<div class="challenge-card">
+<div class="challenge-top">
+<div class="challenge-icon">🥛</div>
+<div class="challenge-info">
+<div class="challenge-title">7-Day Dairy Challenge</div>
+<div class="challenge-sub">Make all 7 dairy experiments in one week</div>
+</div>
+</div>
+<div class="challenge-bar"><div class="challenge-bar-fill" style="width:43%"></div></div>
+<div class="challenge-foot"><span class="challenge-days">Day 3 of 7 · 3 done</span><span class="challenge-reward">🏅 Dairy Master badge</span></div>
+</div>
+
+<div class="challenge-card">
+<div class="challenge-top">
+<div class="challenge-icon" style="background:#dcfce7">♻️</div>
+<div class="challenge-info">
+<div class="challenge-title">Zero Food Waste Week</div>
+<div class="challenge-sub">Save 2kg of food from the bin</div>
+</div>
+</div>
+<div class="challenge-bar"><div class="challenge-bar-fill" style="width:60%"></div></div>
+<div class="challenge-foot"><span class="challenge-days">1.2kg / 2kg goal</span><span class="challenge-reward">🌟 Zero Waste badge</span></div>
+</div>
+
+<div class="challenge-card">
+<div class="challenge-top">
+<div class="challenge-icon" style="background:#fee2e2">🎁</div>
+<div class="challenge-info">
+<div class="challenge-title">Mother's Day Gift Challenge</div>
+<div class="challenge-sub">Make a handmade gift for Mum</div>
+</div>
+</div>
+<div class="challenge-bar"><div class="challenge-bar-fill" style="width:0%"></div></div>
+<div class="challenge-foot"><span class="challenge-days">7 days left</span><span class="challenge-reward">💕 Gift Maker badge</span></div>
+</div>
+
+<div class="challenge-card">
+<div class="challenge-top">
+<div class="challenge-icon" style="background:#e0e7ff">🔬</div>
+<div class="challenge-info">
+<div class="challenge-title">Scientist Journal</div>
+<div class="challenge-sub">Write notes for 5 experiments</div>
+</div>
+</div>
+<div class="challenge-bar"><div class="challenge-bar-fill" style="width:60%"></div></div>
+<div class="challenge-foot"><span class="challenge-days">3 of 5 entries</span><span class="challenge-reward">📔 Journal Pro badge</span></div>
+</div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== DIARY PAGE ====== -->
+<div id="page-diary" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">📔 My Science Journal</div>
+
+<div class="diary-item">
+<div class="diary-date">Yesterday · Day 15</div>
+<div class="diary-title">🧀 Paneer Experiment #2</div>
+<div class="diary-body">I made paneer again with Mum! This time I used warm milk instead of hot, and I got 28% yield — same as last time. The curds were softer. I wonder if more lemon juice would make more paneer? Next time I'll try 15mL instead of 10mL.</div>
+<div class="diary-tags"><span class="diary-tag">dairy</span><span class="diary-tag">paneer</span><span class="diary-tag">28% yield</span></div>
+</div>
+
+<div class="diary-item">
+<div class="diary-date">2 days ago · Day 14</div>
+<div class="diary-title">🥛 Homemade Yoghurt Success!</div>
+<div class="diary-body">After 8 hours the yoghurt was thick and tangy! I used 2 tablespoons of Greek yoghurt as starter. It tasted better than store-bought. Mum said it's because it has live cultures. I saved a spoonful to make the next batch.</div>
+<div class="diary-tags"><span class="diary-tag">dairy</span><span class="diary-tag">fermentation</span><span class="diary-tag">probiotics</span></div>
+</div>
+
+<div class="diary-item">
+<div class="diary-date">Last week · Day 10</div>
+<div class="diary-title">🧈 Butter Shake Challenge</div>
+<div class="diary-body">I shook cream in a jar for 8 minutes and made butter! My arm was tired but it was so cool to watch it change from cream → whipped cream → butter. I got about 40g of butter from 100mL cream. The buttermilk was delicious in pancakes!</div>
+<div class="diary-tags"><span class="diary-tag">dairy</span><span class="diary-tag">butter</span><span class="diary-tag">40% yield</span><span class="diary-tag">phase change</span></div>
+</div>
+
+<div style="margin:0 18px;padding:14px;background:#f0fdfa;border-radius:12px;text-align:center;cursor:pointer">
+<div style="font-size:12px;font-weight:700;color:#0f766e">✏️ Write New Entry</div>
+<div style="font-size:10px;color:#14b8a6;margin-top:2px">Document your next experiment!</div>
+</div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== CALENDAR SYNC PAGE ====== -->
+<div id="page-calendar" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">📅 Smart Calendar Sync</div>
+
+<div class="cal-card">
+<div class="cal-header">
+<div class="cal-title">🔗 Google Calendar</div>
+<div class="cal-status">✓ Connected</div>
+</div>
+<div style="font-size:11px;color:#64748b;line-height:1.5">F Lab reads your calendar events and automatically suggests food experiments and gift ideas for upcoming occasions.</div>
+</div>
+
+<div class="cal-card">
+<div class="cal-title" style="margin-bottom:10px">📆 Next 7 Days</div>
+<div class="cal-week">
+<div class="cal-day"><div class="cal-day-label">Mon</div><div class="cal-day-num">26</div></div>
+<div class="cal-day"><div class="cal-day-label">Tue</div><div class="cal-day-num">27</div></div>
+<div class="cal-day today"><div class="cal-day-label">Wed</div><div class="cal-day-num">28</div></div>
+<div class="cal-day"><div class="cal-day-label">Thu</div><div class="cal-day-num">29</div></div>
+<div class="cal-day"><div class="cal-day-label">Fri</div><div class="cal-day-num">30</div></div>
+<div class="cal-day has-event"><div class="cal-day-label">Sat</div><div class="cal-day-num">31</div></div>
+<div class="cal-day has-event"><div class="cal-day-label">Sun</div><div class="cal-day-num">1</div></div>
+</div>
+
+<div class="cal-title" style="font-size:11px;margin-bottom:6px">Upcoming Events</div>
+<div class="cal-event">
+<div class="cal-event-date"><div class="cal-event-month">May</div><div class="cal-event-day">11</div></div>
+<div class="cal-event-body">
+<div class="cal-event-title">🌸 Mother's Day</div>
+<div class="cal-event-desc">Holiday · All day</div>
+<div class="cal-event-tag" onclick="showMothersDay()">💝 F Lab recommends: 3 gift ideas</div>
+</div>
+</div>
+<div class="cal-event">
+<div class="cal-event-date"><div class="cal-event-month">May</div><div class="cal-event-day">31</div></div>
+<div class="cal-event-body">
+<div class="cal-event-title">🎂 Tommy's Birthday</div>
+<div class="cal-event-desc">Birthday Party · 2:00 PM</div>
+<div class="cal-event-tag" style="color:#92400e;background:#fef3c7">🎂 F Lab recommends: Birthday Cake</div>
+</div>
+</div>
+<div class="cal-event">
+<div class="cal-event-date"><div class="cal-event-month">Jun</div><div class="cal-event-day">1</div></div>
+<div class="cal-event-body">
+<div class="cal-event-title">🧁 Sophie's Birthday</div>
+<div class="cal-event-desc">Dinner · 6:00 PM</div>
+<div class="cal-event-tag" style="color:#92400e;background:#fef3c7">🍬 F Lab recommends: Candied Peel Jar</div>
+</div>
+</div>
+</div>
+
+<div class="cal-card">
+<div class="cal-title" style="margin-bottom:8px">⚙️ How It Works</div>
+<div class="cal-how">
+<div class="cal-how-step"><b>1. Connect Your Calendar</b><br>Link Google Calendar or Apple Calendar in Settings.</div>
+<div class="cal-how-step"><b>2. AI Reads Your Events</b><br>F Lab looks for birthdays, holidays, and special occasions.</div>
+<div class="cal-how-step"><b>3. Smart Suggestions</b><br>Get food experiment and gift ideas that match each event!</div>
+<div class="cal-how-step"><b>4. Reminder Cards</b><br>You'll see friendly reminders on your Home page.</div>
+</div>
+</div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== SETTINGS PAGE ====== -->
+<div id="page-settings" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">⚙️ Settings</div>
+
+<div class="setting-section-title">Account</div>
+<div class="setting-section">
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">👧</div><div class="setting-name">Profile</div></div>
+<div class="setting-val">Angelina</div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">⭐</div><div class="setting-name">Level</div></div>
+<div class="setting-val">Level 2 · Junior Scientist</div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">📧</div><div class="setting-name">Email</div></div>
+<div class="setting-val">angelina@flab.app</div>
+</div>
+</div>
+
+<div class="setting-section-title">Notifications</div>
+<div class="setting-section">
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">🔔</div><div class="setting-name">Push Notifications</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">⏰</div><div class="setting-name">Food Expiry Alerts</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">📅</div><div class="setting-name">Calendar Reminders</div></div>
+<div class="toggle on" onclick="this.classList.toggle('on')"></div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">📬</div><div class="setting-name">Weekly Newsletter</div></div>
+<div class="toggle" onclick="this.classList.toggle('on')"></div>
+</div>
+</div>
+
+<div class="setting-section-title">Preferences</div>
+<div class="setting-section">
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">🌐</div><div class="setting-name">Language</div></div>
+<div class="setting-val">English ›</div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">🎨</div><div class="setting-name">Theme Colour</div></div>
+<div class="setting-val">Mint Green ›</div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">📅</div><div class="setting-name">Calendar</div></div>
+<div class="setting-val">Google Calendar ›</div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">🎯</div><div class="setting-name">Difficulty</div></div>
+<div class="setting-val">Level 2-3 ›</div>
+</div>
+</div>
+
+<div class="setting-section-title">Support</div>
+<div class="setting-section">
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">📢</div><div class="setting-name">About F Lab</div></div>
+<div class="setting-val">v1.0.0</div>
+</div>
+<div class="setting-row">
+<div class="setting-left"><div class="setting-icon">💬</div><div class="setting-name">Contact Us</div></div>
+<div style="color:#cbd5e1;font-size:12px">›</div>
+</div>
+</div>
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== HELP / FAQ PAGE ====== -->
+<div id="page-help" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+<div class="page-title">❓ Help &amp; FAQ</div>
+
+<div class="faq-item">
+<div class="faq-q">What is F Lab?</div>
+<div class="faq-a">F Lab is a food science experiment app that helps kids turn food that might go to waste into something delicious, fun, or useful! Each experiment teaches you real science through hands-on cooking.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Are the experiments safe for kids?</div>
+<div class="faq-a">Yes! All experiments are designed for ages 5-18 with adult supervision. Each experiment has a safety note. Experiments with heat or sharp tools clearly say to ask an adult for help. Always work with a grown-up when using the stove, oven, or sharp knives.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">How does Calendar Sync work?</div>
+<div class="faq-a">When you connect your calendar, F Lab looks for birthdays, holidays, and special events. It then suggests food experiments and gift ideas that match those occasions — like a birthday cake for a friend's birthday or candied peel for Mother's Day! Your calendar data stays private and secure.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">What do I need to start?</div>
+<div class="faq-a">Just basic kitchen tools and ingredients you probably already have — milk, lemons, oranges, soybeans, etc. Each experiment lists exactly what you need. Most experiments use common household items. No fancy equipment required!</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">How do I level up?</div>
+<div class="faq-a">Complete experiments and record them in your Science Journal to earn points. Each experiment gives you points, and challenges give bonus points. Level up to unlock new experiments, badges, and fun features! Level 3 unlocks the "Science Labs" pro section.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Can I do experiments with friends?</div>
+<div class="faq-a">Absolutely! Add friends in the "My Lab Friends" section and do challenges together. You can compare how much food you've saved and see who earns the most badges. It's more fun with friends! 🎉</div>
+</div>
+
+<div style="height:16px"></div>
+</div>
+
+<!-- ====== MOTHER'S DAY PAGE ====== -->
+<div id="page-mday" class="page">
+<div class="back-bar"><div class="back-btn" onclick="goBack()">← Back</div></div>
+
+<div class="mday-hero">
+<div class="mday-emoji">💝</div>
+<div class="mday-title">Mother's Day is Coming!</div>
+<div class="mday-sub">Surprise Mum with a handmade gift from the kitchen</div>
+<div class="mday-countdown">
+<div class="cd-box"><div class="cd-num">7</div><div class="cd-label">Days</div></div>
+<div class="cd-box"><div class="cd-num">12</div><div class="cd-label">Hours</div></div>
+<div class="cd-box"><div class="cd-num">34</div><div class="cd-label">Mins</div></div>
+</div>
+</div>
+
+<div class="mday-section-title">🎁 Recommended Gift Experiments</div>
+
+<div class="mday-gift-card" onclick="showDetail('cake')">
+<div class="mday-gift-icon">🎂</div>
+<div class="mday-gift-body">
+<div class="mday-gift-name">Milk → Birthday Cake</div>
+<div class="mday-gift-desc">Homemade cake with paneer frosting · 1.5 hrs</div>
+</div>
+<div class="mday-gift-arrow">›</div>
+</div>
+
+<div class="mday-gift-card" onclick="showDetail('ojcandy')">
+<div class="mday-gift-icon" style="background:#fef9c3">🍬</div>
+<div class="mday-gift-body">
+<div class="mday-gift-name">Orange → Candied Peel</div>
+<div class="mday-gift-desc">Sweet candied peel in a pretty jar · 45 min</div>
+</div>
+<div class="mday-gift-arrow">›</div>
+</div>
+
+<div class="mday-gift-card" onclick="showDetail('ojjam')">
+<div class="mday-gift-icon" style="background:#fee2e2">🍯</div>
+<div class="mday-gift-body">
+<div class="mday-gift-name">Orange → Marmalade Jam</div>
+<div class="mday-gift-desc">Homemade orange marmalade · 1 hour</div>
+</div>
+<div class="mday-gift-arrow">›</div>
+</div>
+
+<div class="mday-gift-card" onclick="showDetail('bodyscrub')">
+<div class="mday-gift-icon" style="background:#fce7f3">🧼</div>
+<div class="mday-gift-body">
+<div class="mday-gift-name">Citrus Body Scrub</div>
+<div class="mday-gift-desc">Exfoliating scrub in a jar · 15 min</div>
+</div>
+<div class="mday-gift-arrow">›</div>
+</div>
+
+<div class="mday-note">
+<b>💡 Pro tip:</b> Add a handwritten card and tie a ribbon around the jar. Handmade gifts come from the heart — Mum will love it! 💕
+</div>
+
+<div class="mday-section-title">📅 Connected to Your Calendar</div>
+<div style="margin:0 18px 14px;padding:12px 14px;background:#f0fdfa;border-radius:12px">
+<div style="font-size:11.5px;color:#0f766e;line-height:1.5">
+<b>This event was detected from your calendar.</b><br>
+F Lab saw Mother's Day on May 11 and automatically prepared these gift ideas for you!
+</div>
+</div>
+<div style="height:16px"></div>
 </div>
 
 <!-- ====== DETAIL ====== -->
@@ -448,110 +1161,507 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#eef2f7;co
 
 <script>
 const exps = {
+// ====== DAIRY / MILK SERIES ======
 paneer: {emoji:'🧀',hero:'paneer',name:'Paneer Cheese',en:'Fresh Indian cheese from milk',
+cat:['dairy','baking','science'],
 time:'⏱ 30 min',level:'⭐ Easy',age:'👧 Age 8+',
 yieldVal:'28%',shelf:'3+ d',save:'$2.5',
-ings:['250mL milk','10mL lemon juice','Cheesecloth','Paneer press'],
-tip:'Lemon juice is acidic. The acid makes milk proteins (casein) clump together — that\'s how curds form!',
-steps:[{t:'Measure the Milk',d:'Pour 250mL of milk into a heat-safe measuring cup.'},
-{t:'Heat in Microwave',d:'Microwave on high for 2 minutes. Take it out carefully — it\'s hot!'},
-{t:'Add Lemon Juice',d:'Add 10mL of lemon juice. Stir gently for 30-45 seconds. Watch curds form!'},
-{t:'Let It Rest',d:'Leave it alone for 5 minutes. Curds will separate from the yellow whey.'},
-{t:'Strain & Press',d:'Pour through cheesecloth in your paneer press device. Press for 10 minutes.'},
-{t:'Weigh & Record',d:'Take the paneer out and weigh it. Record your results in your science journal!'}]
-},
+ings:['250mL milk','10mL lemon juice','Cheesecloth','Bowl','Measuring cup','Spoon'],
+safety:'Ask an adult to help with hot liquids and the microwave!',
+tip:'Lemon juice is acidic. The acid makes milk proteins (casein) clump together — that\'s how curds form! The yellow liquid left behind is called whey.',
+steps:[
+{t:'Measure the Milk',d:'Pour 250mL of milk into a heat-safe measuring cup or small bowl.'},
+{t:'Heat Gently',d:'Microwave on high for 2 minutes, or heat on the stovetop until small bubbles form around the edge. Take it out carefully — it\'s hot!'},
+{t:'Add Lemon Juice',d:'Add 10mL of lemon juice and stir gently for 30-45 seconds. Watch the milk turn lumpy!'},
+{t:'Let It Rest',d:'Leave it alone for 5 minutes. Curds (white lumps) will separate from the yellow whey liquid.'},
+{t:'Strain the Curds',d:'Pour through a cheesecloth-lined sieve over a bowl. Let the whey drain out.'},
+{t:'Press & Enjoy',d:'Gather the cloth and press gently to squeeze out extra whey. Press under a heavy plate for 10 minutes. Your fresh paneer is ready!'}
+]},
 yogurt: {emoji:'🥛',hero:'yogurt',name:'Homemade Yoghurt',en:'Creamy probiotic yogurt overnight',
+cat:['dairy','drink','science'],
 time:'⏱ 8 hours',level:'⭐ Easy',age:'👧 Age 10+',
 yieldVal:'90%',shelf:'5 d',save:'$1.8',
-ings:['1L milk','2 tbsp plain yoghurt','Glass jars','Thick towel'],
-tip:'Yoghurt has live bacteria called probiotics. They eat the milk sugar (lactose) and make the milk thick and tangy!',
-steps:[{t:'Heat the Milk',d:'Heat 1L milk to 85°C (just before boiling). Then cool to 45°C — warm like a bath.'},
-{t:'Add Starter Yoghurt',d:'Mix in 2-3 tablespoons of plain yoghurt that has live cultures.'},
-{t:'Pour Into Jars',d:'Pour the mixture into clean glass jars with lids.'},
-{t:'Keep Warm Overnight',d:'Wrap the jars in a thick towel and keep them in a warm place for 6-8 hours.'},
-{t:'Chill & Enjoy',d:'Put in the fridge for at least 2 hours. Eat with fruit, honey, or granola!'}]
-},
+ings:['1L milk','2 tbsp plain yogurt','Glass jars with lids','Thick towel','Thermometer (optional)','Pot'],
+safety:'Ask an adult for help with heating milk on the stove!',
+tip:'Yoghurt has live bacteria called probiotics. They eat the milk sugar (lactose) and make the milk thick and tangy. This is called fermentation!',
+steps:[
+{t:'Heat the Milk',d:'Pour 1L of milk into a pot. Heat it to about 85°C (just before boiling). Stir so it doesn\'t burn on the bottom.'},
+{t:'Cool It Down',d:'Take the pot off the heat. Let the milk cool to about 45°C — warm like a bath, not too hot to touch.'},
+{t:'Add Starter Yogurt',d:'Mix in 2 tablespoons of plain yogurt that has live cultures. Stir well to spread the bacteria evenly.'},
+{t:'Pour Into Jars',d:'Pour the mixture into clean glass jars and put the lids on loosely.'},
+{t:'Keep Warm Overnight',d:'Wrap the jars in a thick towel to keep them warm. Leave in a warm place for 6-8 hours or overnight.'},
+{t:'Chill & Enjoy',d:'Put the jars in the fridge for at least 2 hours to set. Eat with fruit, honey, or granola!'}
+]},
 butter: {emoji:'🧈',hero:'butter',name:'Homemade Butter',en:'Shake cream into golden butter',
+cat:['dairy','baking','science'],
 time:'⏱ 20 min',level:'⭐ Easy',age:'👧 Age 7+',
 yieldVal:'40%',shelf:'2 wks',save:'$3.0',
-ings:['Heavy cream','Clean jar with lid','Cold water','Pinch of salt (optional)'],
-tip:'Shaking breaks the fat membranes in cream. The fat globules stick together to form butter, and the liquid left is buttermilk!',
-steps:[{t:'Warm the Cream',d:'Take heavy cream out of the fridge. Let it warm to room temperature (15 min).'},
-{t:'Pour Into Jar',d:'Pour cream into a clean, dry jar with a tight lid. Fill only half way!'},
-{t:'Shake Hard!',d:'Put the lid on tight. Shake as hard as you can for 5-10 minutes.'},
-{t:'See the Butter Form',d:'First it turns thick (whipped cream), then suddenly — butter clumps appear!'},
-{t:'Rinse & Press',d:'Pour off the buttermilk (save it for pancakes!). Rinse butter with cold water and press gently.'},
-{t:'Shape & Store',d:'Add a pinch of salt if you like. Shape it and keep in the fridge.'}]
-},
-ghee: {emoji:'🫙',hero:'butter',name:'Ghee',en:'Clarified butter — lasts for months',
+ings:['Heavy cream (1 cup)','Clean jar with lid','Cold water','Pinch of salt (optional)','Small bowl','Butter knife'],
+safety:'No hot things needed — this one is safe to do yourself!',
+tip:'Shaking breaks the fat membranes in cream. The fat globules stick together to form butter, and the liquid left is buttermilk. This is a physical change called "phase separation".',
+steps:[
+{t:'Warm the Cream',d:'Take heavy cream out of the fridge. Let it warm to room temperature for about 15 minutes.'},
+{t:'Pour Into Jar',d:'Pour cream into a clean, dry jar with a tight lid. Fill it only halfway — it needs room to shake!'},
+{t:'Shake Hard!',d:'Put the lid on tight. Shake as hard as you can for 5-10 minutes. It\'s a great arm workout!'},
+{t:'Watch It Change',d:'First it gets thick like whipped cream. Keep shaking — suddenly you\'ll see yellow butter clumps in white liquid!'},
+{t:'Rinse & Press',d:'Pour off the buttermilk (save it for pancakes or smoothies!). Rinse the butter with cold water and gently press it with a spoon.'},
+{t:'Shape & Store',d:'Add a pinch of salt if you like. Shape it into a block or roll. Keep it in the fridge.'}
+]},
+ghee: {emoji:'🫙',hero:'ghee',name:'Ghee',en:'Clarified butter — lasts for months',
+cat:['dairy','science'],
 time:'⏱ 30 min',level:'⭐ Medium',age:'👧 Age 10+',
 yieldVal:'80%',shelf:'6+ mo',save:'$5.0',
-ings:['Unsalted butter','Cheesecloth','Clean jar','Small pan'],
-tip:'Ghee is butter with the milk solids removed. Because there\'s no water or milk solids, it doesn\'t go bad quickly!',
-steps:[{t:'Melt the Butter',d:'Put unsalted butter in a small pan. Melt on very low heat.'},
-{t:'Simmer Slowly',d:'Let it simmer gently (not boiling!). Foam will form on top — skim some off.'},
-{t:'Watch for Golden',d:'After 15-20 min, it turns golden and smells nutty. The bottom gets brown specks.'},
-{t:'Strain It',d:'Pour through cheesecloth or a fine strainer into a clean jar.'},
-{t:'Cool & Store',d:'Let it cool completely. Ghee stays good at room temperature for months!'}]
-},
+ings:['Unsalted butter (250g)','Cheesecloth or fine strainer','Clean glass jar','Small pan','Spoon','Heat pad'],
+safety:'Melted butter is very hot! Always have an adult help with the stovetop.',
+tip:'Ghee is butter with the milk solids and water removed. Because there\'s no water or milk protein, it doesn\'t go bad quickly — it can last for months at room temperature!',
+steps:[
+{t:'Cut the Butter',d:'Cut 250g of unsalted butter into small pieces. This helps it melt evenly.'},
+{t:'Melt on Low Heat',d:'Put the butter in a small pan. Melt it on the lowest heat setting.'},
+{t:'Simmer Slowly',d:'Let it simmer gently (don\'t boil it!). Foam will form on top — you can skim some off with a spoon.'},
+{t:'Watch for Golden',d:'After 15-20 minutes, it turns golden and smells nutty. You\'ll see brown specks at the bottom — those are the milk solids!'},
+{t:'Strain It',d:'Set a cheesecloth or fine strainer over a clean jar. Pour the golden liquid through carefully.'},
+{t:'Cool & Store',d:'Let it cool completely. Put the lid on. Ghee stays good at room temperature for months!'}
+]},
+kefir: {emoji:'🥤',hero:'kefir',name:'Milk Kefir',en:'Fizzy fermented milk drink',
+cat:['dairy','drink','science'],
+time:'⏱ 24-48 hours',level:'⭐ Easy',age:'👧 Age 10+',
+yieldVal:'90%',shelf:'1 wk',save:'$2.0',
+ings:['1 cup milk','1 tbsp kefir grains','Glass jar','Plastic or paper lid','Plastic sieve','Bowl'],
+safety:'No cooking involved, just waiting. Ask an adult before trying new foods!',
+tip:'Kefir grains are little clumps of bacteria and yeast (like tiny cauliflower!). They ferment the milk, making it tangy and slightly fizzy. Kefir has more types of probiotics than yogurt!',
+steps:[
+{t:'Get Your Grains Ready',d:'Put 1 tablespoon of kefir grains into a clean glass jar.'},
+{t:'Add Milk',d:'Pour 1 cup of milk over the kefir grains. Use whole milk for the creamiest kefir.'},
+{t:'Cover Loosely',d:'Cover the jar with a paper towel or loose lid (don\'t screw it tight — the kefir needs to breathe!).'},
+{t:'Wait & Watch',d:'Leave it on the counter for 24-48 hours. The milk will get thicker and tangy-smelling. Taste it after 24 hours!'},
+{t:'Strain the Kefir',d:'Pour the kefir through a plastic sieve into a bowl. Gently stir to help the liquid kefir pass through.'},
+{t:'Enjoy & Repeat',d:'Drink your kefir or use it in smoothies! Put the grains back in a clean jar with fresh milk to make more!'}
+]},
+icecream: {emoji:'🍦',hero:'icecream',name:'Homemade Ice Cream',en:'No-churn creamy vanilla ice cream',
+cat:['dairy','baking','drink'],
+time:'⏱ 20 min + 6hr freeze',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~500mL',shelf:'1 mo',save:'$4.0',
+ings:['2 cups heavy cream','1 can sweetened condensed milk','2 tsp vanilla extract','Pinch of salt','Freezer-safe container','Electric mixer (or whisk)'],
+safety:'Ask an adult if using an electric mixer. Watch your fingers!',
+tip:'Ice cream has tiny ice crystals in it. When you whip cream, you trap air bubbles that make it light and fluffy. The sugar and fat stop big ice crystals from forming — that\'s why it\'s creamy, not icy!',
+steps:[
+{t:'Whip the Cream',d:'Pour 2 cups of cold heavy cream into a big bowl. Whip with a mixer until stiff peaks form (about 3-5 minutes).'},
+{t:'Add Sweet Milk',d:'Pour in the sweetened condensed milk. Add vanilla extract and a tiny pinch of salt.'},
+{t:'Fold Gently',d:'Use a spatula to gently fold the mixture together — go slow so you don\'t lose all the air bubbles!'},
+{t:'Pour Into Container',d:'Scrape the mixture into a freezer-safe container with a lid.'},
+{t:'Freeze',d:'Put it in the freezer for at least 6 hours or overnight. It will get firm and scoopable.'},
+{t:'Scoop & Enjoy',d:'Take it out of the freezer. Let it sit for 5 minutes to soften a bit. Scoop into bowls and enjoy!'}
+]},
+custard: {emoji:'🍮',hero:'custard',name:'Vanilla Custard',en:'Silky egg custard from milk & eggs',
+cat:['dairy','baking','science'],
+time:'⏱ 40 min',level:'⭐ Medium',age:'👧 Age 10+',
+yieldVal:'~400mL',shelf:'3 d',save:'$3.5',
+ings:['2 cups milk','2 egg yolks','3 tbsp sugar','1 tbsp cornstarch','1 tsp vanilla extract','Pinch of salt'],
+safety:'Always have an adult help with the stovetop — the pan gets hot! Don\'t let the custard boil.',
+tip:'Eggs have proteins that curl up when they get warm. When you gently heat egg yolks with milk and sugar, the proteins set slowly and make a smooth, thick cream. That\'s custard!',
+steps:[
+{t:'Mix the Dry Stuff',d:'In a bowl, mix sugar, cornstarch, and a pinch of salt. Separate 2 egg yolks (save the whites for meringue!).'},
+{t:'Add Egg Yolks',d:'Add the egg yolks to the sugar mix. Whisk until smooth and pale yellow.'},
+{t:'Warm the Milk',d:'Heat 2 cups of milk in a small pan until it just starts to steam (don\'t boil!). Add a little hot milk to the egg mix while whisking fast.'},
+{t:'Combine & Cook',d:'Pour the egg mix back into the pan. Cook on low heat, stirring constantly, until it gets thick like pudding (about 5-8 minutes).'},
+{t:'Add Vanilla',d:'Take it off the heat. Stir in the vanilla extract.'},
+{t:'Cool & Chill',d:'Pour into bowls. Press plastic wrap on the surface (to stop a skin from forming). Chill for 2 hours before eating!'}
+]},
+
+// ====== SOYBEAN SERIES ======
+soymilk: {emoji:'🥛',hero:'soymilk',name:'Homemade Soy Milk',en:'Fresh plant-based milk from beans',
+cat:['soy','drink','science'],
+time:'⏱ 1 night + 30 min',level:'⭐ Medium',age:'👧 Age 10+',
+yieldVal:'~1L',shelf:'3 d',save:'$4.0',
+ings:['100g dried soybeans','1L water','Cheesecloth or nut milk bag','Blender','Pot','Sugar or vanilla (optional)'],
+safety:'Ask an adult to help with the blender and hot stovetop!',
+tip:'Soybeans are about 36% protein! When you soak them, they absorb water and get soft. Blending breaks open the bean cells, and the protein mixes with water to make creamy white milk.',
+steps:[
+{t:'Soak the Beans',d:'Rinse 100g of dried soybeans. Put them in a bowl and cover with plenty of water. Soak overnight (8-12 hours). They will double in size!'},
+{t:'Blend It Up',d:'Drain the soaked beans. Put them in a blender with 1L of fresh water. Blend on high speed for 2 full minutes.'},
+{t:'Strain Through Cloth',d:'Set a cheesecloth or nut milk bag over a big bowl. Pour the blended mixture in. Squeeze the cloth to get all the milk out.'},
+{t:'Heat the Milk',d:'Pour the soy milk into a pot. Heat on medium, stirring often so it doesn\'t stick to the bottom.'},
+{t:'Simmer & Skim',d:'When it boils, turn the heat down. Simmer for 10 minutes. Skim off any foam that forms on top.'},
+{t:'Flavour & Store',d:'Add a little sugar, vanilla, or salt if you like. Let it cool. Store in the fridge for up to 3 days. Shake before drinking!'}
+]},
+tofu: {emoji:'🧈',hero:'tofu',name:'Homemade Tofu',en:'Soft silken tofu from soy milk',
+cat:['soy','science','baking'],
+time:'⏱ 1 hour',level:'⭐ Medium',age:'👧 Age 12+',
+yieldVal:'~150g',shelf:'3 d',save:'$3.0',
+ings:['1L homemade soy milk','1 tsp nigari (magnesium chloride) or 2 tsp lemon juice','Tofu mold or small container','Cheesecloth','Bowl','Spoon'],
+safety:'Ask an adult for help with hot soy milk on the stove!',
+tip:'Soy milk has protein molecules called soy proteins. When you add nigari (a type of salt), the negative charges on the proteins change. The proteins stick together to make curds — and pressed curds become tofu!',
+steps:[
+{t:'Make Fresh Soy Milk',d:'Make 1L of fresh homemade soy milk (see the Soy Milk experiment). Keep it warm — about 80°C.'},
+{t:'Mix the Coagulant',d:'Mix 1 teaspoon of nigari with 2 tablespoons of warm water. Stir until dissolved. (You can also use lemon juice!)'},
+{t:'Add Coagulant Slowly',d:'Pour the nigari water slowly into the warm soy milk while stirring gently. You\'ll see the milk start to curdle!'},
+{t:'Let It Set',d:'Stop stirring. Cover the pot and let it sit for 15 minutes. The curds will separate from the yellowish whey.'},
+{t:'Line the Mold',d:'Line a small tofu mold or container with cheesecloth. Gently scoop the curds into it.'},
+{t:'Press & Chill',d:'Fold the cloth over the curds. Put a light weight on top. Press for 20-30 minutes. Chill in the fridge. Your tofu is ready!'}
+]},
+yuba: {emoji:'🍜',hero:'yuba',name:'Yuba (Soy Skin)',en:'Delicate soy milk skin sheets',
+cat:['soy','science'],
+time:'⏱ 30 min',level:'⭐ Easy',age:'👧 Age 10+',
+yieldVal:'2-3 sheets',shelf:'1 wk (dried)',save:'$2.0',
+ings:['1L fresh soy milk','Wide shallow pan','Slotted spoon or chopsticks','Plate lined with paper towel','Soy sauce (for dipping)','Sugar (optional)'],
+safety:'Ask an adult for help with the hot pan and steamy soy milk!',
+tip:'When soy milk is heated gently, the protein and fat rise to the surface. A thin skin (yuba) forms as water evaporates from the top layer. This skin is pure soy protein — very healthy!',
+steps:[
+{t:'Heat the Soy Milk',d:'Pour 1L of fresh soy milk into a wide, shallow pan. Heat it on low heat slowly — don\'t let it boil!'},
+{t:'Wait for the Skin',d:'Keep heating gently. After 8-10 minutes, a thin, wrinkled skin will form on the surface.'},
+{t:'Lift the Skin',d:'Use chopsticks or a slotted spoon to carefully lift the edge of the skin. Pull it up in one big sheet — like lifting a blanket!'},
+{t:'Lay to Dry',d:'Lay the yuba sheet on a plate lined with paper towel. You can fold it or roll it up.'},
+{t:'Get More Skins',d:'Keep heating the soy milk — more skins will form! You can get 2-3 sheets from 1L of milk.'},
+{t:'Eat or Save',d:'Eat yuba fresh with soy sauce, or let it dry completely and store it for later use in soups and stir-fries!'}
+]},
+soysauce: {emoji:'🍶',hero:'soysauce',name:'Soy Sauce Starter',en:'Beginner fermented soy sauce',
+cat:['soy','science'],
+time:'⏱ 1 week+ ferment',level:'⭐ Medium',age:'👧 Age 12+',
+yieldVal:'~200mL',shelf:'6 mo',save:'$5.0',
+ings:['1 cup cooked soybeans','1 cup flour (or roasted wheat)','Salt','Water','Glass jar with lid','Cheesecloth'],
+safety:'Ask an adult before tasting fermented foods. If it looks or smells bad, don\'t eat it!',
+tip:'Soy sauce is made by fermenting soybeans with salt and a special mold called koji. The bacteria and fungi break down proteins into amino acids — that\'s what gives soy sauce its savoury "umami" taste!',
+steps:[
+{t:'Cook the Soybeans',d:'Soak 1 cup of soybeans overnight, then boil them until soft (about 1 hour). Drain well.'},
+{t:'Mix with Flour',d:'Mash the cooked beans a little. Mix in 1 cup of flour or roasted wheat flour to make a thick paste.'},
+{t:'Form Small Balls',d:'Roll the mixture into small balls, about the size of marbles. Place them on a clean plate.'},
+{t:'Let Mold Grow',d:'Cover loosely with cheesecloth. Leave in a warm, dark place for 2-3 days. White mold will grow — this is the koji starter!'},
+{t:'Make Salt Brine',d:'Mix 1 cup of water with 3 tablespoons of salt. Stir until the salt dissolves. Pour into a clean jar.'},
+{t:'Ferment & Wait',d:'Add the moldy balls to the salt brine. Cover loosely. Stir every day for 1 week, then once a week. After 4-6 weeks, strain — your homemade soy sauce is ready!'}
+]},
+miso: {emoji:'🥣',hero:'miso',name:'Miso Paste',en:'Fermented soybean paste',
+cat:['soy','science'],
+time:'⏱ 2 days + 2 weeks ferment',level:'⭐ Medium',age:'👧 Age 12+',
+yieldVal:'~500g',shelf:'6 mo',save:'$6.0',
+ings:['1 cup dry soybeans','1 cup rice koji (malted rice)','3 tbsp salt','Water','Glass jar','Cheesecloth'],
+safety:'Ask an adult before tasting fermented foods. Always use clean tools!',
+tip:'Miso is made by fermenting soybeans with koji (rice that has a special mold on it). The koji enzymes break down the bean proteins and sugars, creating a savoury, salty paste full of probiotics!',
+steps:[
+{t:'Soak & Cook Beans',d:'Soak 1 cup of soybeans in water overnight. The next day, boil them for 1-2 hours until very soft. Drain, but save the cooking water.'},
+{t:'Mash the Beans',d:'Mash the hot beans with a potato masher or fork. You want a smooth paste with a few lumps.'},
+{t:'Mix with Koji & Salt',d:'Let the bean paste cool a little. Mix in 1 cup of rice koji and 3 tablespoons of salt. Add a little bean cooking water if it\'s too dry.'},
+{t:'Pack Into Jar',d:'Pack the mixture tightly into a clean glass jar. Press it down firmly so there are no air bubbles.'},
+{t:'Cover & Wait',d:'Wipe the jar rim clean. Put a layer of plastic wrap directly on the miso surface. Put the lid on loosely.'},
+{t:'Ferment & Taste',d:'Leave in a cool, dark place. After 2 weeks, taste it — it will be mild miso! For stronger flavour, let it ferment for 1-3 months. Use it in soup, dressings, or marinades!'}
+]},
+tempeh: {emoji:'🫘',hero:'tempeh',name:'Tempeh',en:'Fermented soybean cake',
+cat:['soy','science'],
+time:'⏱ 24-36 hours',level:'⭐ Medium',age:'👧 Age 12+',
+yieldVal:'~250g',shelf:'1 wk',save:'$4.0',
+ings:['150g dry soybeans','1 tsp tempeh starter (Rhizopus mold)','1 tbsp vinegar','Plastic bag or banana leaves','Pin','Warm spot (incubator)'],
+safety:'Ask an adult before eating homemade fermented foods. Tempeh should smell earthy, not rotten!',
+tip:'Tempeh is made when a white fuzzy mold called Rhizopus oligosporus grows on cooked soybeans. The mold threads (hyphae) bind all the beans together into a firm cake. The mold makes the beans easier to digest!',
+steps:[
+{t:'Soak & Cook Beans',d:'Soak 150g of soybeans overnight. The next day, boil them for 30-45 minutes until soft but not mushy. Drain well.'},
+{t:'Dry the Beans',d:'Spread the cooked beans on a clean towel. Pat them dry — they need to be dry on the surface for the mold to grow well.'},
+{t:'Add Vinegar & Starter',d:'Put the beans in a bowl. Add 1 tablespoon of vinegar and mix (this stops bad bacteria). Then sprinkle on the tempeh starter and mix well.'},
+{t:'Pack Into Bags',d:'Put the beans into a clean plastic bag or between banana leaves. Flatten into a thin layer (about 2cm thick). Poke 20-30 small holes with a pin for air.'},
+{t:'Find a Warm Spot',d:'Place the tempeh in a warm spot (about 30°C). A closed oven with the light on works well! Leave for 24-36 hours.'},
+{t:'Check & Cook',d:'When it\'s a solid white cake with a mushroomy smell, it\'s ready! Slice it and pan-fry until crispy. Yum!'}
+]},
+edamame: {emoji:'🫛',hero:'edamame',name:'Steamed Edamame',en:'Fresh green soybeans with salt',
+cat:['soy','snack','drink'],
+time:'⏱ 15 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~200g',shelf:'2 d',save:'$2.0',
+ings:['200g fresh or frozen edamame (in pods)','Salt','Pot with steamer basket','Bowl','Paper towel','Optional: garlic powder'],
+safety:'Ask an adult for help with the hot steamer and boiling water!',
+tip:'Edamame are young green soybeans — they\'re harvested before they turn hard and yellow. They\'re packed with protein! Steaming keeps more nutrients than boiling in water.',
+steps:[
+{t:'Get the Beans Ready',d:'Rinse the edamame pods under cold water. If they\'re frozen, no need to thaw first!'},
+{t:'Set Up Steamer',d:'Fill a pot with about 2cm of water. Put a steamer basket in the pot. Bring the water to a boil.'},
+{t:'Steam the Edamame',d:'Put the edamame in the steamer basket. Cover with a lid. Steam for 5-7 minutes (fresh) or 8-10 minutes (frozen).'},
+{t:'Sprinkle with Salt',d:'Carefully take the steamer basket out — it\'s hot! Put the edamame in a bowl and sprinkle with salt. Toss gently.'},
+{t:'Cool a Little',d:'Let them cool for a minute or two. You can also rinse them quickly with cold water.'},
+{t:'How to Eat',d:'Hold the pod with your fingers. Put one end in your mouth and squeeze — the beans pop right in! The pods are fibre but you don\'t eat them.'}
+]},
+
+// ====== LEMON SERIES ======
+lemonade: {emoji:'🍋',hero:'lemonade',name:'Fresh Lemonade',en:'Refreshing homemade lemon drink',
+cat:['citrus','drink','snack'],
+time:'⏱ 5 min',level:'⭐ Easy',age:'👧 Age 7+',
+yieldVal:'~500mL',shelf:'2 d',save:'$2.0',
+ings:['2 fresh lemons','2 tbsp sugar or honey','500mL cold water','Ice cubes','Lemon squeezer','Glass or pitcher'],
+safety:'No cooking needed — super easy! Watch out for lemon juice in your eyes.',
+tip:'Lemons have citric acid which gives them their tangy taste. When you mix lemon juice with sugar and water, the sugar balances the acid — that\'s why lemonade tastes so good!',
+steps:[
+{t:'Roll the Lemons',d:'Roll the lemons on the table with the palm of your hand, pressing gently. This makes them easier to juice!'},
+{t:'Squeeze the Juice',d:'Cut each lemon in half. Use a lemon squeezer to get all the juice out. You should get about 6 tablespoons of juice.'},
+{t:'Make Simple Syrup',d:'If using sugar, mix 2 tablespoons of sugar with 2 tablespoons of warm water. Stir until all the sugar dissolves. (Honey works too!)'},
+{t:'Mix Everything',d:'Pour the lemon juice and sugar syrup into a pitcher or big glass. Add 500mL of cold water.'},
+{t:'Add Ice',d:'Put some ice cubes in your glass. Pour the lemonade over the ice.'},
+{t:'Garnish & Enjoy',d:'Add a slice of lemon on the edge of your glass. Stir and drink — so refreshing!'}
+]},
+cookie: {emoji:'✨',hero:'cookie',name:'Lemon Zest Cookies',en:'Crumbly lemon zest shortbread',
+cat:['citrus','baking','snack'],
+time:'⏱ 35 min + chill',level:'⭐ Easy',age:'👧 Age 10+',
+yieldVal:'~12 cookies',shelf:'1 wk',save:'$4.0',
+ings:['1 cup flour','½ cup butter','¼ cup sugar','Zest of 1 lemon','1 egg yolk','Pinch of salt'],
+safety:'Ask an adult to help with the oven — it gets very hot!',
+tip:'The oil in lemon peel (zest) has a strong, fresh smell and flavour. That\'s because of a chemical called limonene. When you add zest to cookies, the oil spreads through the dough and makes them taste like lemon!',
+steps:[
+{t:'Zest the Lemon',d:'Wash one lemon. Use a zester or the small holes on a grater to take off just the yellow skin (not the white pith — that\'s bitter!).'},
+{t:'Mix Butter & Sugar',d:'Let the butter soften to room temperature. Mix it with sugar until it\'s fluffy and pale.'},
+{t:'Add Zest & Yolk',d:'Add the lemon zest and egg yolk. Mix well. It will smell amazing!'},
+{t:'Add Flour',d:'Add the flour and a pinch of salt. Mix until a dough forms. Don\'t overmix!'},
+{t:'Chill the Dough',d:'Shape the dough into a log. Wrap in plastic wrap and chill in the fridge for 30 minutes.'},
+{t:'Bake & Cool',d:'Slice the dough into rounds. Place on a baking tray. Bake at 180°C for 12-15 minutes until golden at the edges. Cool on a rack. Yum!'}
+]},
+honeytea: {emoji:'🍵',hero:'honeytea',name:'Honey Lemon Tea',en:'Soothing warm drink for cold days',
+cat:['citrus','drink','snack'],
+time:'⏱ 5 min',level:'⭐ Easy',age:'👧 Age 7+',
+yieldVal:'1 cup',shelf:'Best fresh',save:'$1.5',
+ings:['½ lemon','1 tbsp honey','1 cup hot water (not boiling)','Teacup','Spoon','Optional: fresh mint'],
+safety:'Ask an adult to help with hot water! Never use boiling water with honey — it kills the good stuff.',
+tip:'Honey has natural antibacterial properties. Lemon has vitamin C which helps your immune system. Warm drinks soothe your throat when you\'re sick. This is both tasty and good for you!',
+steps:[
+{t:'Squeeze the Lemon',d:'Cut half a lemon and squeeze out the juice. You should get about 1 tablespoon.'},
+{t:'Put Honey in Cup',d:'Put 1 tablespoon of honey in your favourite mug or teacup.'},
+{t:'Add Hot Water',d:'Pour 1 cup of hot (not boiling) water over the honey. Stir until the honey dissolves completely.'},
+{t:'Add Lemon Juice',d:'Pour in the lemon juice. Stir gently.'},
+{t:'Taste Test',d:'Take a small sip. Is it sweet enough? Add more honey if you want. Too tangy? Add more water.'},
+{t:'Sip & Relax',d:'Sit down, wrap your hands around the warm cup, and enjoy. Perfect for cold days or when you have a sore throat!'}
+]},
+preserved: {emoji:'🫙',hero:'preserved',name:'Preserved Lemon',en:'Moroccan-style salt-preserved lemons',
+cat:['citrus','science','gift'],
+time:'⏱ 3 weeks',level:'⭐ Easy',age:'👧 Age 10+',
+yieldVal:'1 jar',shelf:'1 yr+',save:'$8.0',
+ings:['4-5 lemons','¼ cup salt','1 glass jar with lid','Knife','Spoon','Optional: cinnamon stick, bay leaf'],
+safety:'Use clean jars. Ask an adult before trying preserved lemons — they\'re a condiment, not a snack!',
+tip:'Salt pulls water out of the lemon peel (osmosis!) and creates an environment where bad bacteria can\'t grow. Good bacteria slowly ferment the peel, making it soft, tangy, and full of flavour. That\'s how food was preserved before fridges!',
+steps:[
+{t:'Wash & Scrub',d:'Wash the lemons really well with warm water. Scrub the skin to remove any wax or dirt.'},
+{t:'Cut the Lemons',d:'Cut each lemon from the top down, but not all the way through — leave 1cm attached at the bottom. Make another cut the other way, like a plus sign.'},
+{t:'Pack with Salt',d:'Open the lemon and push salt into the cuts. Pack it full! Use about 1-2 teaspoons per lemon.'},
+{t:'Pack Into Jar',d:'Pack the salted lemons tightly into a clean glass jar. Press them down so juice comes out. Add more salt on top.'},
+{t:'Fill with Juice',d:'If the lemons aren\'t covered by juice, squeeze extra lemon juice on top. The lemons must be completely submerged.'},
+{t:'Wait & Wait',d:'Put the lid on. Leave at room temperature for 3 weeks, shaking gently every few days. The peel will get soft and translucent. Use in tagines, salads, and sauces!'}
+]},
+
+// ====== ORANGE SERIES ======
+ojfresh: {emoji:'🍊',hero:'ojfresh',name:'Whole Orange Exploration',en:'Discover everything an orange can do',
+cat:['citrus','science','gift'],
+time:'⏱ 30 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'1 whole orange',shelf:'N/A',save:'$1.0',
+ings:['1 fresh orange','Knife & cutting board','Plate','Paper towel','Magnifying glass (optional)','Notebook'],
+safety:'Ask an adult to help with the knife!',
+tip:'An orange is nature\'s perfect package! The peel has oil glands (zest), the white pith has fibre, and the segments have juice and vitamin C. One orange can be turned into 7+ different things — juice, zest, oil, candied peel, jam, sorbet, and fresh fruit platter!',
+steps:[
+{t:'Examine Your Orange',d:'Look closely at your orange. Notice the bumpy peel — those are oil glands! Smell it. Feel how heavy it is.'},
+{t:'Peel It Carefully',d:'Peel the orange, keeping the peel in big pieces. Separate the white pith from the yellow zest. Notice how different they smell!'},
+{t:'Separate the Segments',d:'Gently pull the orange apart into segments. See the thin clear skin around each one? That\'s the segment membrane.'},
+{t:'Squeeze Some Juice',d:'Squeeze 2-3 segments into a small cup. How much juice do you get? Taste it — sweet and tangy!'},
+{t:'Zest the Peel',d:'Use a grater to zest a piece of peel (just the yellow part). Smell it — strong citrus aroma!'},
+{t:'Record Your Findings',d:'Draw your orange in your science journal. Label the peel, pith, segments, and juice. Write down what you learned about each part!'}
+]},
+ojuice: {emoji:'🍊',hero:'ojuice',name:'Fresh Orange Juice',en:'100% pure squeezed orange juice',
+cat:['citrus','drink','gift'],
+time:'⏱ 10 min',level:'⭐ Easy',age:'👧 Age 7+',
+yieldVal:'~200mL',shelf:'1 d',save:'$2.5',
+ings:['3-4 oranges','Juicer or citrus squeezer','Glass','Strainer (optional)','Spoon','Ice cubes'],
+safety:'No cooking needed. Watch for sticky juice on the floor — it can be slippery!',
+tip:'Orange juice has lots of vitamin C, which helps your body heal and fight germs. Each orange has about 70mg of vitamin C — that\'s more than you need in a whole day! Fresh juice tastes best because the vitamin C is still active.',
+steps:[
+{t:'Roll the Oranges',d:'Roll each orange on the table with your palm, pressing gently. This breaks the juice sacs inside so you get more juice!'},
+{t:'Cut in Half',d:'Cut each orange in half across the middle (not from top to bottom).'},
+{t:'Squeeze It',d:'Press each half onto a juicer or squeeze it hard by hand over a bowl. Twist back and forth to get all the juice out.'},
+{t:'Strain (Optional)',d:'If you don\'t like pulp, pour the juice through a strainer to catch the pulp and seeds.'},
+{t:'Pour & Serve',d:'Pour the juice into a glass. Add ice cubes if you like it cold.'},
+{t:'Drink Fresh!',d:'Fresh orange juice tastes best right away. Drink it within a day for the most vitamin C. Cheers! 🧡'}
+]},
+ojzest: {emoji:'✨',hero:'ojzest',name:'Orange Zest Sugar',en:'Flavoured sugar for baking & drinks',
+cat:['citrus','baking','gift'],
+time:'⏱ 10 min + dry',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~1 cup',shelf:'1 mo',save:'$3.0',
+ings:['1 orange','1 cup white sugar','Zester or fine grater','Jar with lid','Bowl','Spoon'],
+safety:'No cooking needed. Be careful with the grater — don\'t grate your fingers!',
+tip:'Orange peel has essential oils that are very concentrated. When you mix zest with sugar, the oils spread through the sugar crystals. This is called "infusion" — the sugar absorbs the flavour and smell!',
+steps:[
+{t:'Wash the Orange',d:'Wash the orange really well with warm water. We\'re using the peel, so it needs to be clean!'},
+{t:'Zest It',d:'Use a zester or the fine side of a grater. Only grate the orange part — the white pith underneath is bitter!'},
+{t:'Mix with Sugar',d:'Put 1 cup of sugar in a bowl. Add the orange zest. Mix well with a spoon.'},
+{t:'Smell It!',d:'Take a big sniff — the sugar already smells like orange! The essential oils from the peel are spreading.'},
+{t:'Let It Dry',d:'Spread the sugar on a plate. Let it sit for 1-2 hours so the zest dries out a little.'},
+{t:'Store & Use',d:'Pour into a clean jar. Use it in tea, on cereal, in cookie dough, or on fruit. It makes a great gift!'}
+]},
+ojoil: {emoji:'💧',hero:'ojoil',name:'Orange Essential Oil',en:'Homemade orange oil from peel',
+cat:['citrus','science','gift'],
+time:'⏱ 1 week',level:'⭐ Medium',age:'👧 Age 10+',
+yieldVal:'~50mL',shelf:'6 mo',save:'$10.0',
+ings:['Peels from 3-4 oranges','½ cup carrier oil (olive or almond)','Glass jar with lid','Cheesecloth or coffee filter','Dark bottle','Funnel'],
+safety:'No cooking, but essential oils are strong! Don\'t put undiluted oil directly on your skin. Ask an adult before use.',
+tip:'Orange peel has tiny glands filled with essential oil — limonene is the main chemical that gives it the citrus smell. When you soak peel in carrier oil, the essential oils dissolve into it. This is called cold infusion!',
+steps:[
+{t:'Collect the Peels',d:'Peel 3-4 oranges. Try to get as little white pith as possible (the pith is bitter). Cut the peels into small strips.'},
+{t:'Dry Them',d:'Lay the peel strips on a plate. Let them air dry for 2-3 days until they\'re completely dry and crispy.'},
+{t:'Put in Jar',d:'Put the dried peel into a clean glass jar. Pour ½ cup of carrier oil (like almond or olive oil) over it. Make sure all the peel is covered.'},
+{t:'Seal & Wait',d:'Put the lid on the jar. Shake it gently. Store it in a cool, dark place for 1 week. Shake the jar once a day.'},
+{t:'Strain It',d:'After a week, strain the oil through cheesecloth or a coffee filter. Squeeze to get all the oil out.'},
+{t:'Bottle & Use',d:'Pour into a dark glass bottle. Use a few drops in a diffuser, in your bath, or mixed with lotion. It smells amazing!'}
+]},
+ojcandy: {emoji:'🍬',hero:'ojcandy',name:'Candied Orange Peel',en:'Sweet candied peel strips',
+cat:['citrus','baking','gift'],
+time:'⏱ 45 min + dry',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~50g',shelf:'2 wks',save:'$3.5',
+ings:['2 oranges','1 cup sugar','1 cup water','Extra sugar for coating','Pot','Slotted spoon'],
+safety:'Ask an adult for help with the hot stove and boiling sugar syrup!',
+tip:'The white pith under the orange peel is bitter. Boiling it three times (changing the water each time) washes away the bitter compounds. Then simmering in sugar syrup replaces the water with sugar — that\'s candying!',
+steps:[
+{t:'Peel & Slice',d:'Peel 2 oranges. Try not to get too much white pith. Cut the peel into thin strips, about ½ cm wide.'},
+{t:'Boil 3 Times',d:'Put the peel strips in a pot with cold water. Bring to a boil, then drain. Repeat this 2 more times — 3 boils total! This removes the bitter taste.'},
+{t:'Make Sugar Syrup',d:'In the same pot, mix 1 cup of sugar with 1 cup of water. Heat on medium, stirring until all the sugar dissolves.'},
+{t:'Simmer the Peels',d:'Add the peel strips to the syrup. Turn the heat down and simmer for 20-25 minutes until the peel is translucent.'},
+{t:'Roll in Sugar',d:'Use a slotted spoon to take out each strip. Roll it in extra sugar while it\'s still warm.'},
+{t:'Dry & Enjoy',d:'Lay the candied peel on a rack to dry for a few hours. Store in a jar. Eat as candy or use in baking!'}
+]},
+ojjam: {emoji:'🍯',hero:'ojjam',name:'Orange Marmalade',en:'Sweet & tangy orange jam',
+cat:['citrus','baking','gift'],
+time:'⏱ 1 hour',level:'⭐ Medium',age:'👧 Age 10+',
+yieldVal:'~2 jars',shelf:'6 mo',save:'$6.0',
+ings:['4 oranges','2 cups sugar','1 cup water','Juice of 1 lemon','Jars with lids','Pot & spoon'],
+safety:'Hot sugar gets very hot! Always have an adult help with jam-making.',
+tip:'Jam sets because of pectin — a natural substance in fruit. Oranges have pectin in their peel and pith. When you cook fruit with sugar, the pectin molecules join together and trap the juice, making it thick and jiggly!',
+steps:[
+{t:'Prep the Oranges',d:'Wash 4 oranges. Peel them and cut the peel into thin strips. Squeeze the juice out of the oranges. Measure about 1.5 cups of juice.'},
+{t:'Chop & Soak',d:'Chop the orange flesh (remove seeds). Mix the juice, flesh, and peel strips in a pot. Add 1 cup of water. Let it sit for 30 minutes.'},
+{t:'Cook Until Soft',d:'Bring to a boil, then turn down and simmer for 30 minutes until the peel is soft.'},
+{t:'Add the Sugar',d:'Add 2 cups of sugar and the lemon juice. Stir until all the sugar dissolves.'},
+{t:'Boil Hard',d:'Turn the heat up. Boil hard for 15-20 minutes, stirring often. It will get darker and thicker.'},
+{t:'Test & Jar',d:'Put a spoonful on a cold plate — if it wrinkles when you push it, it\'s ready! Pour into clean jars and seal. Enjoy on toast! 🍞'}
+]},
+ojsorbet: {emoji:'🍨',hero:'ojsorbet',name:'Orange Sorbet',en:'Refreshing frozen orange treat',
+cat:['citrus','baking','drink'],
+time:'⏱ 10 min + 4hr freeze',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~500mL',shelf:'1 mo',save:'$3.0',
+ings:['3-4 oranges (or 1.5 cups juice)','½ cup sugar','½ cup water','1 tbsp lemon juice','Pinch of salt','Freezer-safe container'],
+safety:'Ask an adult for help with the stove when making syrup!',
+tip:'Sorbet is like ice cream but made with fruit juice instead of cream. The sugar lowers the freezing point, so it stays soft and scoopable even in the freezer. Without sugar, it would be a solid block of ice!',
+steps:[
+{t:'Make Sugar Syrup',d:'Mix ½ cup of sugar and ½ cup of water in a small pot. Heat gently, stirring, until all the sugar dissolves. Let it cool.'},
+{t:'Squeeze Orange Juice',d:'Squeeze 3-4 oranges to get about 1.5 cups of juice. Or use store-bought 100% juice.'},
+{t:'Mix Everything',d:'Pour the cooled sugar syrup into the orange juice. Add 1 tablespoon of lemon juice and a tiny pinch of salt. Stir well.'},
+{t:'Taste Test',d:'Take a sip. Is it sweet enough? Add more sugar syrup if needed. Too sweet? Add a little more water.'},
+{t:'Freeze & Stir',d:'Pour into a freezer-safe container. Freeze for 2 hours, then take it out and stir well with a fork — this breaks up ice crystals.'},
+{t:'Freeze Solid',d:'Put it back in the freezer for another 2-3 hours. Let it sit at room temperature for 5 minutes before scooping. So refreshing!'}
+]},
+
+// ====== GIFT / SPECIAL ======
+cake: {emoji:'🎂',hero:'cake',name:'Birthday Cake',en:'Homemade cake with paneer frosting',
+cat:['gift','baking','dairy'],
+time:'⏱ 1.5 hours',level:'⭐ Medium',age:'👧 Age 12+',
+yieldVal:'1 small cake',shelf:'3 d',save:'$8.0',
+ings:['1 cup flour','½ cup sugar','2 eggs','½ cup milk','¼ cup oil','1 tsp baking powder','Pinch of salt','1 cup paneer (for frosting)','2 tbsp honey'],
+safety:'Ask an adult to help with the oven — it\'s hot!',
+tip:'When you bake a cake, the baking powder releases carbon dioxide gas (bubbles!) that make the cake rise. The heat makes the egg proteins set, holding the fluffy shape. That\'s chemistry at work!',
+steps:[
+{t:'Preheat & Prep',d:'Ask an adult to preheat the oven to 180°C. Grease and line a small cake tin.'},
+{t:'Mix Dry Ingredients',d:'In a big bowl, mix flour, sugar, baking powder, and salt. Stir well.'},
+{t:'Add Wet Ingredients',d:'Add eggs, milk, and oil. Whisk everything together until smooth — no lumps!'},
+{t:'Bake the Cake',d:'Pour the batter into the cake tin. Bake for 30-35 minutes. Poke with a toothpick — if it comes out clean, it\'s done!'},
+{t:'Make Paneer Frosting',d:'Blend 1 cup of soft paneer with 2 tablespoons of honey until smooth and creamy. Spread on the cooled cake.'},
+{t:'Decorate & Celebrate',d:'Add sprinkles, berries, or candles. Your homemade birthday cake is ready to share! 🎉'}
+]},
+energyboost: {emoji:'⚡',hero:'energyboost',name:'Energy Boost Juice',en:'Orange + Carrot super juice',
+cat:['drink','citrus','gift'],
+time:'⏱ 10 min',level:'⭐ Easy',age:'👧 Age 8+',
+yieldVal:'~2 glasses',shelf:'Same day',save:'$3.0',
+ings:['2 oranges','2 carrots','1 small apple (optional)','Juicer or blender','Strainer','Glasses'],
+safety:'Ask an adult if using a juicer — they can be tricky and have sharp parts!',
+tip:'Oranges have vitamin C and carrots have beta-carotene (which makes vitamin A). Drinking them together gives you double the nutrition! Vitamin C also helps your body absorb iron better — super science power!',
+steps:[
+{t:'Wash Everything',d:'Wash the oranges, carrots, and apple really well. Scrub the carrots with a brush.'},
+{t:'Peel & Chop',d:'Peel the oranges. Cut the carrots into small pieces that fit in the juicer.'},
+{t:'Juice It',d:'Push the orange pieces and carrots through the juicer one at a time. Watch the colourful juice flow out!'},
+{t:'Strain (if needed)',d:'If you don\'t have a juicer, blend everything with a little water, then strain through cheesecloth.'},
+{t:'Stir & Taste',d:'Pour the juice into glasses. Stir well. Take a sip — sweet and earthy! Add a little honey if it\'s not sweet enough.'},
+{t:'Drink Up!',d:'Drink it fresh for the most vitamins. This is your superhero energy boost drink! 🦸‍♀️'}
+]},
+
+// ====== EXISTING CLASSICS ======
 lemoncandy: {emoji:'🍬',hero:'candy',name:'Lemon Peel Candy',en:'Sweet candied lemon peel',
+cat:['citrus','baking','gift'],
 time:'⏱ 45 min',level:'⭐ Easy',age:'👧 Age 8+',
 yieldVal:'~15%',shelf:'2 wks',save:'$3.5',
-ings:['2-3 lemons','1 cup sugar','1 cup water','Extra sugar for coating'],
+ings:['2-3 lemons','1 cup sugar','1 cup water','Extra sugar for coating','Pot','Slotted spoon'],
+safety:'Ask an adult for help with the hot stove and boiling sugar syrup!',
 tip:'The white pith under the peel is bitter. Boiling three times removes the bitter taste and makes it sweet and delicious!',
-steps:[{t:'Peel the Lemons',d:'Peel the yellow skin off 2-3 lemons. Try not to get the white pith — it\'s bitter!'},
+steps:[
+{t:'Peel the Lemons',d:'Peel the yellow skin off 2-3 lemons. Try not to get the white pith — it\'s bitter!'},
 {t:'Boil 3 Times',d:'Boil peels in fresh water for 5 minutes, drain, and repeat 2 more times. Removes bitterness!'},
 {t:'Make Sugar Syrup',d:'Heat equal parts sugar and water in a pot. Stir until sugar dissolves.'},
 {t:'Simmer the Peels',d:'Add peel strips. Simmer on low for 20-25 minutes until translucent.'},
 {t:'Roll in Sugar',d:'Take peels out with tongs. Roll each strip in extra sugar while still warm.'},
-{t:'Dry & Store',d:'Lay on a rack to dry for a few hours. Store in a jar. Perfect as a gift!'}]
-},
+{t:'Dry & Store',d:'Lay on a rack to dry for a few hours. Store in a jar. Perfect as a gift!'}
+]},
 bodyscrub: {emoji:'🧼',hero:'scrub',name:'Citrus Body Scrub',en:'Exfoliating scrub from peel powder',
+cat:['gift','citrus'],
 time:'⏱ 15 min',level:'⭐ Easy',age:'👧 Age 8+',
 yieldVal:'1 jar',shelf:'2 wks',save:'$8.0',
-ings:['Citrus peels','White sugar','Coconut oil','Essential oil (optional)'],
+ings:['Citrus peels','White sugar','Coconut oil','Essential oil (optional)','Jar with lid','Bowl & spoon'],
+safety:'Don\'t use on your face — it\'s too scratchy for delicate skin!',
 tip:'The peel has natural oils that smell great and are good for your skin. Sugar gently scrubs off dead skin cells!',
-steps:[{t:'Dry the Peels',d:'Collect citrus peels. Spread on a plate and air dry for 2-3 days until crispy.'},
+steps:[
+{t:'Dry the Peels',d:'Collect citrus peels. Spread on a plate and air dry for 2-3 days until crispy.'},
 {t:'Grind Into Powder',d:'Break into small pieces. Grind into fine powder with a blender or mortar.'},
 {t:'Mix the Base',d:'Mix 2 tbsp peel powder + 4 tbsp sugar + 3 tbsp coconut oil in a jar.'},
 {t:'Add Scent (optional)',d:'Add 1-2 drops of your favourite essential oil, like lemon or lavender.'},
 {t:'Stir & Store',d:'Stir everything well. Keep in a sealed jar in the shower.'},
-{t:'Use It!',d:'Scrub gently on wet skin in the shower. Rinse off. Your skin feels soft!'}]
-},
-soymilk: {emoji:'🫘',hero:'soy',name:'Homemade Soy Milk',en:'Fresh plant-based milk from beans',
-time:'⏱ 1 night + 30 min',level:'⭐ Medium',age:'👧 Age 10+',
-yieldVal:'~1L',shelf:'3 d',save:'$4.0',
-ings:['100g dried soybeans','1L water','Cheesecloth','Flavouring (optional)'],
-tip:'Soybeans are 36% protein! When you soak and blend them, the protein mixes with water to make creamy milk.',
-steps:[{t:'Soak the Beans',d:'Rinse 100g soybeans. Soak in water overnight (8-12 hours). They will double in size!'},
-{t:'Blend It Up',d:'Drain the beans. Put in a blender with 1L fresh water. Blend on high for 2 minutes.'},
-{t:'Strain Through Cloth',d:'Pour through cheesecloth over a bowl. Squeeze the cloth to get all the milk out.'},
-{t:'Heat & Stir',d:'Pour into a pot. Heat on medium, stirring often. Simmer for 10 minutes.'},
-{t:'Add Flavour',d:'Add a little sugar, vanilla, or salt if you like. Stir well.'},
-{t:'Cool & Drink',d:'Let it cool. Store in the fridge for up to 3 days. Shake before drinking!'}]
-},
+{t:'Use It!',d:'Scrub gently on wet skin in the shower. Rinse off. Your skin feels soft!'}
+]},
 bread: {emoji:'🍞',hero:'bread',name:'Garlic Bread Croutons',en:'Crunchy croutons from stale bread',
+cat:['baking','snack','more'],
 time:'⏱ 15 min',level:'⭐ Easy',age:'👧 Age 8+',
 yieldVal:'~2 cups',shelf:'1 wk',save:'$2.0',
-ings:['2 slices stale bread','Olive oil','Garlic powder','Salt & herbs'],
+ings:['2 slices stale bread','Olive oil','Garlic powder','Salt & herbs','Bowl','Pan'],
+safety:'Ask an adult for help with the hot pan!',
 tip:'Stale bread is dry because water evaporated. Toasting it makes it even crispier — perfect for salads and soups!',
-steps:[{t:'Cut into Cubes',d:'Cut stale bread into small cubes (about 1cm each).'},
+steps:[
+{t:'Cut into Cubes',d:'Cut stale bread into small cubes (about 1cm each).'},
 {t:'Add Oil & Season',d:'Put cubes in a bowl. Drizzle with olive oil. Sprinkle garlic powder, salt, and herbs.'},
 {t:'Toss Well',d:'Stir everything together so all cubes are coated with oil and seasoning.'},
 {t:'Toast in Pan',d:'Heat a dry pan on medium. Add bread cubes. Toast for 5-7 minutes, stirring often.'},
 {t:'Check for Crisp',d:'When golden and crunchy, take them off the heat.'},
-{t:'Cool & Store',d:'Let cool completely. Store in an airtight container for up to a week.'}]
-}
+{t:'Cool & Store',d:'Let cool completely. Store in an airtight container for up to a week.'}
+]}
 };
 
 const categories = {
-dairy: {title:'🥛 Dairy Experiments',count:'8 experiments',items:['paneer','yogurt','butter','ghee']},
-plant: {title:'🫘 Plant-Based Experiments',count:'6 experiments',items:['soymilk']},
-fruit: {title:'🍊 Fruit Peel Ideas',count:'5 experiments',items:['lemoncandy','bodyscrub']},
-bread: {title:'🍞 Bread & Grain',count:'4 experiments',items:['bread']},
-drink: {title:'🍹 Drinks',count:'3 experiments',items:['soymilk']},
-snack: {title:'🍪 Snack Ideas',count:'5 experiments',items:['lemoncandy','bread']},
-gift: {title:'🎁 Gift Ideas from Food',count:'5 experiments',items:['bodyscrub','lemoncandy']}
+dairy: {title:'🥛 Dairy Experiments',count:'7 experiments',items:['paneer','yogurt','butter','ghee','kefir','icecream','custard'],cls:'dairy'},
+soy: {title:'🫘 Soy & Beans',count:'7 experiments',items:['soymilk','tofu','yuba','soysauce','miso','tempeh','edamame'],cls:'soy'},
+citrus: {title:'🍊 Citrus & Fruit',count:'12 experiments',items:['lemonade','cookie','honeytea','preserved','ojfresh','ojuice','ojzest','ojoil','ojcandy','ojjam','ojsorbet','lemoncandy'],cls:'citrus'},
+baking: {title:'🍰 Baking & Sweets',count:'8 experiments',items:['cookie','cake','bread','icecream','custard','ojcandy','ojjam','ojsorbet'],cls:'baking'},
+drink: {title:'🍹 Drinks',count:'6 experiments',items:['lemonade','honeytea','ojuice','soymilk','yogurt','energyboost'],cls:'drink'},
+gift: {title:'🎁 Gift Ideas',count:'7 experiments',items:['cake','bodyscrub','ojcandy','ojjam','preserved','ojoil','ojzest'],cls:'gift'},
+science: {title:'🔬 Science Labs',count:'8 experiments',items:['paneer','yogurt','ghee','kefir','tofu','yuba','soysauce','miso'],cls:'science'},
+more: {title:'⋯ More',count:'3 experiments',items:['bread','tempeh','edamame'],cls:'more'}
+};
+
+// Search keywords mapping
+const searchKeywords = {
+'paneer':['paneer','cheese','milk','dairy'],
+'yogurt':['yogurt','yoghurt','milk','dairy','probiotic'],
+'butter':['butter','milk','dairy','cream'],
+'ghee':['ghee','butter','milk','dairy','clarified'],
+'kefir':['kefir','milk','dairy','fermented','drink'],
+'ice cream':['ice cream','icecream','milk','dairy','frozen','dessert'],
+'custard':['custard','milk','dairy','egg','dessert'],
+'soy milk':['soy milk','soymilk','soybean','soy','milk','drink'],
+'tofu':['tofu','soy','soybean','bean'],
+'yuba':['yuba','soy milk','soy','skin','bean'],
+'soy sauce':['soy sauce','soysauce','soy','fermented','umami'],
+'miso':['miso','soy','fermented','paste','soup'],
+'tempeh':['tempeh','soy','fermented','bean','cake'],
+'edamame':['edamame','soy','bean','green','snack'],
+'fresh lemonade':['lemonade','lemon','drink','fresh','citrus'],
+'lemon zest cookies':['lemon zest','cookie','cookies','lemon','baking','zest'],
+'honey lemon tea':['honey lemon tea','honey','lemon','tea','drink','warm'],
+'preserved lemon':['preserved lemon','lemon','preserved','salt','moroccan'],
+'birthday cake':['birthday cake','cake','milk','birthday','baking','gift'],
+'energy boost':['energy boost','orange','carrot','juice','drink','tank'],
+'mother\'s day':['mother day','mothers day','gift','cake','handmade','love'],
+'milk':['milk','dairy','paneer','yogurt','butter','ghee','kefir','icecream','custard','cake'],
+'lemon':['lemon','lemonade','cookie','honeytea','preserved','lemoncandy','citrus','zest'],
+'soybean':['soybean','soy','soy milk','tofu','yuba','soy sauce','miso','tempeh','edamame'],
+'orange':['orange','ojuice','ojfresh','ojzest','ojoil','ojcandy','ojjam','ojsorbet','citrus','juice']
 };
 
 let lastTab = 'home';
@@ -564,6 +1674,12 @@ document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
 document.querySelector('.nav-item[data-tab="'+tab+'"]').classList.add('active');
 lastTab = tab;
 lastPage = 'page-'+tab;
+// Reset search state when going to home
+if(tab === 'home'){
+document.getElementById('homeNormal').classList.remove('hidden');
+document.getElementById('searchResults').classList.remove('active');
+document.getElementById('homeSearch').value = '';
+}
 window.scrollTo(0,0);
 }
 
@@ -594,6 +1710,14 @@ sb.innerHTML = '';
 e.steps.forEach((s,i)=>{
 sb.innerHTML += '<div class="step"><div class="step-num">'+(i+1)+'</div><div class="step-body"><b>'+s.t+'</b>'+s.d+'</div></div>';
 });
+
+// Update safety note if custom
+if(e.safety){
+document.querySelector('.note-box').innerHTML = '<b>⚠️ Safety note:</b> '+e.safety;
+} else {
+document.querySelector('.note-box').innerHTML = '<b>⚠️ Safety note:</b> Ask an adult to help with hot liquids, microwave, and stovetop!';
+}
+
 lastPage = 'page-detail';
 window.scrollTo(0,0);
 }
@@ -603,6 +1727,7 @@ const c = categories[key];
 if(!c){alert('Coming soon! 🚀');return;}
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById('page-category').classList.add('active');
+document.getElementById('catDetailHead').className='cat-detail-head '+c.cls;
 document.getElementById('catDetailTitle').textContent=c.title;
 document.getElementById('catDetailCount').textContent=c.count;
 const cl = document.getElementById('catExpList');
@@ -610,7 +1735,7 @@ cl.innerHTML = '';
 c.items.forEach(k=>{
 const e = exps[k];
 if(!e) return;
-cl.innerHTML += '<div class="exp-item" onclick="showDetail(\''+k+'\')"><div class="exp-icon">'+e.emoji+'</div><div class="exp-body"><div class="exp-title">'+e.name+'</div><div class="exp-desc">'+e.en+'</div></div><div class="exp-arrow">›</div></div>';
+cl.innerHTML += '<div class="exp-item" onclick="showDetail(\''+k+'\')"><div class="exp-icon '+e.hero+'">'+e.emoji+'</div><div class="exp-body"><div class="exp-title">'+e.name+'</div><div class="exp-desc">'+e.en+'</div></div><div class="exp-arrow">›</div></div>';
 });
 lastPage = 'page-category';
 window.scrollTo(0,0);
@@ -623,6 +1748,62 @@ lastPage = 'page-badges';
 window.scrollTo(0,0);
 }
 
+function showSavings(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-savings').classList.add('active');
+lastPage = 'page-savings';
+window.scrollTo(0,0);
+}
+
+function showFriends(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-friends').classList.add('active');
+lastPage = 'page-friends';
+window.scrollTo(0,0);
+}
+
+function showChallenges(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-challenges').classList.add('active');
+lastPage = 'page-challenges';
+window.scrollTo(0,0);
+}
+
+function showDiary(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-diary').classList.add('active');
+lastPage = 'page-diary';
+window.scrollTo(0,0);
+}
+
+function showCalendar(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-calendar').classList.add('active');
+lastPage = 'page-calendar';
+window.scrollTo(0,0);
+}
+
+function showSettings(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-settings').classList.add('active');
+lastPage = 'page-settings';
+window.scrollTo(0,0);
+}
+
+function showHelp(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-help').classList.add('active');
+lastPage = 'page-help';
+window.scrollTo(0,0);
+}
+
+function showMothersDay(){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-mday').classList.add('active');
+lastPage = 'page-mday';
+window.scrollTo(0,0);
+}
+
 function goBack(){
 if(lastPage !== 'page-'+lastTab){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -631,6 +1812,84 @@ lastPage = 'page-'+lastTab;
 window.scrollTo(0,0);
 }
 }
+
+// ====== SEARCH FUNCTIONALITY ======
+function onSearchInput(){
+const val = document.getElementById('homeSearch').value.trim().toLowerCase();
+if(val === ''){
+document.getElementById('homeNormal').classList.remove('hidden');
+document.getElementById('searchResults').classList.remove('active');
+}
+}
+
+function doSearch(){
+const val = document.getElementById('homeSearch').value.trim().toLowerCase();
+if(val === ''){
+document.getElementById('homeNormal').classList.remove('hidden');
+document.getElementById('searchResults').classList.remove('active');
+return;
+}
+
+// Find matching experiments
+const matches = [];
+for(const key in exps){
+const e = exps[key];
+const nameLower = e.name.toLowerCase();
+const enLower = e.en.toLowerCase();
+// Check name, description, and keywords
+if(nameLower.includes(val) || enLower.includes(val)){
+matches.push(key);
+continue;
+}
+// Check keyword mapping
+for(const kw in searchKeywords){
+if(kw.includes(val) || val.includes(kw)){
+if(searchKeywords[kw].some(sk => nameLower.includes(sk) || key.includes(sk))){
+if(!matches.includes(key)) matches.push(key);
+}
+}
+}
+// Also check category keywords against the exp's categories
+if(e.cat){
+for(const c of e.cat){
+if(c.includes(val) || val.includes(c)){
+if(!matches.includes(key)) matches.push(key);
+}
+}
+}
+}
+
+// Show results
+document.getElementById('homeNormal').classList.add('hidden');
+document.getElementById('searchResults').classList.add('active');
+
+const resultList = document.getElementById('searchResultList');
+const noResult = document.getElementById('noResultMsg');
+
+if(matches.length === 0){
+resultList.innerHTML = '';
+noResult.style.display = 'block';
+} else {
+noResult.style.display = 'none';
+resultList.innerHTML = '';
+matches.forEach(k=>{
+const e = exps[k];
+resultList.innerHTML += '<div class="exp-item" onclick="showDetail(\''+k+'\')"><div class="exp-icon '+e.hero+'">'+e.emoji+'</div><div class="exp-body"><div class="exp-title">'+e.name+'</div><div class="exp-desc">'+e.en+'</div></div><div class="exp-arrow">›</div></div>';
+});
+}
+}
+
+// Make Enter key work in search
+document.addEventListener('DOMContentLoaded', function(){
+const searchInput = document.getElementById('homeSearch');
+if(searchInput){
+searchInput.addEventListener('keydown', function(e){
+if(e.key === 'Enter'){
+doSearch();
+}
+});
+}
+});
 </script>
 </body>
 </html>
